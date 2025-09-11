@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
+      <change afterPath="$PROJECT_DIR$/jigerthon/circle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jigerthon/gturtle.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +27,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="31rRd46X6yiqSB0eDSn6DaYIxPV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -131,5 +137,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add test" />
     <option name="LAST_COMMIT_MESSAGE" value="add test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/jigerthon/clock_vit.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
