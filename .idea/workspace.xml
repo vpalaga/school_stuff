@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
-      <change afterPath="$PROJECT_DIR$/jigerthon/circle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jigerthon/gturtle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/school_stuff.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/binary/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/test2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/wallSegments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/wallSegments2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/wallSegments3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spammer/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jigerthon/gturtle.py" beforeDir="false" afterPath="$PROJECT_DIR$/jigerthon/gturtle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +48,28 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.test (2).executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments3.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/school_stuff&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/school_stuff/olympiad&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;diff.base&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.test (2)">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vit\school_stuff\olympiad" />
+    </key>
+  </component>
+  <component name="RunManager">
     <configuration name="test (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />

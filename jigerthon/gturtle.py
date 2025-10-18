@@ -4,7 +4,7 @@ def makeTurtle():
 def hideTurtle():
     pass
 
-def showTurle():
+def showTurtle():
     pass
 
 """
@@ -63,6 +63,7 @@ def setPenWith(w):
     pass
 def spw(w):
     pass
+
 """
 canvas
 """
