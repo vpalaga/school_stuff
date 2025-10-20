@@ -5,10 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
-      <change afterPath="$PROJECT_DIR$/olympiad/2/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/2/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/2/trimurid_ryders2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/2/trimurid_ryders3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/2/trimurid_ryders4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/3/MouseDances1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/3/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/3/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/3/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/4/Fire.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/4/Fire2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/4/Fire3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/4/Fire4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/4/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/4/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/4/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/templ/MouseDances1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/templ/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/templ/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olympiad/templ/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/2/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/2/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/2/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/2/trimurid_ryders1.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/trimurid_ryders1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +45,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -37,36 +59,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.test (2).executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.trimurid_ryders1.executor": "Run",
-    "Python.wallSegments.executor": "Run",
-    "Python.wallSegments2.executor": "Run",
-    "Python.wallSegments3.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/vit/school_stuff/olympiad/2",
-    "settings.editor.selected.configurable": "diff.base"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Fire.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments3.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/school_stuff/olympiad/4&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;diff.base&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\vit\school_stuff\olympiad\2" />
+      <recent name="C:\Users\vit\school_stuff\olympiad\4" />
       <recent name="C:\Users\vit\school_stuff\olympiad" />
+      <recent name="C:\Users\vit\school_stuff\olympiad\templ" />
+      <recent name="C:\Users\vit\school_stuff\olympiad\2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vit\school_stuff\olympiad" />
       <recent name="C:\Users\vit\school_stuff\olympiad\1" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test">
     <configuration name="test (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
