@@ -10,10 +10,11 @@ class Game:
         self.fires = fires_
 
         self.fire_dict = {i: xy for i, xy in enumerate(self.fires)}
+        print(self.fire_dict)
 
         self.fire_tree = self.build_fire_tree()
         self.path, self.t = self.calc_time()
-        #print(self.fire_tree)
+        print(self.fire_tree)
 
 
     def build_fire_tree(self):
