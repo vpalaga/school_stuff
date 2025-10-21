@@ -1,13 +1,15 @@
 from PIL import Image, ImageDraw, ImageFont
-
+import random
 
 def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
     x1, y1 = f1
     x2, y2 = f2
 
-    distance = abs(x1 - x2) + abs(y1 - y2) - 1
-    return round(distance / 2 - 0.1)
+    x_c, y_c = abs(x1 - x2), abs(y1 - y2)
+    x_c, y_c = abs(x_c - 1), abs(y_c - 1)
+    print(x_c, y_c)
 
+    return round((x_c + y_c + 1) / 2)
 
 def font(size):
     return ImageFont.truetype("arial.ttf", size)
@@ -35,7 +37,7 @@ class FireImage:
         self.img.save("vis/simple_image.png")
 
     def plot_fire_distances(self):
-        self.plot_start_end_distances()
+        #self.plot_start_end_distances()
         self.plot_mid_node_distances()
 
     def clac_mid_pos(self):
@@ -126,10 +128,17 @@ class FireImage:
 
         self.draw.text(mid, f"{ln}", "darkblue", font=font(50))
 
-FireImage(8,
-          {0: (7, 1), 1: (1, 5), 2: (2, 7)},
-          ).make_vis()
+#FireImage(8,
+#          {0: (7, 1), 1: (1, 5), 2: (2, 7), 3:(2, 5), 4:(3, 5)},
+#          ).make_vis()
 
-FireImage(8,
-          {0: (4, 3), 1: (2, 0), 2: (3, 6)},
+#FireImage(7,
+#          {0: (4, 3), 1: (2, 0), 2: (3, 6)},
+#          ).make_vis()
+n= 5
+m= 3
+fire = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
+
+FireImage(n,
+          fire,
           ).make_vis()
