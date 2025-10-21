@@ -6,17 +6,16 @@ def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
     x2, y2 = f2
 
     distance = abs(x1 - x2) + abs(y1 - y2) - 1
-    return round(distance / 2)
+    return round(distance / 2 - 0.1)
+
 
 def font(size):
     return ImageFont.truetype("arial.ttf", size)
 
-# Create a blank white image
 
 class FireImage:
-    def __init__(self, n_, fire_dict_ : dict[int,tuple[int, int]], fire_diagram_, wh=1000):
+    def __init__(self, n_, fire_dict_ : dict[int,tuple[int, int]], wh=1000):
         self.n = n_
-        #self.fire_diagram = fire_diagram_
         self.fire_dict = fire_dict_
         self.side = wh
 
@@ -129,10 +128,8 @@ class FireImage:
 
 FireImage(8,
           {0: (7, 1), 1: (1, 5), 2: (2, 7)},
-          {
-                -1: {0: 6, 1: 1, 2: 0},
-                0: {1: 4, 2: 5, 3: 0},
-                1: {0: 4, 2: 1, 3: 5},
-                2: {0: 5, 1: 1, 3: 5},
-                3: {}}
+          ).make_vis()
+
+FireImage(8,
+          {0: (4, 3), 1: (2, 0), 2: (3, 6)},
           ).make_vis()
