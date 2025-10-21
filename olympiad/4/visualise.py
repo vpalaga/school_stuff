@@ -2,14 +2,29 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 
 def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
+    """
+    find the time for fire1(f1) to connect with fire2(f2):
+
+    Answer key: time for Fire to get point A = minimal path distance from F to A
+
+    1)  find the x y components of the difference : |x1-x2|, |y1-y2|
+    2)  subtract 1 from each component to get rid of the corner,
+        and the abs() does deal with cases where y or x component is 0: 0-1 = -1 -> 1
+    3)  we can assign each number from x y components to the f1->f2 path,
+        but as we will notice there is allways one path piece missing in the x or y component
+        so we add it back as well we add the components together to add the total path distance,
+    4)  We have to divide the distance by 2 since the fire is spreading from both sides.
+    5)  In case distance is odd: (distance % 2 == 1), we have to get rid of the 1 path piece we added since we cannot
+        pass through path tiles diagonally, I do this by rounding DOWN to nearest integer.
+        (be careful when using round() with n + 0.5, the output is a result "banker’s rounding")
+    """
     x1, y1 = f1
     x2, y2 = f2
 
     x_c, y_c = abs(x1 - x2), abs(y1 - y2)
     x_c, y_c = abs(x_c - 1), abs(y_c - 1)
-    print(x_c, y_c)
 
-    return round((x_c + y_c + 1) / 2)
+    return round((x_c + y_c + 1) / 2 - 0.1)
 
 def font(size):
     return ImageFont.truetype("arial.ttf", size)
@@ -135,7 +150,7 @@ class FireImage:
 #FireImage(7,
 #          {0: (4, 3), 1: (2, 0), 2: (3, 6)},
 #          ).make_vis()
-n= 5
+n= 8
 m= 3
 fire = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
 
