@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
+      <change afterPath="$PROJECT_DIR$/olympiad/4/path_alg.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/4/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/4/vis/simple_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/vis/simple_image.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/4/visualise.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/visualise.py" afterDir="false" />
     </list>

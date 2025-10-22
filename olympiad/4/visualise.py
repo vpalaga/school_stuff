@@ -52,7 +52,7 @@ class FireImage:
         self.img.save("vis/simple_image.png")
 
     def plot_fire_distances(self):
-        #self.plot_start_end_distances()
+        self.plot_start_end_distances()
         self.plot_mid_node_distances()
 
     def clac_mid_pos(self):
@@ -123,10 +123,11 @@ class FireImage:
 
     def line(self, start:tuple[int, int], end:tuple[int, int], line_type="basic", ln=None):
         types = {
-            "basic": ("black", 3),
-            "start": ("green", 3),
-            "end":   ("red",   3)
+            "basic": ("black", None),
+            "start": ("green", None),
+            "end":   ("red",   None)
         }
+
         if line_type not in list(types.keys()):
             line_type = "basic"
 
@@ -135,6 +136,11 @@ class FireImage:
 
         start_rel, end_rel = self.mid_pos[start], self.mid_pos[end]
         cl, wd = types[line_type]
+
+        if wd is None:
+            wd = round((1 / (ln + 1)) * 10)
+
+        print(wd)
 
         self.draw.line((*start_rel,*end_rel), cl, wd)
 
@@ -150,8 +156,8 @@ class FireImage:
 #FireImage(7,
 #          {0: (4, 3), 1: (2, 0), 2: (3, 6)},
 #          ).make_vis()
-n= 8
-m= 3
+n= 5
+m= round((n ** 0.5) * 1.5)
 fire = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
 
 FireImage(n,
