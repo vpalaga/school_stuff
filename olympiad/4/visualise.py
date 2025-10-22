@@ -3,10 +3,8 @@ import random
 
 import path_alg as pa
 
-
 def font(size):
     return ImageFont.truetype("arial.ttf", size)
-
 
 class FireImage:
     def __init__(self, n_, fire_dict_ : dict[int,tuple[int, int]], wh=1000):
@@ -27,7 +25,6 @@ class FireImage:
         self.plot_fire_distances()
 
         path = pa.find_path(self.fire_dict, self.n)
-        path = [0, 1, 2]
         self.plot_path(path)
 
         self.img.show()
@@ -95,7 +92,7 @@ class FireImage:
             "basic": ("black", None),
             "start": ("green", None),
             "end":   ("red",   None),
-            "path":  ("violet",  None)
+            "path":  ("violet",None)
         }
 
         if line_type not in list(types.keys()):
@@ -128,8 +125,8 @@ class FireImage:
 #          ).make_vis()
 n= 5
 m= round((n ** 0.5) * 1.5)
-fire = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
+fire_ = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
 
 FireImage(n,
-          fire,
+          fire_,
           ).make_vis()
