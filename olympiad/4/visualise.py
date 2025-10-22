@@ -27,6 +27,8 @@ class FireImage:
         self.plot_fire_distances()
 
         path = pa.find_path(self.fire_dict, self.n)
+        path = [0, 1, 2]
+        self.plot_path(path)
 
         self.img.show()
         self.img.save("vis/simple_image.png")
@@ -86,14 +88,14 @@ class FireImage:
 
     def plot_path(self, path):
         for i in range(1, len(path)):
-            self.line(path[i-1], path[i], line_type="path")
+            self.line(self.fire_dict[path[i-1]], self.fire_dict[path[i]], line_type="path")
 
     def line(self, start:tuple[int, int], end:tuple[int, int], line_type="basic", ln=None):
         types = {
             "basic": ("black", None),
             "start": ("green", None),
             "end":   ("red",   None),
-            "path":  ("pink",  10)
+            "path":  ("violet",  None)
         }
 
         if line_type not in list(types.keys()):
