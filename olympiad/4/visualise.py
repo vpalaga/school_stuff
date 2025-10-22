@@ -1,30 +1,8 @@
 from PIL import Image, ImageDraw, ImageFont
 import random
 
-def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
-    """
-    find the time for fire1(f1) to connect with fire2(f2):
+import path_alg as pa
 
-    Answer key: time for Fire to get point A = minimal path distance from F to A
-
-    1)  find the x y components of the difference : |x1-x2|, |y1-y2|
-    2)  subtract 1 from each component to get rid of the corner,
-        and the abs() does deal with cases where y or x component is 0: 0-1 = -1 -> 1
-    3)  we can assign each number from x y components to the f1->f2 path,
-        but as we will notice there is allways one path piece missing in the x or y component
-        so we add it back as well we add the components together to add the total path distance,
-    4)  We have to divide the distance by 2 since the fire is spreading from both sides.
-    5)  In case distance is odd: (distance % 2 == 1), we have to get rid of the 1 path piece we added since we cannot
-        pass through path tiles diagonally, I do this by rounding DOWN to nearest integer.
-        (be careful when using round() with n + 0.5, the output is a result "banker’s rounding")
-    """
-    x1, y1 = f1
-    x2, y2 = f2
-
-    x_c, y_c = abs(x1 - x2), abs(y1 - y2)
-    x_c, y_c = abs(x_c - 1), abs(y_c - 1)
-
-    return round((x_c + y_c + 1) / 2 - 0.1)
 
 def font(size):
     return ImageFont.truetype("arial.ttf", size)
@@ -47,6 +25,8 @@ class FireImage:
         self.grid()
         self.plot_fires()
         self.plot_fire_distances()
+
+        path = pa.find_path(self.fire_dict, self.n)
 
         self.img.show()
         self.img.save("vis/simple_image.png")
@@ -89,7 +69,7 @@ class FireImage:
     def plot_start_end_distances(self):
 
         for i, fire in self.fire_dict.items():
-            s, e, s_l, e_l = self.dist_from_S_E(*fire)
+            s, e, s_l, e_l = pa.dist_from_S_E(*fire, n=n, ret_node_from=True)
 
             self.line(fire, s, "start", ln=s_l)
             self.line(fire, e, "end",   ln=e_l)
@@ -104,40 +84,28 @@ class FireImage:
                     visited.append((i, ii))
                     visited.append((ii, i))
 
-    def dist_from_S_E(self, x, y):
-        """
-        Returns the x, y pos to minimal start node and end node
-        start, end"""
-
-        if x < self.n - y - 1:
-            ret_x = (-1, y)
-        else:
-            ret_x = (x, self.n)
-
-        if y < self.n - x - 1:
-            ret_y = (x, -1)
-        else:
-            ret_y = (self.n, y)
-
-        return ret_x, ret_y, min(x, self.n - y -1 ), min(y, self.n - x - 1)
+    def plot_path(self, path):
+        for i in range(1, len(path)):
+            self.line(path[i-1], path[i], line_type="path")
 
     def line(self, start:tuple[int, int], end:tuple[int, int], line_type="basic", ln=None):
         types = {
             "basic": ("black", None),
             "start": ("green", None),
-            "end":   ("red",   None)
+            "end":   ("red",   None),
+            "path":  ("pink",  10)
         }
 
         if line_type not in list(types.keys()):
             line_type = "basic"
 
         if ln is None:
-            ln = fire_time(start, end)
+            ln = pa.fire_time(start, end)
 
         start_rel, end_rel = self.mid_pos[start], self.mid_pos[end]
         cl, wd = types[line_type]
 
-        if wd is None:
+        if wd is None: # let width be proportional to line.length
             wd = round((1 / (ln + 1)) * 10)
 
         print(wd)
