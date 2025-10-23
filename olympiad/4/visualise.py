@@ -50,13 +50,24 @@ class FireImage:
         tile_size_half = self.tile_size // 2
 
         for (x_g, y_g), (x, y) in self.mid_pos.items():
+            cols = {"white": (255, 255, 255),
+                    "l_green": (224, 184, 184),
+                    "l_red": (184, 224, 184)}
             fill = "white"
 
-            if x_g == -1 or x_g == self.n or y_g == -1 or y_g == self.n:
-                fill = "grey"
+            if x_g == -1 or y_g == self.n:
+                fill = "l_red"
+
+            if y_g == -1 or x_g == self.n:
+                if fill == "l_red":
+                    fill = "white"
+                else:
+                    fill = "l_green"
+
+
 
             self.draw.rectangle((x - tile_size_half, y - tile_size_half, x + tile_size_half, y + tile_size_half),
-                                outline="black", fill=fill)
+                                outline="black", fill=cols[fill])
             self.draw.text((x, y), f"{x_g}:{y_g}", "darkgrey", )
 
     def plot_fires(self):
