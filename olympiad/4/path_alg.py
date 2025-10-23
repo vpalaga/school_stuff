@@ -53,34 +53,40 @@ def dist_from_S_E(x, y, n, ret_node_from=False):
 
     return ret_x, ret_y, min(x, n - y - 1 ), min(y, n - x - 1)
 
+def compute_fire_pair(pair):
+    i, j, f1, f2 = pair
+    return i, j, fire_time(f1, f2)
+
 def build_fire_tree(fire_dict, n, m):
+    import itertools
+    from multiprocessing import Pool
+
     tree = {}
-    paths = {}
+    weights = set()
+    start_paths = {}
     end_paths = {}
-    weights = []
 
     for i, fire in fire_dict.items():
         s, e = dist_from_S_E(*fire, n=n)
-        paths[i] = s
+        start_paths[i] = s
         end_paths[i] = e
+        weights.update((s, e))
 
-        for x in (s, e):
-            if x not in weights:
-                weights.append(x) # add start and end weights but only when original
+    tree[-1] = start_paths
 
-    tree[-1] = paths  # add the paths to each node
+    # Compute all unique pairs
+    pairs = [(i, j, fire_dict[i], fire_dict[j]) for i, j in itertools.combinations(fire_dict.keys(), 2)]
 
-    for i, fire in fire_dict.items():
-        paths = {}
+    with Pool() as p:
+        results = p.map(compute_fire_pair, pairs)
 
-        for ii in range(m):
-            if i != ii:
-                fire_t = fire_time(fire, fire_dict[ii])
-                paths[ii] = fire_t
+    fire_times = {}
+    for i, j, t in results:
+        fire_times[(i, j)] = fire_times[(j, i)] = t
+        weights.add(t)
 
-                if fire_t not in weights:
-                    weights.append(fire_t)
-
+    for i in fire_dict.keys():
+        paths = {ii: fire_times[(i, ii)] for ii in fire_dict.keys() if i != ii}
         paths[m] = end_paths[i]
         tree[i] = paths
 
@@ -132,16 +138,22 @@ class Path:
 
         return
 
-    def accessible_nodes_f(self, start_nodes:list[int]):
+    def accessible_nodes_f(self, start_nodes:set[int]):
         """returns: an expanded list of the start nodes"""
-        accessible_nodes = start_nodes.copy()
+        accessible_nodes = set(start_nodes)
         list_changed = False
 
         for node in start_nodes:
+
+            if node != -1:
+                if self.fire_tree[node][self.m] <= self.max_path_weight:
+                    accessible_nodes.add(self.m)
+                    break
+
             for node_test, weight in self.fire_tree[node].items():
                 if weight <= self.max_path_weight:
                     if node_test not in accessible_nodes: # dont append if redundant
-                        accessible_nodes.append(node_test)
+                        accessible_nodes.add(node_test)
                         list_changed = True
 
         return accessible_nodes, list_changed
