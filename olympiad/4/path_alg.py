@@ -26,6 +26,11 @@ def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
     x_c, y_c = abs(x1 - x2), abs(y1 - y2)
     x_c, y_c = x_c - 1, y_c - 1
 
+    if x_c < 0:
+        x_c = 0
+    if y_c < 0:
+        y_c = 0
+
     return round((x_c + y_c + 1) / 2 - 0.1)
 
 def dist_from_S_E(x, y, n, ret_node_from=False):
@@ -46,7 +51,7 @@ def dist_from_S_E(x, y, n, ret_node_from=False):
     else:
         ret_y = (n, y)
 
-    return ret_x, ret_y, min(x, n - y -1 ), min(y, n - x - 1)
+    return ret_x, ret_y, min(x, n - y - 1 ), min(y, n - x - 1)
 
 def build_fire_tree(fire_dict, n, m):
     tree = {}
@@ -113,11 +118,11 @@ class Path:
 
         """
         accessible_nodes = [-1]
-        """        print(f"N:      {self.n}")
+        print(f"N:      {self.n}")
         print(f"fires:  {self.fire_dict}")
         print(f"tree:   {self.fire_tree}")
         print(f"w:      {self.weights}")
-        print(f"accesib:{self.accessible_nodes_f(accessible_nodes)}")"""
+        print(f"accesib:{self.accessible_nodes_f(accessible_nodes)}")
 
         for weight in self.weights:
 
@@ -126,6 +131,7 @@ class Path:
                 accessible_nodes, list_changed = self.accessible_nodes_f(accessible_nodes)
 
                 if self.m in accessible_nodes:
+                    print(accessible_nodes)
                     return
 
             self.max_path_weight = weight

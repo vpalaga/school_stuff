@@ -75,7 +75,7 @@ class FireImage:
         for fire_nr, (x, y) in self.fire_dict.items():
             pos = self.mid_pos[(x, y)]
             self.draw.circle(pos, self.tile_size / 2 - 5, "orange")
-            self.draw.text(pos, str(fire_nr), "black")
+            self.draw.text(pos, str(fire_nr), "red", font=font(50))
 
     def plot_start_end_distances(self):
 
@@ -124,7 +124,7 @@ class FireImage:
         mid = ((start_rel[0] + end_rel[0]) / 2,
                (start_rel[1] + end_rel[1]) / 2) # clac the mid pos for the text to go
 
-        self.draw.text(mid, f"{ln}", "darkblue", font=font(50))
+        self.draw.text(mid, f"{ln}", "darkblue", font=font(wd * 10))
 
 #FireImage(8,
 #          {0: (7, 1), 1: (1, 5), 2: (2, 7), 3:(2, 5), 4:(3, 5)},
@@ -137,6 +137,6 @@ n= 500
 m= 5000
 fire_ = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
 
-FireImage(4,
-          {0: (0, 2), 1: (1, 2), 2: (2, 1), 3: (3, 1)},
+FireImage(12,
+          {0: (8, 2), 1: (6, 10), 2: (6, 6), 3: (11, 5), 4: (5, 3), 5: (6, 0), 6: (3, 3), 7: (4, 6), 8: (8, 10), 9: (2, 4)},
           ).make_vis()

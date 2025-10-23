@@ -79,7 +79,7 @@ def find_path(data, start, end):
 
     return path, max(ws) - 1 #  since we want to get there
 
-with open("test.txt", "r") as f:
+with open("input.txt", "r") as f:
 
     INPUT_RAW = [i.strip("\n") for i in f.readlines()]
     TEST_CASES = int(INPUT_RAW.pop(0))
@@ -102,7 +102,6 @@ for test_case in range(TEST_CASES): # crate a game object for each test segment 
 
 for i, game in GAME_DATA.items():
 
-    print(game.fire_tree)
     #print(game.fire_dict)
     #print(game.path)
     OUTPUT += f"Case #{i}: {game.t}\n"

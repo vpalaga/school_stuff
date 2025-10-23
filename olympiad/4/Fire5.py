@@ -14,13 +14,14 @@ class Game:
         self.max_time = Path(self.fire_dict, self.n).max_path_weight - 1
 
 
-with open("test.txt", "r") as f:
+with open("input.txt", "r") as f:
 
     INPUT_RAW = [i.strip("\n") for i in f.readlines()]
     TEST_CASES = int(INPUT_RAW.pop(0))
 
 raw_input_index = 0
 for test_case in range(TEST_CASES): # crate a game object for each test segment of the input
+    print(test_case)
     fires = []
 
     n, m = tuple(int(x) for x in INPUT_RAW[raw_input_index].split(" "))
@@ -35,8 +36,9 @@ for test_case in range(TEST_CASES): # crate a game object for each test segment 
 
 
 for i, game in GAME_DATA.items():
-    print(game.n)
-    print(game.fire_dict)
+    if i == 8:
+        print(game.n)
+        print(game.fire_dict)
     OUTPUT += f"Case #{i}: {game.max_time}\n"
 
 print(OUTPUT)
