@@ -118,11 +118,6 @@ class Path:
 
         """
         accessible_nodes = [-1]
-        print(f"N:      {self.n}")
-        print(f"fires:  {self.fire_dict}")
-        print(f"tree:   {self.fire_tree}")
-        print(f"w:      {self.weights}")
-        print(f"accesib:{self.accessible_nodes_f(accessible_nodes)}")
 
         for weight in self.weights:
 
@@ -131,7 +126,6 @@ class Path:
                 accessible_nodes, list_changed = self.accessible_nodes_f(accessible_nodes)
 
                 if self.m in accessible_nodes:
-                    print(accessible_nodes)
                     return
 
             self.max_path_weight = weight
