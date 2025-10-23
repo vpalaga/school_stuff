@@ -1,3 +1,7 @@
+def sort_dict(d, by_key=True):
+    if by_key:
+        return dict(sorted(d.items(), key=lambda item: item[1]))
+    return dict(sorted(d.items()))
 
 def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
     """
@@ -44,7 +48,6 @@ def dist_from_S_E(x, y, n, ret_node_from=False):
 
     return ret_x, ret_y, min(x, n - y -1 ), min(y, n - x - 1)
 
-
 def build_fire_tree(fire_dict, n, m):
     tree = {}
     paths = {}
@@ -70,25 +73,40 @@ def build_fire_tree(fire_dict, n, m):
     tree[m] = {}
     return tree
 
-def find_path(fire_dict, n:int)-> list[int]:
-    """
+class Path:
+    def __init__(self, fire_dict_, n_:int):
+        self.fire_dict = fire_dict_
+        self.n = n_
 
-    Parameters:
-    ----------
+        self.m = len(self.fire_dict)
+        self.fire_tree = build_fire_tree(self.fire_dict, n=self.n,  m=self.m)
+        """-------------------------"""
+        self.max_path_weight = None
 
-    fires: a list with all the fire nodes positions [(x,y) ...]
+        """-------------------------"""
+        self.path = [None]
 
-    Returns
-    -------
-    path: [nodes to take from -1 to m, so min(path) is as small as possible]
+    def find_path(self)-> tuple[list[int], int]:
+        """
+        Parameters:
+        ----------
 
-    Description:
-    -------
-    1)  Build a fire_tree with the data from each node to other nodes: {node.nr: {node.nr: length to node} ... }
-    """
-    m = len(fire_dict)
-    fire_tree = build_fire_tree(fire_dict, n=n,  m=m)
+        fires: a list with all the fire nodes positions [(x,y) ...]
 
-    print(fire_tree)
+        Returns
+        -------
+        path: [nodes to take from -1 to m, so min(path) is as small as possible]
+        max_w = the maximal path length in the path
 
-    return [-1]
+        Description:
+        -------
+        1)
+
+        """
+        current_node = -1
+        sorted_ways_from_current_node = sort_dict(self.fire_tree[current_node])
+
+
+
+        return [-1], -1
+    def accessible_nodes(self, ):

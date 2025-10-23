@@ -24,7 +24,7 @@ class FireImage:
         self.plot_fires()
         self.plot_fire_distances()
 
-        path = pa.find_path(self.fire_dict, self.n)
+        path, max_w = pa.Path(self.fire_dict, n_=self.n).find_path()
         self.plot_path(path)
 
         self.img.show()

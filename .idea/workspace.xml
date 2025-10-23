@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/4/path_alg.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/path_alg.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/4/vis/simple_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/vis/simple_image.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/4/visualise.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/visualise.py" afterDir="false" />
     </list>
@@ -38,35 +39,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.Fire.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Fire2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Fire3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Fire4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.MouseDances1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test (2).executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.trimurid_ryders1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.trimurid_ryders2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.trimurid_ryders3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.trimurid_ryders4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.visualise.executor&quot;: &quot;Run&quot;,
-    &quot;Python.wallSegments.executor&quot;: &quot;Run&quot;,
-    &quot;Python.wallSegments2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.wallSegments3.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/school_stuff/olympiad/4&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;diff.base&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.Fire.executor": "Run",
+    "Python.Fire2.executor": "Run",
+    "Python.Fire3.executor": "Run",
+    "Python.Fire4.executor": "Run",
+    "Python.MouseDances1.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.path_alg.executor": "Run",
+    "Python.test (2).executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.test2.executor": "Run",
+    "Python.trimurid_ryders1.executor": "Run",
+    "Python.trimurid_ryders2.executor": "Run",
+    "Python.trimurid_ryders3.executor": "Run",
+    "Python.trimurid_ryders4.executor": "Run",
+    "Python.visualise.executor": "Run",
+    "Python.wallSegments.executor": "Run",
+    "Python.wallSegments2.executor": "Run",
+    "Python.wallSegments3.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/vit/school_stuff/olympiad/4",
+    "settings.editor.selected.configurable": "diff.base"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vit\school_stuff\olympiad\4" />
