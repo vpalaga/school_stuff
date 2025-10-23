@@ -24,7 +24,7 @@ def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
     x2, y2 = f2
 
     x_c, y_c = abs(x1 - x2), abs(y1 - y2)
-    x_c, y_c = abs(x_c - 1), abs(y_c - 1)
+    x_c, y_c = x_c - 1, y_c - 1
 
     return round((x_c + y_c + 1) / 2 - 0.1)
 
@@ -52,12 +52,17 @@ def build_fire_tree(fire_dict, n, m):
     tree = {}
     paths = {}
     end_paths = {}
+    weights = []
 
     for i, fire in fire_dict.items():
         s, e = dist_from_S_E(*fire, n=n)
         paths[i] = s
         end_paths[i] = e
-    # print(end_paths)
+
+        for x in (s, e):
+            if x not in weights:
+                weights.append(x) # add start and end weights but only when original
+
     tree[-1] = paths  # add the paths to each node
 
     for i, fire in fire_dict.items():
@@ -65,13 +70,17 @@ def build_fire_tree(fire_dict, n, m):
 
         for ii in range(m):
             if i != ii:
-                paths[ii] = fire_time(fire, fire_dict[ii])
+                fire_t = fire_time(fire, fire_dict[ii])
+                paths[ii] = fire_t
+
+                if fire_t not in weights:
+                    weights.append(fire_t)
 
         paths[m] = end_paths[i]
         tree[i] = paths
 
     tree[m] = {}
-    return tree
+    return tree, sorted(weights)
 
 class Path:
     def __init__(self, fire_dict_, n_:int):
@@ -79,14 +88,14 @@ class Path:
         self.n = n_
 
         self.m = len(self.fire_dict)
-        self.fire_tree = build_fire_tree(self.fire_dict, n=self.n,  m=self.m)
+        self.fire_tree, self.weights = build_fire_tree(self.fire_dict, n=self.n,  m=self.m)
         """-------------------------"""
-        self.max_path_weight = None
-
+        self.max_path_weight = min(self.fire_tree[-1].values())  # get the smallest starting weight
+        self.weights = self.weights[self.weights.index(self.max_path_weight):] # cut off the start of weights
         """-------------------------"""
-        self.path = [None]
+        self.find_path()
 
-    def find_path(self)-> tuple[list[int], int]:
+    def find_path(self):
         """
         Parameters:
         ----------
@@ -103,10 +112,36 @@ class Path:
         1)
 
         """
-        current_node = -1
-        sorted_ways_from_current_node = sort_dict(self.fire_tree[current_node])
+        accessible_nodes = [-1]
+        """        print(f"N:      {self.n}")
+        print(f"fires:  {self.fire_dict}")
+        print(f"tree:   {self.fire_tree}")
+        print(f"w:      {self.weights}")
+        print(f"accesib:{self.accessible_nodes_f(accessible_nodes)}")"""
 
+        for weight in self.weights:
 
+            list_changed = True
+            while list_changed:
+                accessible_nodes, list_changed = self.accessible_nodes_f(accessible_nodes)
 
-        return [-1], -1
-    def accessible_nodes(self, ):
+                if self.m in accessible_nodes:
+                    return
+
+            self.max_path_weight = weight
+
+        return
+
+    def accessible_nodes_f(self, start_nodes:list[int]):
+        """returns: an expanded list of the start nodes"""
+        accessible_nodes = start_nodes.copy()
+        list_changed = False
+
+        for node in start_nodes:
+            for node_test, weight in self.fire_tree[node].items():
+                if weight <= self.max_path_weight:
+                    if node_test not in accessible_nodes: # dont append if redundant
+                        accessible_nodes.append(node_test)
+                        list_changed = True
+
+        return accessible_nodes, list_changed

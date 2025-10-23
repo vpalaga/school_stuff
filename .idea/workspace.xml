@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
+      <change afterPath="$PROJECT_DIR$/olympiad/4/Fire5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/4/Fire4.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/Fire4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/4/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/4/path_alg.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/path_alg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/4/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/4/vis/simple_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/vis/simple_image.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/4/visualise.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/visualise.py" afterDir="false" />
     </list>
@@ -46,6 +50,7 @@
     "Python.Fire2.executor": "Run",
     "Python.Fire3.executor": "Run",
     "Python.Fire4.executor": "Run",
+    "Python.Fire5.executor": "Run",
     "Python.MouseDances1.executor": "Run",
     "Python.main.executor": "Run",
     "Python.path_alg.executor": "Run",
@@ -81,7 +86,7 @@
       <recent name="C:\Users\vit\school_stuff\olympiad\1" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.visualise">
     <configuration name="test (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -128,6 +133,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="visualise" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="school_stuff" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (school_stuff)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/olympiad/4/visualise.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.visualise" />
+      <item itemvalue="Python.test (2)" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test (2)" />

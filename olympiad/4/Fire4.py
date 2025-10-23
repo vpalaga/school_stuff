@@ -1,5 +1,3 @@
-from http.cookiejar import cut_port_re
-
 GAME_DATA = {}
 OUTPUT = ""
 

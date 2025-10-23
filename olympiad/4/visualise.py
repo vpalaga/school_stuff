@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import random
 
-import path_alg as pa
+from path_alg import Path, fire_time, dist_from_S_E
 
 def font(size):
     return ImageFont.truetype("arial.ttf", size)
@@ -24,11 +24,12 @@ class FireImage:
         self.plot_fires()
         self.plot_fire_distances()
 
-        path, max_w = pa.Path(self.fire_dict, n_=self.n).find_path()
-        self.plot_path(path)
+        max_w = Path(self.fire_dict, self.n).max_path_weight
+        print(f"MAX: {max_w}")
+        #self.plot_path(path)
 
         self.img.show()
-        self.img.save("vis/simple_image.png")
+        #self.img.save("vis/simple_image.png")
 
     def plot_fire_distances(self):
         self.plot_start_end_distances()
@@ -79,7 +80,7 @@ class FireImage:
     def plot_start_end_distances(self):
 
         for i, fire in self.fire_dict.items():
-            s, e, s_l, e_l = pa.dist_from_S_E(*fire, n=n, ret_node_from=True)
+            s, e, s_l, e_l = dist_from_S_E(*fire, n=n, ret_node_from=True)
 
             self.line(fire, s, "start", ln=s_l)
             self.line(fire, e, "end",   ln=e_l)
@@ -110,15 +111,13 @@ class FireImage:
             line_type = "basic"
 
         if ln is None:
-            ln = pa.fire_time(start, end)
+            ln = fire_time(start, end)
 
         start_rel, end_rel = self.mid_pos[start], self.mid_pos[end]
         cl, wd = types[line_type]
 
         if wd is None: # let width be proportional to line.length
             wd = round((1 / (ln + 1)) * 10)
-
-        print(wd)
 
         self.draw.line((*start_rel,*end_rel), cl, wd)
 
@@ -134,10 +133,10 @@ class FireImage:
 #FireImage(7,
 #          {0: (4, 3), 1: (2, 0), 2: (3, 6)},
 #          ).make_vis()
-n= 5
-m= round((n ** 0.5) * 1.5)
+n= 500
+m= 5000
 fire_ = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
 
-FireImage(n,
-          fire_,
+FireImage(4,
+          {0: (0, 2), 1: (1, 2), 2: (2, 1), 3: (3, 1)},
           ).make_vis()
