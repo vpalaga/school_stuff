@@ -33,13 +33,17 @@ def fire_time(f1:tuple[int, int], f2:tuple[int, int]) -> int:
 
     return round((x_c + y_c + 1) / 2 - 0.1)
 
-def dist_from_S_E(x, y, n, ret_node_from=False):
+def dist_from_S_E(x, y, n, ret_node_from=False, from_start=False):
     """
     Returns the x, y pos to minimal start node and end node
     start, end"""
 
     if not ret_node_from: # dont calc the node pos if not needed
-        return min(x, n - y -1 ), min(y, n - x - 1)
+        if from_start:
+            return min(x, n - y -1 )
+        else:
+            return min(y, n - x - 1)
+
 
     if x < n - y - 1:
         ret_x = (-1, y)
@@ -53,45 +57,6 @@ def dist_from_S_E(x, y, n, ret_node_from=False):
 
     return ret_x, ret_y, min(x, n - y - 1 ), min(y, n - x - 1)
 
-def compute_fire_pair(pair):
-    i, j, f1, f2 = pair
-    return i, j, fire_time(f1, f2)
-
-def build_fire_tree(fire_dict, n, m):
-    import itertools
-    from multiprocessing import Pool
-
-    tree = {}
-    weights = set()
-    start_paths = {}
-    end_paths = {}
-
-    for i, fire in fire_dict.items():
-        s, e = dist_from_S_E(*fire, n=n)
-        start_paths[i] = s
-        end_paths[i] = e
-        weights.update((s, e))
-
-    tree[-1] = start_paths
-
-    # Compute all unique pairs
-    pairs = [(i, j, fire_dict[i], fire_dict[j]) for i, j in itertools.combinations(fire_dict.keys(), 2)]
-
-    with Pool() as p:
-        results = p.map(compute_fire_pair, pairs)
-
-    fire_times = {}
-    for i, j, t in results:
-        fire_times[(i, j)] = fire_times[(j, i)] = t
-        weights.add(t)
-
-    for i in fire_dict.keys():
-        paths = {ii: fire_times[(i, ii)] for ii in fire_dict.keys() if i != ii}
-        paths[m] = end_paths[i]
-        tree[i] = paths
-
-    tree[m] = {}
-    return tree, sorted(weights)
 
 class Path:
     def __init__(self, fire_dict_, n_:int):
@@ -99,7 +64,10 @@ class Path:
         self.n = n_
 
         self.m = len(self.fire_dict)
-        self.fire_tree, self.weights = build_fire_tree(self.fire_dict, n=self.n,  m=self.m)
+        self.fire_tree = {}
+        self.weights = []
+        self.build_fire_tree_dynamically([-1], first_node=True) # calc the first node
+
         """-------------------------"""
         self.max_path_weight = min(self.fire_tree[-1].values())  # get the smallest starting weight
         self.weights = self.weights[self.weights.index(self.max_path_weight):] # cut off the start of weights
@@ -120,23 +88,27 @@ class Path:
 
         Description:
         -------
-        1)
+        1) try all weights from smallest to largest and see if we can connect -1 to m
 
+        Idea for Fire6: build the fire_tree dynamically that should improve from n**2 to n
         """
+
         accessible_nodes = [-1]
 
-        for weight in self.weights:
+        while True:
 
             list_changed = True
             while list_changed:
+
+                self.build_fire_tree_dynamically(accessible_nodes)
+
                 accessible_nodes, list_changed = self.accessible_nodes_f(accessible_nodes)
 
                 if self.m in accessible_nodes:
                     return
 
-            self.max_path_weight = weight
+            self.max_path_weight = self.weights[self.weights.index(self.max_path_weight) + 1] # try bigger weight
 
-        return
 
     def accessible_nodes_f(self, start_nodes:set[int]):
         """returns: an expanded list of the start nodes"""
@@ -157,3 +129,48 @@ class Path:
                         list_changed = True
 
         return accessible_nodes, list_changed
+
+    def build_fire_tree_dynamically(self, acc_nodes, first_node=False):
+
+        if first_node:
+            paths = {}
+            for node, xy in self.fire_dict.items():
+
+                node_dist = dist_from_S_E(*xy, n=self.n, from_start=True)
+                paths[node] = node_dist
+
+                if node_dist not in self.weights:
+                    self.weights.append(node_dist)
+
+            self.fire_tree[-1] = paths
+
+        else:
+            for start_node in acc_nodes:
+                if start_node == -1:
+                    continue
+
+                xy_node_start = self.fire_dict[start_node]
+
+                if start_node not in self.fire_tree.keys():
+                    paths = {}
+
+                    for end_node, xy_node_end in self.fire_dict.items():
+                        if end_node in self.fire_tree.keys():
+                            paths[end_node] = self.fire_tree[end_node][start_node] # reverse look up
+                        else:
+                            node_dist = fire_time(xy_node_start, xy_node_end)
+                            paths[end_node] = node_dist
+
+                            if node_dist not in self.weights:
+                                self.weights.append(node_dist)
+
+                    # calc the end distance
+                    node_dist = dist_from_S_E(*xy_node_start, n=self.n)
+                    paths[self.m] = node_dist
+
+                    if node_dist not in self.weights:
+                        self.weights.append(node_dist)
+
+                    self.fire_tree[start_node] = paths
+
+        self.weights.sort()

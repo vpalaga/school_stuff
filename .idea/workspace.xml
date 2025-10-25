@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
+      <change afterPath="$PROJECT_DIR$/olympiad/4/Fire6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/3/MouseDances1.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/3/MouseDances1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/3/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/3/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/3/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/3/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/4/path_alg.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/4/path_alg.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
