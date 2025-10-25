@@ -26,7 +26,7 @@ def inconvenience_from_sorted(l, find_m_line=False):
     max_inconvenience = 0
     split_at = None
     inc = []
-    count_oc = {}
+    max_in = set()
 
     for i in range(1, len(l)):
         inconvenience = abs(l[i-1] - l[i])
@@ -34,26 +34,24 @@ def inconvenience_from_sorted(l, find_m_line=False):
 
         if inconvenience > max_inconvenience:
             max_inconvenience = inconvenience
+            split_at = i
+            max_in.clear()
 
-            if find_m_line:
-                split_at = i
+        elif inconvenience == max_inconvenience:
+            max_in.add(i)
 
+    if not find_m_line:
+        return max_inconvenience
 
+    minimal_inc = -1
+    for i in max_in:
+        inc = min(inconvenience_from_sorted(find_optimal_line(l[0:int(i)])),
+                  inconvenience_from_sorted(find_optimal_line(l[int(i):len(l)])))
+        if inc < minimal_inc or minimal_inc == -1:
+            minimal_inc = inc
+            split_at = i
 
-    if find_m_line: # special case
-        if max(inc) - 1 == min(inc):
-
-            least_oc = l.count(l[0])
-            x = l[0]
-            for n in l:
-            # check if the inc does matter
-                if l.count(n) < least_oc:
-                    least_oc = l.count(n)
-                    x = n
-            split_at = l.index(x)
-
-        return split_at
-    return max_inconvenience
+    return split_at
 
 
 class Game:
@@ -63,18 +61,21 @@ class Game:
 
         self.heights_sorted = sorted(self.mice_heights)
 
-        self.circle_a, self.circle_b = self.split_line()#
+        self.circle_a, self.circle_b = self.split_line()
 
         self.circle_a_o, self.circle_b_o = find_optimal_line(self.circle_a), find_optimal_line(self.circle_b)
 
         self.circle_a_i, self.circle_b_i = inconvenience_from_sorted(self.circle_a_o), inconvenience_from_sorted(self.circle_b_o)
+
         self.small_i = max(self.circle_a_i, self.circle_b_i)
 
         self.circle_len = [len(self.circle_a_o), len(self.circle_b_o)]
 
     def split_line(self):
+
         midline = inconvenience_from_sorted(self.heights_sorted, find_m_line=True)
-        return self.heights_sorted[0:int(midline)], self.heights_sorted[int(midline):self.n]
+
+        return self.heights_sorted[0:midline], self.heights_sorted[midline:self.n]
 
 
 with open("input.txt", "r") as f:
