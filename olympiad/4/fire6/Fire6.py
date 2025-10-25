@@ -15,7 +15,7 @@ class Game:
         self.max_time = Path(self.fire_dict, self.n).max_path_weight - 1
 
 
-with open("test.txt", "r") as f:
+with open("../input.txt", "r") as f:
 
     INPUT_RAW = [i.strip("\n") for i in f.readlines()]
     TEST_CASES = int(INPUT_RAW.pop(0))
@@ -42,4 +42,4 @@ for i, game in GAME_DATA.items():
 
 print(OUTPUT)
 
-open("output.txt", "w").write(OUTPUT)
+open("../output.txt", "w").write(OUTPUT)

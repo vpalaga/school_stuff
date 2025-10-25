@@ -24,8 +24,8 @@ class FireImage:
         self.plot_fires()
         self.plot_fire_distances()
 
-        max_w = Path(self.fire_dict, self.n).max_path_weight
-        print(f"MAX: {max_w}")
+        #max_w = Path(self.fire_dict, self.n).max_path_weight
+        #print(f"MAX: {max_w}")
         #self.plot_path(path)
 
         self.img.show()
@@ -80,7 +80,7 @@ class FireImage:
     def plot_start_end_distances(self):
 
         for i, fire in self.fire_dict.items():
-            s, e, s_l, e_l = dist_from_S_E(*fire, n=n, ret_node_from=True)
+            s, e, s_l, e_l = dist_from_S_E(*fire, n=self.n, ret_node_from=True)
 
             self.line(fire, s, "start", ln=s_l)
             self.line(fire, e, "end",   ln=e_l)
@@ -126,17 +126,18 @@ class FireImage:
 
         self.draw.text(mid, f"{ln}", "darkblue", font=font(wd * 10))
 
-#FireImage(8,
-#          {0: (7, 1), 1: (1, 5), 2: (2, 7), 3:(2, 5), 4:(3, 5)},
-#          ).make_vis()
+FireImage(8,
+          {0: (7, 1), 1: (1, 5), 2: (2, 7), 3:(2, 5), 4:(3, 5)},
+          ).make_vis()
 
 #FireImage(7,
 #          {0: (4, 3), 1: (2, 0), 2: (3, 6)},
 #          ).make_vis()
-n= 500
-m= 5000
-fire_ = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
+if False:
+    n= 500
+    m= 5000
+    fire_ = {x:(random.randint(0, n-1), random.randint(0, n -1)) for x in range(m)}
 
-FireImage(12,
-          {0: (8, 2), 1: (6, 10), 2: (6, 6), 3: (11, 5), 4: (5, 3), 5: (6, 0), 6: (3, 3), 7: (4, 6), 8: (8, 10), 9: (2, 4)},
-          ).make_vis()
+    FireImage(12,
+              {0: (8, 2), 1: (6, 10), 2: (6, 6), 3: (11, 5), 4: (5, 3), 5: (6, 0), 6: (3, 3), 7: (4, 6), 8: (8, 10), 9: (2, 4)},
+              ).make_vis()
