@@ -38,7 +38,7 @@ def inconvenience_from_sorted(l, find_m_line=False):
 
     min_inconvenience = None
     split_at = None
-    for split in range(len(l)): # brute it lol
+    for split in range(1, len(l)): # brute it lol
         inc = max(inconvenience_from_sorted(find_optimal_line(l[0:int(split)])),
                   inconvenience_from_sorted(find_optimal_line(l[int(split):len(l)])))
 
@@ -48,8 +48,11 @@ def inconvenience_from_sorted(l, find_m_line=False):
                 split_at = split
         else:
             min_inconvenience = inc
+            split_at = split
+
 
     return split_at
+
 
 class Game:
     def __init__(self, nr_mice_, mice_heights_):
@@ -71,11 +74,10 @@ class Game:
     def split_line(self):
 
         midline = inconvenience_from_sorted(self.heights_sorted, find_m_line=True)
-
         return self.heights_sorted[0:midline], self.heights_sorted[midline:self.n]
 
 
-with open("test.txt", "r") as f:
+with open("input.txt", "r") as f:
 
     INPUT_RAW = [i.strip("\n") for i in f.readlines()]
     TEST_CASES = int(INPUT_RAW.pop(0))
