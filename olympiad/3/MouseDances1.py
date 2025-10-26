@@ -36,6 +36,7 @@ def inconvenience_from_sorted(l, find_m_line=False):
             max_inconvenience = inconvenience
             split_at = i
             max_in.clear()
+            max_in.add(inconvenience)
 
         elif inconvenience == max_inconvenience:
             max_in.add(i)
@@ -44,13 +45,14 @@ def inconvenience_from_sorted(l, find_m_line=False):
         return max_inconvenience
 
     minimal_inc = -1
+    print(list(max_in))
     for i in max_in:
-        inc = min(inconvenience_from_sorted(find_optimal_line(l[0:int(i)])),
+        inc = max(inconvenience_from_sorted(find_optimal_line(l[0:int(i)])),
                   inconvenience_from_sorted(find_optimal_line(l[int(i):len(l)])))
+
         if inc < minimal_inc or minimal_inc == -1:
             minimal_inc = inc
             split_at = i
-
     return split_at
 
 
@@ -78,7 +80,7 @@ class Game:
         return self.heights_sorted[0:midline], self.heights_sorted[midline:self.n]
 
 
-with open("input.txt", "r") as f:
+with open("test.txt", "r") as f:
 
     INPUT_RAW = [i.strip("\n") for i in f.readlines()]
     TEST_CASES = int(INPUT_RAW.pop(0))

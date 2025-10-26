@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add test">
-      <change afterPath="$PROJECT_DIR$/olympiad/2/ryders5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/2/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/2/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/2/ryders6.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/ryders6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olympiad/2/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/2/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/4/fire6/Fire6.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/4/fire6/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/4/fire6/output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/4/fire6/path_alg.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/olympiad/4/fire6/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/3/MouseDances1.py" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/3/MouseDances1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olympiad/3/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/olympiad/3/output.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +54,7 @@
     "Python.main.executor": "Run",
     "Python.path_alg.executor": "Run",
     "Python.ryders5.executor": "Run",
+    "Python.ryders6.executor": "Run",
     "Python.test (2).executor": "Run",
     "Python.test.executor": "Run",
     "Python.test2.executor": "Run",
@@ -74,17 +71,17 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/vit/school_stuff/olympiad/4/fire6",
+    "last_opened_file_path": "C:/Users/vit/school_stuff/olympiad/2",
     "settings.editor.selected.configurable": "diff.base"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vit\school_stuff\olympiad\2" />
       <recent name="C:\Users\vit\school_stuff\olympiad\4\fire6" />
       <recent name="C:\Users\vit\school_stuff\olympiad\4" />
       <recent name="C:\Users\vit\school_stuff\olympiad" />
       <recent name="C:\Users\vit\school_stuff\olympiad\templ" />
-      <recent name="C:\Users\vit\school_stuff\olympiad\2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vit\school_stuff\olympiad\4\fire6" />

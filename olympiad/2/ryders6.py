@@ -7,12 +7,14 @@ class Game:
     def __init__(self,
                  game_nr_ : int,
                  villages_: int,
-                 roads_
+                 roads_,
+                 weights_
                  ): # use _ under var name so pycharm doesn't fuck me :D
 
         self.nr = game_nr_
         self.villages = villages_
         self.roads = roads_
+        self.weights = weights_
         """-----"""
         self.watchtowers = self.watchtowers()
         self.villages_reach_time = {}
@@ -38,7 +40,7 @@ class Game:
             c_time = 0
             c_v = watchtower
             while c_v in self.roads.keys():
-                c_time += 1
+                c_time += self.weights[c_v] # add the time from village to parent
                 c_v = self.roads[c_v]
 
                 if c_v in self.villages_reach_time.keys():
@@ -51,7 +53,7 @@ class Game:
 
         self.solve_time = sum(self.villages_reach_time.values())
 
-with open("timuridriders-sub3-attempt2.txt", "r") as f:
+with open("timuridriders-sub6-attempt0.txt", "r") as f:
 
     INPUT_RAW = [i.strip("\n") for i in f.readlines()]
     TEST_CASES = int(INPUT_RAW.pop(0))
@@ -68,8 +70,8 @@ for test_case in range(TEST_CASES): # crate a game object for each test segment 
     for road_nr in range(villages - 1):
         road_weight = INPUT_RAW[raw_input_index].split(" ")
 
-        roads[road_nr + 1] = road_weight[0]
-        weights
+        roads[road_nr + 1] = int(road_weight[0])
+        weights[road_nr + 1] = int(road_weight[1])
 
         raw_input_index += 1
 
@@ -77,7 +79,8 @@ for test_case in range(TEST_CASES): # crate a game object for each test segment 
 
     new_game = Game(test_case,
                     villages,
-                    roads)
+                    roads,
+                    weights)
 
     INPUT[test_case] = new_game
 
