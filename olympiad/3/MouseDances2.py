@@ -24,9 +24,7 @@ def find_optimal_line(circle):
 
 def inconvenience_from_sorted(l, find_m_line=False):
     max_inconvenience = 0
-    split_at = None
     inc = []
-    max_in = set()
 
     for i in range(1, len(l)):
         inconvenience = abs(l[i-1] - l[i])
@@ -34,27 +32,24 @@ def inconvenience_from_sorted(l, find_m_line=False):
 
         if inconvenience > max_inconvenience:
             max_inconvenience = inconvenience
-            split_at = i
-            max_in.clear()
-            max_in.add(inconvenience)
-
-        elif inconvenience == max_inconvenience:
-            max_in.add(i)
 
     if not find_m_line:
         return max_inconvenience
 
-    minimal_inc = -1
-    print(list(max_in))
-    for i in max_in:
-        inc = max(inconvenience_from_sorted(find_optimal_line(l[0:int(i)])),
-                  inconvenience_from_sorted(find_optimal_line(l[int(i):len(l)])))
+    min_inconvenience = None
+    split_at = None
+    for split in range(len(l)): # brute it lol
+        inc = max(inconvenience_from_sorted(find_optimal_line(l[0:int(split)])),
+                  inconvenience_from_sorted(find_optimal_line(l[int(split):len(l)])))
 
-        if inc < minimal_inc or minimal_inc == -1:
-            minimal_inc = inc
-            split_at = i
+        if min_inconvenience is not None:
+            if inc < min_inconvenience:
+                min_inconvenience = inc
+                split_at = split
+        else:
+            min_inconvenience = inc
+
     return split_at
-
 
 class Game:
     def __init__(self, nr_mice_, mice_heights_):
