@@ -1,14 +1,79 @@
 import random
 
 class Playground:
-    def __init__(self, size: tuple[int,int], mines:int):
+    def __init__(self, size: tuple[int,int], mines:int, pixels:tuple[int,int]):
         self.size = size
         self.mines = mines
+        self.xField, self.yField = pixels[0] / size[0], pixels[1] / size[1]
 
         self.fields = size[0]*size[1]
         self.mine_p_field = (mines / self.fields) * 100 
 
+        self.mine_p_field = 98
+
         self.playground = {}
+        self.mid_pos = {}
+        self.state = {}
+        self.flags = set()
+
+        self.generate_mines()
+        self.generate_rest()
+
+        self.gen_midpos()
+
+        self.populate_state()
+    
+    def nulls_around(self, x, y) ->set[tuple[int, int]]:
+        nulls = set()
+
+        for dy in range(-1,2):
+            for dx in range(-1,2):
+                
+                if not (dx == 0 and dy == 0):
+                    
+                    n_x = x+dx
+                    n_y = y+dy
+
+                    if 0 <= n_x < self.size[0] and 0 <= n_y < self.size[1]:
+                        self.state[(n_x,n_y)] = True
+
+                        if self.playground[(n_x, n_y)] == 0:
+                            nulls.add((n_x,n_y))
+        return nulls
+    
+    def clear_null(self, x_start:int, y_start:int):
+        cleared = set()
+        check = set()
+
+        check.add((x_start, y_start))
+
+        while len(check) > 0:
+            x, y = check.pop()
+
+            cleared.add((x, y))
+            self.state[(x, y)] = True
+
+            for pos in self.nulls_around(x, y):
+                if pos not in cleared: 
+                    check.add(pos)
+
+
+
+    def populate_state(self):
+        for y in range(self.size[1]):
+            for x in range(self.size[0]):
+                self.state[(x, y)] = True
+
+    def gen_midpos(self):
+        nx = self.xField / 2
+        ny = self.yField / 2
+
+        for y in range(self.size[1]):
+            for x in range(self.size[0]):
+                self.mid_pos[(x, y)] = (nx,ny)
+                nx += self.xField
+            nx = self.xField / 2
+            ny += self.yField
     
     def generate_mines(self):
         for y in range(self.size[1]):
@@ -45,10 +110,3 @@ class Playground:
                 line += "| " + (str(self.playground[(x, y)] if self.playground[(x, y)] != 0 else " " )) + " "
             line += "|"
             print(line)
-
-
-p = Playground((500, 2), 25)
-
-p.generate_mines()
-p.generate_rest()
-p.show()
