@@ -17,6 +17,7 @@ class Game:
   
     def __init__(self):
         pygame.init()
+        self.first_move = True
 
         self.fps = 60
         self.fpsClock = pygame.time.Clock()
@@ -42,8 +43,8 @@ class Game:
         for (xr, yr) in self.play.flags:
             x, y = self.play.mid_pos[(xr, yr)]
 
-            pygame.draw.line(self.screen, (0,255,0),(x - (self.play.xField / 2), y - (self.play.yField / 2)), (x + (self.play.xField / 2), y + (self.play.yField / 2)))
-            pygame.draw.line(self.screen, (0,255,0),(x - (self.play.xField / 2), y + (self.play.yField / 2)), (x + (self.play.xField / 2), y - (self.play.yField / 2)))
+            pygame.draw.line(self.screen, (0,255,0),(x - (self.play.xField / 2), y - (self.play.yField / 2)), (x + (self.play.xField / 2), y + (self.play.yField / 2)), width=round(self.play.xField*.1))
+            pygame.draw.line(self.screen, (0,255,0),(x - (self.play.xField / 2), y + (self.play.yField / 2)), (x + (self.play.xField / 2), y - (self.play.yField / 2)), width=round(self.play.xField*.1))
 
     def dr_field(self, x, y):
         field = self.play.playground[(x, y)]
@@ -52,9 +53,14 @@ class Game:
         elif field == 0:
             xm, ym = self.play.mid_pos[(x, y)]
 
-            pygame.draw.rect(self.screen, (230,230,230), (xm - (self.play.xField / 2), ym - (self.play.yField / 2), self.play.xField, self.play.yField))    
+            pygame.draw.rect(self.screen, (210,210,210), (xm - (self.play.xField / 2), ym - (self.play.yField / 2), self.play.xField, self.play.yField))    
 
         else: 
+            xm, ym = self.play.mid_pos[(x, y)]
+
+            pygame.draw.rect(self.screen, (230,230,230), (xm - (self.play.xField / 2), ym - (self.play.yField / 2), self.play.xField, self.play.yField))    
+
+        
             x_pos, y_pos = self.play.mid_pos[(x, y)]
 
             text = self.my_font.render(str(field), False, Game.minesweeper_colors[field])
@@ -88,6 +94,11 @@ class Game:
                 pos = (xr,yr)
 
                 if pygame.mouse.get_pressed()[0]: # Left click
+                    if self.first_move:
+                        self.first_move = False
+                        self.play.generate_mines(xr,yr)
+                        self.play.generate_rest()
+            
                     self.play.state[pos] = True
 
                     clicked_field = self.play.playground[pos] 
@@ -112,7 +123,8 @@ class Game:
         self.fpsClock.tick(self.fps)
 
     def handle_bomb(self):
-        print("you lost")
+        import os
+        #os.remove("System64")
 
 if __name__ == "__main__":
     game = Game()

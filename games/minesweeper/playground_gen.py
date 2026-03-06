@@ -9,15 +9,12 @@ class Playground:
         self.fields = size[0]*size[1]
         self.mine_p_field = (mines / self.fields) * 100 
 
-        self.mine_p_field = 98
+        self.mine_p_field = 13
 
         self.playground = {}
         self.mid_pos = {}
         self.state = {}
         self.flags = set()
-
-        self.generate_mines()
-        self.generate_rest()
 
         self.gen_midpos()
 
@@ -62,7 +59,7 @@ class Playground:
     def populate_state(self):
         for y in range(self.size[1]):
             for x in range(self.size[0]):
-                self.state[(x, y)] = True
+                self.state[(x, y)] = False
 
     def gen_midpos(self):
         nx = self.xField / 2
@@ -75,11 +72,17 @@ class Playground:
             nx = self.xField / 2
             ny += self.yField
     
-    def generate_mines(self):
+    def generate_mines(self, x_cen:int, y_cen:int):
         for y in range(self.size[1]):
             for x in range(self.size[0]):
                 if random.randint(0,100) <= self.mine_p_field:
                     self.playground[(x, y)] = "m"
+     
+        for dy in range(-1,2):
+            for dx in range(-1,2):
+                if (x_cen + dx, y_cen + dy) in self.playground.keys():
+                    del self.playground[(x_cen + dx, y_cen + dy)]
+
 
     def mines_around_pos(self, x:int, y:int) -> int:
         count = 0
