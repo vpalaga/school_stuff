@@ -2,6 +2,7 @@ import sys
 import pygame
 from pygame.locals import *
 from playground_gen import Playground
+from imgs.wins import open_w
 
 class Game:
     minesweeper_colors = {
@@ -22,10 +23,12 @@ class Game:
         self.fps = 60
         self.fpsClock = pygame.time.Clock()
 
-        self.width, self.height = 700, 700
-        self.size = (35,35)
+        self.width, self.height = 600, 600
+        self.x_shift, self.y_shift = 0, 0
+        self.window_fields = (10, 10)
+        self.size = (100,100)
 
-        self.play = Playground(self.size,3,(self.width,self.height))
+        self.play = Playground(self.size, 3, (self.width,self.height), self.window_fields)
 
         self.screen = pygame.display.set_mode((self.width, self.height))
 
@@ -37,44 +40,62 @@ class Game:
             pygame.draw.line(self.screen,(0,0,0),(0, y*self.play.yField),(self.width, y*self.play.yField))
 
         for x in range(self.size[0]):
-            pygame.draw.line(self.screen, (0,0,0),(x*self.play.xField,0),(x*self.play.xField, self.width))
+            pygame.draw.line(self.screen, (0,0,0),(x*self.play.xField,0),(x*self.play.xField, self.height))
     
     def dr_flags(self):
         for (xr, yr) in self.play.flags:
+            xr = self.x_shift + xr
+            yr = self.y_shift + yr
+
             x, y = self.play.mid_pos[(xr, yr)]
 
             pygame.draw.line(self.screen, (0,255,0),(x - (self.play.xField / 2), y - (self.play.yField / 2)), (x + (self.play.xField / 2), y + (self.play.yField / 2)), width=round(self.play.xField*.1))
             pygame.draw.line(self.screen, (0,255,0),(x - (self.play.xField / 2), y + (self.play.yField / 2)), (x + (self.play.xField / 2), y - (self.play.yField / 2)), width=round(self.play.xField*.1))
 
-    def dr_field(self, x, y):
+    def dr_field(self, x, y, screen_x, screen_y):
         field = self.play.playground[(x, y)]
-        if field == "m":
-            pygame.draw.circle(self.screen,(255,0,0),self.play.mid_pos[(x, y)],(self.play.xField / 2) * 0.7)    
-        elif field == 0:
-            xm, ym = self.play.mid_pos[(x, y)]
+        xm, ym = self.play.mid_pos[(screen_x, screen_y)]
 
-            pygame.draw.rect(self.screen, (210,210,210), (xm - (self.play.xField / 2), ym - (self.play.yField / 2), self.play.xField, self.play.yField))    
+        if field == "m":
+            pygame.draw.circle(self.screen,(255,0,0),self.play.mid_pos[(screen_x, screen_y)],(self.play.xField / 2) * 0.7)    
+
+            mine = pygame.image.load(r'C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\games\minesweeper\imgs\6250937.jpg').convert_alpha()
+            mine = pygame.transform.scale(mine, (self.play.xField, self.play.yField))
+            mine_rect = mine.get_rect(center=(xm, ym))
+
+            self.screen.blit(mine, mine_rect)
+
+        elif field == 0:
+
+            pygame.draw.rect(
+                self.screen, 
+                (210,210,210), 
+                (xm - (self.play.xField / 2), 
+                 ym - (self.play.yField / 2), 
+                 self.play.xField, 
+                 self.play.yField))    
 
         else: 
-            xm, ym = self.play.mid_pos[(x, y)]
-
             pygame.draw.rect(self.screen, (230,230,230), (xm - (self.play.xField / 2), ym - (self.play.yField / 2), self.play.xField, self.play.yField))    
 
         
-            x_pos, y_pos = self.play.mid_pos[(x, y)]
 
             text = self.my_font.render(str(field), False, Game.minesweeper_colors[field])
-            text_rect = text.get_rect(center=(x_pos, y_pos))
+            text_rect = text.get_rect(center=(xm, ym))
             self.screen.blit(text, text_rect)
-        
+    
+
     
     def draw(self):
         self.screen.fill((255, 255, 255))
 
-        for y in range(self.size[1]):
-            for x in range(self.size[0]):
-                if self.play.state[(x, y)]: # open
-                    self.dr_field(x, y)
+        for y in range(self.window_fields[1]):
+            for x in range(self.window_fields[0]):
+
+                pos = (x + self.x_shift, y + self.y_shift)
+                
+                if self.play.state[pos]: # open
+                    self.dr_field(*pos,screen_x=x, screen_y=y)
         
         self.dr_flags()
         self.grid()
@@ -88,8 +109,8 @@ class Game:
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
-                xr = int(x // self.play.xField)
-                yr = int(y // self.play.xField)
+                xr = int(x // self.play.xField) + self.x_shift
+                yr = int(y // self.play.yField) + self.y_shift
 
                 pos = (xr,yr)
 
@@ -116,15 +137,43 @@ class Game:
                         if not self.play.state[pos]:
                             self.play.flags.add(pos)
             
+            if event.type == pygame.KEYDOWN:
+                key = event.key
+                if key == pygame.K_UP:
+                    self.y_shift -= 1
+                elif key == pygame.K_DOWN:
+                    self.y_shift += 1
+                elif key == pygame.K_RIGHT:
+                    self.x_shift += 1
+                elif key == pygame.K_LEFT:
+                    self.x_shift -= 1
+                elif key == 1073741911:
+                    self.window_fields = (self.window_fields[0] + 1, self.window_fields[1] + 1)
 
-  
+                    self.play.window_fields = self.window_fields
+
+                    self.play.update_field_pixel_size()
+                    self.my_font = pygame.font.SysFont('Comic Sans MS', round(self.play.yField))
+                    
+                elif key == 1073741910:
+                    self.window_fields = (self.window_fields[0] - 1, self.window_fields[1] - 1)
+
+                    self.play.window_fields = self.window_fields
+
+                    self.play.update_field_pixel_size()
+                    self.my_font = pygame.font.SysFont('Comic Sans MS', round(self.play.yField))
+                    
+                print(key)        
+                self.x_shift = min(max(0, self.x_shift), self.size[0] - self.window_fields[0]) # sqish posible 
+                self.y_shift = min(max(0, self.y_shift), self.size[1] - self.window_fields[1]) # sqish posible 
+                
     def update(self):
         pygame.display.flip()
         self.fpsClock.tick(self.fps)
 
     def handle_bomb(self):
-        import os
-        #os.remove("System64")
+        while True:
+            open_w()
 
 if __name__ == "__main__":
     game = Game()

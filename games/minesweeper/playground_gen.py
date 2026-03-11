@@ -1,10 +1,15 @@
 import random
 
 class Playground:
-    def __init__(self, size: tuple[int,int], mines:int, pixels:tuple[int,int]):
+    def __init__(self, size: tuple[int,int], mines:int, pixels:tuple[int,int], window_fields:tuple[int,int]):
         self.size = size
         self.mines = mines
-        self.xField, self.yField = pixels[0] / size[0], pixels[1] / size[1]
+        self.window_fields = window_fields
+        self.pixels = pixels
+        
+        self.xField = pixels[0] / window_fields[0] 
+        self.yField = pixels[1] / window_fields[1]
+        
 
         self.fields = size[0]*size[1]
         self.mine_p_field = (mines / self.fields) * 100 
@@ -19,7 +24,13 @@ class Playground:
         self.gen_midpos()
 
         self.populate_state()
-    
+
+    def update_field_pixel_size(self):
+        self.xField = self.pixels[0] / self.window_fields[0] 
+        self.yField = self.pixels[1] / self.window_fields[1]
+        self.gen_midpos()
+        
+
     def nulls_around(self, x, y) ->set[tuple[int, int]]:
         nulls = set()
 
