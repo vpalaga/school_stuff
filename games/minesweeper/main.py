@@ -3,6 +3,7 @@ import pygame
 from pygame.locals import *
 from playground_gen import Playground
 from imgs.wins import open_w
+import random
 
 class Game:
     minesweeper_colors = {
@@ -25,8 +26,8 @@ class Game:
 
         self.width, self.height = 600, 600
         self.x_shift, self.y_shift = 0, 0
-        self.window_fields = (10, 10)
-        self.size = (100,100)
+        self.window_fields = (15, 15)
+        self.size = (15, 15)
 
         self.play = Playground(self.size, 3, (self.width,self.height), self.window_fields)
 
@@ -172,9 +173,9 @@ class Game:
         self.fpsClock.tick(self.fps)
 
     def handle_bomb(self):
-        while True:
+        if random.randint(0,10) < 5:
             open_w()
-
+    
 if __name__ == "__main__":
     game = Game()
     while True:

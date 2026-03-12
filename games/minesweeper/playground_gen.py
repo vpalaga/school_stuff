@@ -14,7 +14,7 @@ class Playground:
         self.fields = size[0]*size[1]
         self.mine_p_field = (mines / self.fields) * 100 
 
-        self.mine_p_field = 13
+        self.mine_p_field = 25
 
         self.playground = {}
         self.mid_pos = {}
