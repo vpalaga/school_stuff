@@ -1,5 +1,6 @@
 import cv2
 import time
+import math
 
 # Load Haar cascades for face and eyes
 face_cascade = cv2.CascadeClassifier(
@@ -11,6 +12,18 @@ eye_cascade = cv2.CascadeClassifier(
 
 # Start webcam
 cap = cv2.VideoCapture(0)
+width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+d_dist
+
+
+def calc_angle_from_pos(xy:tuple[int, int]):
+    x, y = xy[0],xy[1]
+
+    x -= width // 2
+
+    alpha = math.atan()
+
 
 while True:
     ret, frame = cap.read()

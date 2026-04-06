@@ -1,5 +1,6 @@
-import sys
-print(sys.version)
+a = [1, 2, 3]
+i = 1
 
-x:int = "hello"
-print(x)
+a.insert(i+1, a.pop(i))
+
+print(a)
