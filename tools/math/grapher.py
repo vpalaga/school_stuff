@@ -30,6 +30,7 @@ class Graph:
         draw.line((50, 50, 350, 50), fill="black", width=3)     # horizontal line
         draw.line((50, 100, 350, 300), fill="blue", width=5)    # diagonal line
         draw.line((50, 350, 350, 50), fill="red", width=2)      # another diagonal
+        aa
         """
         line_len = length * self.mid_pos[0]
         current_sector = 0
