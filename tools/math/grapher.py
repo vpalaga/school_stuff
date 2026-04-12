@@ -25,14 +25,13 @@ class Graph:
         } 
 
 # Draw some lines
-    def graph(self, max_val: float, start_at:float, values:list[float], length=0.7, lines=36000)->None:
+    def graph(self, max_val: float,start_at:float, values:list[float], lenght=0.7, lines=36000)->None:
         """
         draw.line((50, 50, 350, 50), fill="black", width=3)     # horizontal line
         draw.line((50, 100, 350, 300), fill="blue", width=5)    # diagonal line
         draw.line((50, 350, 350, 50), fill="red", width=2)      # another diagonal
-        aa
         """
-        line_len = length * self.mid_pos[0]
+        line_len = lenght * self.mid_pos[0]
         current_sector = 0
         angle_multiplier = 360 / lines
         angle_prop = (max_val-start_at)/360

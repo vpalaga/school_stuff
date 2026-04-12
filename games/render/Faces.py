@@ -1,5 +1,5 @@
 class Vertex:
-    def __init__(self, xyz: tuple[int,int,int],vert_num=None):
+    def __init__(self, xyz: tuple[float,float,float],vert_num=None):
         self.xyz = xyz
         self.vertex_number = vert_num
 
@@ -10,9 +10,28 @@ class Vertex:
         if len(xyz) > 3:
             raise ValueError(f"vls: {xyz}: too many values")
 
+    def proportion_to(self,origin:Vertex):
+        dx = self.x - origin.x
+        dy = self.y - origin.y
+
+        return dx / dy
+
     def __repr__(self):
         return f"Vertex: x:{self.x} y:{self.y} z:{self.z}, {self.vertex_number=}"
 
-if __name__ == "__main__":
-    v1 = Vertex((1, 2, 3),0)
-    print(v1)
+class HeadingTo:
+    def __init__(self, xy_and_yz: tuple[float,float]):
+        """
+        values between 0 - 360
+        where 0 is default
+        """
+        self.xy_and_yz = xy_and_yz
+
+        self.xy_plane = xy_and_yz[0]
+        self.yz_plane = xy_and_yz[1]
+
+        if len(xy_and_yz) > 2:
+            raise ValueError(f"vls: {xy_and_yz}: too many values")
+
+    def __repr__(self):
+        return f"HeadingTo: {self.xy_plane=} {self.yz_plane}"
