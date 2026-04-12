@@ -1,6 +1,9 @@
+import math
+
 class Vertex:
-    def __init__(self, xyz: tuple[float,float,float],vert_num=None):
+    def __init__(self, xyz: tuple[float,float,float], radius=.2, vert_num=None):
         self.xyz = xyz
+        self.radius = radius
         self.vertex_number = vert_num
 
         self.x = xyz[0]
@@ -10,11 +13,22 @@ class Vertex:
         if len(xyz) > 3:
             raise ValueError(f"vls: {xyz}: too many values")
 
-    def proportion_to(self,origin:Vertex):
+    def global_angle_to(self,origin:Vertex)->float:
         dx = self.x - origin.x
         dy = self.y - origin.y
 
-        return dx / dy
+        angle = math.degrees(math.atan(dx/dy))
+
+        return angle
+
+    def view_angle_from(self,origin:Vertex)->float:
+        dx = self.x - origin.x
+        dy = self.y - origin.y
+
+        h = math.hypot(dx,dy)
+        angle_rad = math.atan(self.radius/h)
+
+        return math.degrees(angle_rad)
 
     def __repr__(self):
         return f"Vertex: x:{self.x} y:{self.y} z:{self.z}, {self.vertex_number=}"

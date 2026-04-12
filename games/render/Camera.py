@@ -18,6 +18,7 @@ class Img:
         self.img = Image.new("RGB", size, "white")
         self.draw = ImageDraw.Draw(self.img)
 
+        # end lines in a circle around origin with r=hyp(corners)
         self.distance_from_middle_to_corner = math.hypot(self.size[0], self.size[1]) / 2
 
         self.fit_vertexes_across = 10  # -10 0 10
@@ -69,7 +70,7 @@ class Cam:
     def __init__(self, pos: Vertex, heading: HeadingTo):
         self.pos = pos
         self.heading = heading
-        self.field_of_view = 100  # degrees
+        self.field_of_view = 90  # degrees
 
         self.render_out_format = (800, 600)
 
@@ -91,8 +92,21 @@ class Cam:
 
         canvas_from_top.show()
 
-    def render_vertex(self, scene: Scene) -> None:
+    def angle_to_pixels(self,angle:float)->float:
+        return self.from_focal_point * math.tan(math.radians(angle))
+
+    def render_front(self, scene: Scene) -> None:
         canvas = Img(self.render_out_format)
 
         for draw_vertex in scene.vertexes:
-            x_proportion = draw_vertex
+
+            relative_angle_xy = draw_vertex.global_angle_to(origin=self.pos) - self.heading.xy_plane
+            x_pixels_pos = self.angle_to_pixels(relative_angle_xy)
+
+            view_angle = draw_vertex.view_angle_from(origin=self.pos)
+            radius = self.angle_to_pixels(view_angle)
+
+            canvas.draw.circle((x_pixels_pos + (self.render_out_format[0] / 2),
+                               self.render_out_format[1]/2),
+                               radius,(0,0,0))
+        canvas.show()
