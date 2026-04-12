@@ -13,11 +13,19 @@ class Vertex:
         if len(xyz) > 3:
             raise ValueError(f"vls: {xyz}: too many values")
 
-    def global_angle_to(self,origin:Vertex)->float:
+    def global_angle_to_xy(self,origin:Vertex)->float:
         dx = self.x - origin.x
         dy = self.y - origin.y
 
         angle = math.degrees(math.atan(dx/dy))
+
+        return angle
+
+    def global_angle_to_yz(self,origin:Vertex)->float:
+        dy = self.y - origin.y
+        dz = self.z - origin.z
+
+        angle = math.degrees(math.atan(dz/dy))
 
         return angle
 
@@ -31,7 +39,7 @@ class Vertex:
         return math.degrees(angle_rad)
 
     def __repr__(self):
-        return f"Vertex: x:{self.x} y:{self.y} z:{self.z}, {self.vertex_number=}"
+        return f"Vertex: x:{self.x} y:{self.y} z:{self.z}, {self.vertex_number=}\n"
 
 class HeadingTo:
     def __init__(self, xy_and_yz: tuple[float,float]):
@@ -49,3 +57,14 @@ class HeadingTo:
 
     def __repr__(self):
         return f"HeadingTo: {self.xy_plane=} {self.yz_plane}"
+
+class Edge:
+    def __init__(self,start:Vertex,end:Vertex, edge_number=None, thickness=1, color=(0,0,0))->None:
+        self.start = start
+        self.end = end
+        self.edge_number = edge_number
+
+        self.thickness = thickness
+        self.color = color
+    def __repr__(self):
+        return f"{self.start=} {self.end=} {self.edge_number=}"

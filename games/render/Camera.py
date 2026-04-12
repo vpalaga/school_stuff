@@ -1,5 +1,3 @@
-from turtledemo.penrose import draw
-
 from Faces import Vertex, HeadingTo
 from Scene import Scene
 
@@ -70,12 +68,16 @@ class Cam:
     def __init__(self, pos: Vertex, heading: HeadingTo):
         self.pos = pos
         self.heading = heading
-        self.field_of_view = 90  # degrees
+        self.field_of_view = 120  # degrees
+        self.render_out_format = (800, 608)
 
-        self.render_out_format = (800, 600)
+        self.frames = []
 
         self.from_focal_point = (self.render_out_format[0] / 2) / (math.tan(math.radians(self.field_of_view / 2)))
         print(f"{self.from_focal_point=}")
+        # clac based on fov and output
+        self.field_of_view_yz = math.degrees(math.atan((self.render_out_format[1]/2)/self.from_focal_point))
+        print(f"{self.field_of_view_yz=}")
 
     def update_position(self, pos: Vertex, heading: HeadingTo) -> None:
         self.pos = pos
@@ -86,8 +88,7 @@ class Cam:
 
         canvas_from_top.draw_camera(pos=self.pos, heading=self.heading,fov=self.field_of_view)
 
-        for point in scene.vertexes:
-            print(point)
+        for point in scene.vertexes.values():
             canvas_from_top.draw_point_at_coordinate(point=point, vertex_type="vtx")
 
         canvas_from_top.show()
@@ -95,18 +96,41 @@ class Cam:
     def angle_to_pixels(self,angle:float)->float:
         return self.from_focal_point * math.tan(math.radians(angle))
 
+    def center_to_relative(self,x:float, y:float)->tuple[float,float]:
+        return x + (self.render_out_format[0] / 2), (self.render_out_format[1] / 2) - y
+
+    def relative_vertex_pos(self,draw_vertex:Vertex)->tuple[float,float,float]:
+        """x, y, view field (in pixels, but not centered)"""
+        relative_angle_xy = draw_vertex.global_angle_to_xy(origin=self.pos) - self.heading.xy_plane
+        x_pixels_pos = self.angle_to_pixels(relative_angle_xy)
+
+        relative_angle_yz = draw_vertex.global_angle_to_yz(origin=self.pos) - self.heading.yz_plane
+        y_pixels_pos = self.angle_to_pixels(relative_angle_yz)
+
+        view_angle = draw_vertex.view_angle_from(origin=self.pos)
+        radius = self.angle_to_pixels(view_angle)
+
+        return x_pixels_pos,y_pixels_pos,radius
+
     def render_front(self, scene: Scene) -> None:
         canvas = Img(self.render_out_format)
 
-        for draw_vertex in scene.vertexes:
+        # draw all vertexes
+        for draw_vertex in scene.vertexes.values():
 
-            relative_angle_xy = draw_vertex.global_angle_to(origin=self.pos) - self.heading.xy_plane
-            x_pixels_pos = self.angle_to_pixels(relative_angle_xy)
+            x, y, radius = self.relative_vertex_pos(draw_vertex)
 
-            view_angle = draw_vertex.view_angle_from(origin=self.pos)
-            radius = self.angle_to_pixels(view_angle)
+            canvas.draw.circle(self.center_to_relative(x, y),radius,(0,0,0))
 
-            canvas.draw.circle((x_pixels_pos + (self.render_out_format[0] / 2),
-                               self.render_out_format[1]/2),
-                               radius,(0,0,0))
-        canvas.show()
+        for edge in scene.edges.values():
+            start_x, start_y, _ = self.relative_vertex_pos(edge.start)
+            start_x, start_y = self.center_to_relative(start_x, start_y)
+
+            end_x,end_y,_ = self.relative_vertex_pos(edge.end)
+            end_x, end_y = self.center_to_relative(end_x,end_y)
+
+            canvas.draw.line((start_x,start_y,end_x,end_y),fill=edge.color,width=edge.thickness)
+
+        #canvas.show()
+
+        self.frames.append(canvas.img)

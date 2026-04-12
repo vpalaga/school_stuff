@@ -1,4 +1,5 @@
-t = (1, 2)
+t = {}
 
-for i in t:
-    print(i)
+print(len(t))
+
+print(t)
