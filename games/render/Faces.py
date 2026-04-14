@@ -1,10 +1,11 @@
 import math
 
 class Vertex:
-    def __init__(self, xyz: tuple[float,float,float], radius=.2, vert_num=None):
+    def __init__(self, xyz: tuple[float,float,float], radius=.2, vert_num=None,color=(0,0,0)):
         self.xyz = xyz
         self.radius = radius
         self.vertex_number = vert_num
+        self.color = color
 
         self.x = xyz[0]
         self.y = xyz[1]

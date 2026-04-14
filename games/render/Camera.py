@@ -114,13 +114,14 @@ class Cam:
 
     def render_front(self, scene: Scene) -> None:
         canvas = Img(self.render_out_format)
+        scene.sort_vertexes_by_distance_from_vertex(self.pos)
 
         # draw all vertexes
         for draw_vertex in scene.vertexes.values():
 
             x, y, radius = self.relative_vertex_pos(draw_vertex)
 
-            canvas.draw.circle(self.center_to_relative(x, y),radius,(0,0,0))
+            canvas.draw.circle(self.center_to_relative(x, y), radius, draw_vertex.color)
 
         for edge in scene.edges.values():
             start_x, start_y, _ = self.relative_vertex_pos(edge.start)
@@ -131,6 +132,6 @@ class Cam:
 
             canvas.draw.line((start_x,start_y,end_x,end_y),fill=edge.color,width=edge.thickness)
 
-        #canvas.show()
+        canvas.show()
 
         self.frames.append(canvas.img)
