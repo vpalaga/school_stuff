@@ -1,7 +1,20 @@
-import random
 
-liste1 = [random.randint(0,5)*"67" for i in range(100)]
-print(liste1)
 
-for i in range(len(liste1)):
-    print(i, liste1[i])
+class Car:
+    def __init__(self):
+        self.actions = []
+        self.functions = self.Functions(self)
+
+    def add_action(self,a):
+        self.actions.append(a)
+
+    class Functions:
+        def __init__(self, car:Car):
+            self.car = car
+
+        def honk(self):
+            self.car.add_action("honk")
+
+car1 = Car()
+car1.functions.honk()
+print(car1.actions)

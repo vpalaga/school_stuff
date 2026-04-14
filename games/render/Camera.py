@@ -1,4 +1,4 @@
-from Faces import Vertex, HeadingTo
+from Faces import Vertex, HeadingTo, Edge, Face
 from Scene import Scene
 
 from PIL import Image, ImageDraw
@@ -88,8 +88,9 @@ class Cam:
 
         canvas_from_top.draw_camera(pos=self.pos, heading=self.heading,fov=self.field_of_view)
 
-        for point in scene.vertexes.values():
-            canvas_from_top.draw_point_at_coordinate(point=point, vertex_type="vtx")
+        for point in scene.objects.values():
+            if type(point) is Vertex:
+                canvas_from_top.draw_point_at_coordinate(point=Vertex(point.mid_point), vertex_type="vtx")
 
         canvas_from_top.show()
 
@@ -114,23 +115,35 @@ class Cam:
 
     def render_front(self, scene: Scene) -> None:
         canvas = Img(self.render_out_format)
-        scene.sort_vertexes_by_distance_from_vertex(self.pos)
+        scene.sort_objects_by_distance(self.pos)
 
         # draw all vertexes
-        for draw_vertex in scene.vertexes.values():
+        for render_object in scene.objects.values():
 
-            x, y, radius = self.relative_vertex_pos(draw_vertex)
+            if isinstance(render_object, Vertex):
 
-            canvas.draw.circle(self.center_to_relative(x, y), radius, draw_vertex.color)
+                x, y, radius = self.relative_vertex_pos(render_object)
+                canvas.draw.circle(self.center_to_relative(x, y), radius, render_object.color)
 
-        for edge in scene.edges.values():
-            start_x, start_y, _ = self.relative_vertex_pos(edge.start)
-            start_x, start_y = self.center_to_relative(start_x, start_y)
+            elif isinstance(render_object, Edge):
+                start_x, start_y, _ = self.relative_vertex_pos(render_object.start)
+                start_x, start_y = self.center_to_relative(start_x, start_y)
 
-            end_x,end_y,_ = self.relative_vertex_pos(edge.end)
-            end_x, end_y = self.center_to_relative(end_x,end_y)
+                end_x,end_y,_ = self.relative_vertex_pos(render_object.end)
+                end_x, end_y = self.center_to_relative(end_x,end_y)
 
-            canvas.draw.line((start_x,start_y,end_x,end_y),fill=edge.color,width=edge.thickness)
+                canvas.draw.line((start_x,start_y,end_x,end_y),fill=render_object.color,width=render_object.thickness)
+
+            elif isinstance(render_object, Face):
+                real_cords = []
+
+                for vertex in render_object.vertexes:
+                    real_cords.append(self.center_to_relative(*self.relative_vertex_pos(vertex)[0:2]))
+
+                print(real_cords)
+
+                canvas.draw.polygon(real_cords,render_object.color)
+
 
         canvas.show()
 

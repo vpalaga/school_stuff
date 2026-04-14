@@ -7,6 +7,8 @@ class Vertex:
         self.vertex_number = vert_num
         self.color = color
 
+        self.mid_point = xyz
+
         self.x = xyz[0]
         self.y = xyz[1]
         self.z = xyz[2]
@@ -65,7 +67,36 @@ class Edge:
         self.end = end
         self.edge_number = edge_number
 
+        self.mid_point = self.find_mid_point()
+
         self.thickness = thickness
         self.color = color
+
+    def find_mid_point(self)->tuple[float,float,float]:
+
+        x = (self.start.x + self.end.x) / 2
+        y = (self.start.y + self.end.y) / 2
+        z = (self.start.z + self.end.z) / 2
+
+        return x, y, z
+
     def __repr__(self):
         return f"{self.start=} {self.end=} {self.edge_number=}"
+
+class Face:
+    def __init__(self,vertexes:list[Vertex], color, face_number=None)->None:
+        self.vertexes = vertexes
+        self.color = color
+        self.face_number = face_number
+
+        self.mid_point = self.find_mid_point()
+
+    def find_mid_point(self)->tuple[float,float,float]:
+        edges = len(self.vertexes)
+
+        x = sum([vertex.x for vertex in self.vertexes]) / edges
+        y = sum([vertex.y for vertex in self.vertexes]) / edges
+        z = sum([vertex.z for vertex in self.vertexes]) / edges
+
+        return x, y, z
+
