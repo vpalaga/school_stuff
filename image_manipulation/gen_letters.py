@@ -24,7 +24,7 @@ def make_img(letter:str):
     draw = ImageDraw.Draw(img)
 
     # 4) choose a font and size (you may need to install a TTF font file)
-    font_size = int(px_per_unit * 2.3)  # adjust so letter nearly fills height
+    font_size = int(px_per_unit * 3.5)  # adjust so letter nearly fills height
     font = ImageFont.truetype("consola.ttf", font_size)
 
     # 5) the letter to draw

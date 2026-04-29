@@ -1,24 +1,24 @@
+import turtle
+
 import cv2
-from image import avg_black_scale
+from clalc import avg_black_scale
 from pathlib import Path
-from typing import List
+from typing import Dict, List
 
 class Img:
     def __init__(self, path:str)->None:
         self.path = path
         self.name = self.path.split("/")[-1]
-        print(f"loading {self.name}")
+
+        self.char = chr(int(self.name.split(".")[0]))
 
         self.image = cv2.imread(self.path)
         self.h, self.w = self.image.shape[:2]
-        print(f"loading {self.name} | {self.w}:{self.h}")
-        self.crop_to(100, 200)
 
         self.black_scale = avg_black_scale(self.image, (0,0), (self.w,self.h))
-        print(self.black_scale)
 
     def __repr__(self):
-        return f"{self.name}"
+        return f"{self.name}={self.char}, b:{self.black_scale}"
 
     def crop_to(self, width:int, height:int)->None:
 
@@ -42,6 +42,7 @@ class Images:
     def __init__(self, in_dir:str)->None:
 
         self.images: List[Img] = []
+        self.img_brightens = {}
 
         directory = Path(in_dir)
 
@@ -53,8 +54,29 @@ class Images:
                 except ValueError:
                     continue
 
+        self.add_brightnesses()
+
+    def add_brightnesses(self)->None:
+        for img in self.images:
+            self.img_brightens[img.name] = img.black_scale
+
+        # sort by value
+
+        self.img_brightens  = dict(
+            sorted(self.img_brightens.items(), key=lambda i: i[1], reverse=False)
+        )
+
+    def find_best_image(self, b: tuple[int,int,int])->Img:
+        best_image = self.images[0]
+
+        for image in self.images[1:]:
+            if abs(image.black_scale[0] - b[0]) < abs(best_image.black_scale[0] - b[0]):
+                # better image found
+                best_image = image
+
+        return best_image
+
 if __name__ == "__main__":
     img = Images(r"source/ascii")
-
-    for file in img.images:
-        print(file)
+    print("looking for best match...")
+    print(img.find_best_image(b=(200, 0,0)))
