@@ -108,7 +108,4 @@ class Expersion:
             if isinstance(self.term[i], float) and self.is_a_variable(self.term[i+1]):
                 self.term.insert(i+1, "*")
 
-e1 = Expersion(term=[2, "x", "+", 2])
-e2 = Expersion(term="22.7x+1")
-print(e2)
-print(e2.term)
+print(Frac(200,3)-Frac(6, 1))

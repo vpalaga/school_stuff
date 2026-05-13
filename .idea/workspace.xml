@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="generate ascii characters and make class for them">
-      <change afterPath="$PROJECT_DIR$/image_manipulation/clalc.py" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="get it workin, but it doesnt look as good">
+      <change afterPath="$PROJECT_DIR$/tools/math/natural_d.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/gen_letters.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/gen_letters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/5inrow/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/5inrow/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/math/expresions.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/math/expresions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="117" />
+    <option name="cachedIndexableFilesCount" value="259" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -61,67 +60,68 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.Camera.executor": "Run",
-    "Python.Faces.executor": "Run",
-    "Python.Fire.executor": "Run",
-    "Python.Fire2.executor": "Run",
-    "Python.Fire3.executor": "Run",
-    "Python.Fire4.executor": "Run",
-    "Python.Fire5.executor": "Run",
-    "Python.Fire6.executor": "Run",
-    "Python.MouseDances1.executor": "Run",
-    "Python.MouseDances2.executor": "Run",
-    "Python.Object.executor": "Run",
-    "Python.bot.executor": "Run",
-    "Python.expresions.executor": "Run",
-    "Python.field_gen.executor": "Run",
-    "Python.gen_letters.executor": "Run",
-    "Python.grapher.executor": "Run",
-    "Python.image.executor": "Run",
-    "Python.loader.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.music.executor": "Run",
-    "Python.path_alg.executor": "Run",
-    "Python.ryders5.executor": "Run",
-    "Python.ryders6.executor": "Run",
-    "Python.sound_render.executor": "Run",
-    "Python.test (2).executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.trimurid_ryders1.executor": "Run",
-    "Python.trimurid_ryders2.executor": "Run",
-    "Python.trimurid_ryders3.executor": "Run",
-    "Python.trimurid_ryders4.executor": "Run",
-    "Python.visualise.executor": "Run",
-    "Python.wallSegments.executor": "Run",
-    "Python.wallSegments2.executor": "Run",
-    "Python.wallSegments3.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Camera.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Faces.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Object.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.expresions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.field_gen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gen_letters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.grapher.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image.executor&quot;: &quot;Run&quot;,
+    &quot;Python.loader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.music.executor&quot;: &quot;Run&quot;,
+    &quot;Python.natural_d.executor&quot;: &quot;Run&quot;,
+    &quot;Python.path_alg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sound_render.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.visualise.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments3.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/OneDrive/Documents/GitHub/school_stuff&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vit\school_stuff\olympiad\3" />
@@ -136,7 +136,7 @@
       <recent name="C:\Users\vit\school_stuff\olympiad\1" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -248,7 +248,10 @@
       <workItem from="1776934970005" duration="9729000" />
       <workItem from="1776956805825" duration="7449000" />
       <workItem from="1776964718738" duration="15051000" />
-      <workItem from="1777295814760" duration="12924000" />
+      <workItem from="1777295814760" duration="13762000" />
+      <workItem from="1778265424762" duration="5882000" />
+      <workItem from="1778416241505" duration="2848000" />
+      <workItem from="1778487148684" duration="2023000" />
     </task>
     <task id="LOCAL-00001" summary="add test">
       <option name="closed" value="true" />
@@ -338,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777476554777</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="get it workin, but it doesnt look as good">
+      <option name="closed" value="true" />
+      <created>1777482228866</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1777482228866</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +378,8 @@
     <MESSAGE value="do some random stuff here" />
     <MESSAGE value="start on image.py" />
     <MESSAGE value="generate ascii characters and make class for them" />
-    <option name="LAST_COMMIT_MESSAGE" value="generate ascii characters and make class for them" />
+    <MESSAGE value="get it workin, but it doesnt look as good" />
+    <option name="LAST_COMMIT_MESSAGE" value="get it workin, but it doesnt look as good" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -380,19 +392,20 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$Object.coverage" NAME="Object Coverage Results" MODIFIED="1776195469626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$grapher.coverage" NAME="grapher Coverage Results" MODIFIED="1775803927517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$image.coverage" NAME="image Coverage Results" MODIFIED="1777479887955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$music.coverage" NAME="music Coverage Results" MODIFIED="1776942620027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$gen_letters.coverage" NAME="gen_letters Coverage Results" MODIFIED="1777477949513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$sound_render.coverage" NAME="sound_render Coverage Results" MODIFIED="1776941954910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
-    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1777227482954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
-    <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1777227518642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
+    <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1778416641206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
+    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1778487662172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$field_gen.coverage" NAME="field_gen Coverage Results" MODIFIED="1776961963085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1777296832081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/school_stuff$Faces.coverage" NAME="Faces Coverage Results" MODIFIED="1775815515059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
+    <SUITE FILE_PATH="coverage/school_stuff$natural_d.coverage" NAME="natural_d Coverage Results" MODIFIED="1778495756792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$bot.coverage" NAME="bot Coverage Results" MODIFIED="1777016656969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
   </component>
 </project>

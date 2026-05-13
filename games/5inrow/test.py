@@ -1,5 +1,2 @@
-l = [str(n) for n in range(10)]
-print(l)
-
-l.insert(1, "hhe")
-print(l)
+for n in range(1, 5):
+    print(n)
