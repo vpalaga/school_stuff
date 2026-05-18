@@ -173,8 +173,7 @@ class Game:
         self.fpsClock.tick(self.fps)
 
     def handle_bomb(self):
-        if random.randint(0,10) < 5:
-            open_w()
+        sys.exit()
     
 if __name__ == "__main__":
     game = Game()
