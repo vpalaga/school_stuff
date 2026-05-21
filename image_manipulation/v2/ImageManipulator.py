@@ -6,19 +6,8 @@ from PIL import Image
 import functools
 from typing import Tuple, List, Callable, Any
 import os
-"""
 
-# 1. Bild aus einer Datei in eine Liste lesen
-img_list = mpimg.imread("./bilder/frosch.jpg")
-img = img_list.copy().astype(np.uint8)
-
-print(img[0][0]) # Was wird hier ausgegeben?
-
-# TODO: Schreibe ein Schleife, die über jedes Pixel iteriert und diese manipuliert.
-
-img2 = Image.fromarray(img)
-img2.save("./cx_out/filtered.jpg")
-"""
+from ImageCreator import ImageCreator
 
 class Manipulate:
     class Tools:
@@ -29,8 +18,18 @@ class Manipulate:
             """return average color 0-1"""
             return (sum(color)) / (len(color) * 255)
 
+        def __init__(self, width, height)->None:
+            self.width = width
+            self.height = height
+
+        def is_real_pos(self, x:int, y:int)->bool:
+            if 0<=x<self.width and 0<=y<self.height:
+                return True
+            return False
+
     DEFAULT_PATH = r"bilder/frosch.jpg"
-    def __init__(self, image_path=None)->None:
+    def __init__(self, image_path=None, image:None|np.ndarray=None)->None:
+
         # use frog if no path is specified...
         self.imagePath = image_path if isinstance(image_path, str) else self.DEFAULT_PATH
 
@@ -40,6 +39,9 @@ class Manipulate:
 
         self.image = mpimg.imread(self.imagePath).copy().astype(np.uint8)
 
+        if image is not None:
+            self.image = image
+
         # store manipulation history into a list (Image, manipulation method: str) as method name
         self.imageHistory: List[tuple[Image.Image, str]] = []
 
@@ -48,6 +50,8 @@ class Manipulate:
         print(f"width: {self.WIDTH}, height: {self.HEIGHT}")
         self.widthRange  = range(self.WIDTH)
         self.heightRange = range(self.HEIGHT)
+
+        self.tools = Manipulate.Tools(width=self.WIDTH, height=self.HEIGHT)
 
     @staticmethod
     def save_history(func: Callable[..., Any])->Callable[..., Any]:
@@ -66,9 +70,21 @@ class Manipulate:
         for img, manipulationMethod in self.imageHistory:
             print(f"{manipulationMethod}: IMG") # leave for now (find better way of showing multiple images at once)
 
+    def show(self):
+        title = "default" if len(self.imageHistory) == 0 else self.imageHistory[-1][1]
+        plt.title(title) # last manipulation name
+        plt.imshow(self.image)
+        plt.show()
+
     # Effects -------------------------------------------------------------
     @save_history
     def default(self) -> Image.Image:
+        return Image.fromarray(self.image)
+
+    # don't use as the constants won't get updated
+    @save_history
+    def _set_image(self, set_to: np.ndarray)->Image.Image:
+        self.image = set_to
         return Image.fromarray(self.image)
 
     @save_history
@@ -99,10 +115,29 @@ class Manipulate:
         self.image = new_image
         return Image.fromarray(new_image)
 
+    @save_history
+    def edge_detection_v1(self, radius:int)->Image.Image:
+        """draw red pixels into edges"""
+
+        def check_around(x:int, y:int)->bool:
+            for dy in range(0,radius+1):
+                for dx in range(0,radius+1):
+                    if dy == dx == 0:
+                        continue
+
+
+
+        for y in self.heightRange:
+            for x in self.widthRange:
+
+
+
+
 if __name__ == "__main__":
-    manip = Manipulate()
+    c = ImageCreator((100,100))
+    c.fill(255)
+    c.circle((50,50), 30, 0)
+    manip = Manipulate(image=c.export())
 
-    manip.binary(.2).show()
     manip.history()
-
-
+    manip.show()
