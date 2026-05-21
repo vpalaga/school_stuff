@@ -10,6 +10,7 @@ class ImageCreator:
         if isinstance(color, int):
             color = (color, color, color)
         self.canvas[:] = color
+
     def set_pixel(self, pixel:tuple[int,int], color:tuple[int,int,int]|int)->None:
         if isinstance(color, int):
             color = (color, color, color)
@@ -17,8 +18,10 @@ class ImageCreator:
         self.canvas[y, x] = color
 
     def checker_board(self)->None:
-        white = True
         for y in range(self.HEIGHT):
+            white = False
+            if y % 2 == 0:
+                white = True
             for x in range(self.WIDTH):
                 if white:
                     self.set_pixel((x, y), 200)
@@ -61,7 +64,7 @@ class ImageCreator:
         return self.canvas
 
 if __name__ == "__main__":
-    c = ImageCreator((101,101))
+    c = ImageCreator((100,100))
     c.checker_board()
     c.circle((50,50), 30, 0)
     c.show()

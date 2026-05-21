@@ -21,6 +21,14 @@ img2.save("./cx_out/filtered.jpg")
 """
 
 class Manipulate:
+    class Tools:
+        BLACK = 0,0,0
+        WHITE = 255,255,255
+        @staticmethod
+        def black_white(color: tuple[int,...])->float|int:
+            """return average color 0-1"""
+            return (sum(color)) / (len(color) * 255)
+
     DEFAULT_PATH = r"bilder/frosch.jpg"
     def __init__(self, image_path=None)->None:
         # use frog if no path is specified...
@@ -76,10 +84,25 @@ class Manipulate:
         self.image = new_image
         return Image.fromarray(new_image)
 
+    @save_history
+    def binary(self, t:float|int)->Image.Image:
+        """t: threshold"""
+        new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+
+        for y in self.heightRange:
+            for x in self.widthRange:
+                if Manipulate.Tools.black_white(self.image[y, x]) < t:
+                    new_image[y, x] = Manipulate.Tools.BLACK
+                else:
+                    new_image[y, x] = Manipulate.Tools.WHITE
+
+        self.image = new_image
+        return Image.fromarray(new_image)
+
 if __name__ == "__main__":
     manip = Manipulate()
 
-    manip.invert().show()
+    manip.binary(.2).show()
     manip.history()
 
 
