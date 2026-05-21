@@ -6,6 +6,7 @@ from PIL import Image
 import functools
 from typing import Tuple, List, Callable, Any
 import os
+from tqdm import tqdm
 
 from ImageCreator import ImageCreator
 
@@ -122,12 +123,16 @@ class Manipulate:
         return Image.fromarray(new_image)
 
     @save_history
-    def edge_detection_v1(self, threshold:float|int=.5, radius:int=1)->Image.Image:
-        """draw red pixels into edges"""
+    def edge_detection_v1(self, threshold:float|int=.2, radius:int=1, noise_min:float|int=2, noise_max:float|int=6)->Image.Image:
+        """draw red pixels into edges, noize n * radius ** 2 """
         edge_mask = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+
+        edge_noise_min = pow(radius, 2) * noise_min
+        edge_noise_max = pow(radius, 2) * noise_max
 
         def is_edge(_x:int, _y:int)->bool:
             originPixelValue: float|int = Manipulate.Tools.black_white(self.image[_y, _x])
+            edge_detected_count = 0
 
             for dy in range(-radius,radius+1):
                 for dx in range(-radius,radius+1):
@@ -143,14 +148,21 @@ class Manipulate:
 
                     # check if field is defined as different with a threshold
                     if not Manipulate.Tools.is_same(originPixelValue, pixelValue, threshold):
-                        return True
+                        # trigger positive return if is triggered multiple times
+                        edge_detected_count += 1
 
+            if edge_noise_min < edge_detected_count < edge_noise_max:
+                return True
             return False
+
+        bar = tqdm(total=self.HEIGHT * self.WIDTH)
 
         for y in self.heightRange:
             for x in self.widthRange:
                 if is_edge(x, y):
                     edge_mask[y, x] = Manipulate.Tools.RED
+
+            bar.update(self.WIDTH)
 
         return Image.fromarray(edge_mask)
 
@@ -158,10 +170,16 @@ if __name__ == "__main__":
     c = ImageCreator((100,100))
     c.fill(255)
     c.circle((50,50), 30, 0)
-    manip = Manipulate(image=c.export())
+    manip = Manipulate("bilder/tiger.jpg")
 
-    plt.imshow(manip.edge_detection_v1(threshold=.2))
+    t = .2
+    r = 1
+    nmn = 2
+    nmx = 5
+
+    plt.imshow(manip.edge_detection_v1(threshold=t, radius=r, noise_min=nmn, noise_max=nmx))
+    plt.title(f"t={t} r={r} n={nmn}:{nmx}")
     plt.show()
 
     manip.history()
-    manip.show()
+    #manip.show()
