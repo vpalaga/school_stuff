@@ -13,10 +13,16 @@ class Manipulate:
     class Tools:
         BLACK = 0,0,0
         WHITE = 255,255,255
+        RED = 255,0,0
         @staticmethod
         def black_white(color: tuple[int,...])->float|int:
             """return average color 0-1"""
             return (sum(color)) / (len(color) * 255)
+        @staticmethod
+        def is_same(p1: float|int, p2: float|int, threshold:float|int):
+            if abs(p1-p2) <= threshold:
+                return True
+            return False
 
         def __init__(self, width, height)->None:
             self.width = width
@@ -116,28 +122,46 @@ class Manipulate:
         return Image.fromarray(new_image)
 
     @save_history
-    def edge_detection_v1(self, radius:int)->Image.Image:
+    def edge_detection_v1(self, threshold:float|int=.5, radius:int=1)->Image.Image:
         """draw red pixels into edges"""
+        edge_mask = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
 
-        def check_around(x:int, y:int)->bool:
-            for dy in range(0,radius+1):
-                for dx in range(0,radius+1):
+        def is_edge(_x:int, _y:int)->bool:
+            originPixelValue: float|int = Manipulate.Tools.black_white(self.image[_y, _x])
+
+            for dy in range(-radius,radius+1):
+                for dx in range(-radius,radius+1):
                     if dy == dx == 0:
                         continue
+                    x = _x + dx
+                    y = _y + dy
 
+                    if not self.tools.is_real_pos(x, y):
+                        continue
 
+                    pixelValue = Manipulate.Tools.black_white(self.image[y, x])
+
+                    # check if field is defined as different with a threshold
+                    if not Manipulate.Tools.is_same(originPixelValue, pixelValue, threshold):
+                        return True
+
+            return False
 
         for y in self.heightRange:
             for x in self.widthRange:
+                if is_edge(x, y):
+                    edge_mask[y, x] = Manipulate.Tools.RED
 
-
-
+        return Image.fromarray(edge_mask)
 
 if __name__ == "__main__":
     c = ImageCreator((100,100))
     c.fill(255)
     c.circle((50,50), 30, 0)
     manip = Manipulate(image=c.export())
+
+    plt.imshow(manip.edge_detection_v1(threshold=.2))
+    plt.show()
 
     manip.history()
     manip.show()
