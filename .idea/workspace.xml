@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="classes example: classroom.py">
-      <change afterPath="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/v2/doc.md" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="start w v2">
+      <change afterPath="$PROJECT_DIR$/image_manipulation/v2/ImageCreator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="262" />
+    <option name="cachedIndexableFilesCount" value="265" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -46,6 +44,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000000001747" />
+      <entry key="MS500" value="1.0028084697907167" />
+      <entry key="S2" value="1.2302064243114221" />
+      <entry key="S5" value="1.5557487556321248" />
+      <entry key="S10" value="1.7526706862483246" />
+      <entry key="S30" value="2.310371967173309" />
+      <entry key="S60" value="3.7141987969387342" />
+      <entry key="M2" value="8.622316565762398" />
+      <entry key="M5" value="29.346597035222864" />
+      <entry key="M10" value="62.40884437174907" />
+      <entry key="M15" value="86.4022128265141" />
+      <entry key="M30" value="124.95267205075305" />
+      <entry key="H1" value="152.8180324127693" />
+      <entry key="H2" value="169.71323734874855" />
+      <entry key="H4" value="179.0354228736835" />
+      <entry key="D1" value="187.29259493611266" />
+      <entry key="W1" value="188.75491521542196" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="8.733350316467271E-76" />
+      <entry key="S2" value="1.7190765664707571E-19" />
+      <entry key="S5" value="3.119872113365737E-8" />
+      <entry key="S10" value="1.7778762213137162E-4" />
+      <entry key="S30" value="0.06853486892526568" />
+      <entry key="S60" value="0.4494074683756442" />
+      <entry key="M2" value="1.860085606445491" />
+      <entry key="M5" value="8.252439638776888" />
+      <entry key="M10" value="20.453532265980527" />
+      <entry key="M15" value="30.010241692316534" />
+      <entry key="M30" value="45.902773758651065" />
+      <entry key="H1" value="57.61947798258043" />
+      <entry key="H2" value="64.78254809849955" />
+      <entry key="H4" value="68.74963117755587" />
+      <entry key="D1" value="72.27103444456097" />
+      <entry key="W1" value="72.89534613150768" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.1788986493091893E-9" />
+      <entry key="MS500" value="0.018724420374259056" />
+      <entry key="S2" value="0.5778088834050109" />
+      <entry key="S5" value="1.208691796225695" />
+      <entry key="S10" value="1.5600579699898753" />
+      <entry key="S30" value="2.302200263679071" />
+      <entry key="S60" value="4.108509643954867" />
+      <entry key="M2" value="10.430080426067848" />
+      <entry key="M5" value="37.5445648121726" />
+      <entry key="M10" value="82.81016395349837" />
+      <entry key="M15" value="116.36555366178094" />
+      <entry key="M30" value="170.82221004197436" />
+      <entry key="H1" value="210.4173311693677" />
+      <entry key="H2" value="234.48461185306667" />
+      <entry key="H4" value="247.77916757160614" />
+      <entry key="D1" value="259.5626040012504" />
+      <entry key="W1" value="261.6501137426051" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -72,6 +129,7 @@
     "Python.Fire4.executor": "Run",
     "Python.Fire5.executor": "Run",
     "Python.Fire6.executor": "Run",
+    "Python.ImageCreator.executor": "Run",
     "Python.ImageManipulator.executor": "Run",
     "Python.MouseDances1.executor": "Run",
     "Python.MouseDances2.executor": "Run",
@@ -120,7 +178,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "editor.preferences.completion.inline",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -139,7 +197,33 @@
       <recent name="C:\Users\vit\school_stuff\olympiad\1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.image">
+  <component name="RunManager" selected="Python.ImageCreator">
+    <configuration name="ImageCreator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="school_stuff" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation/v2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_manipulation/v2/ImageCreator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="ImageManipulator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -210,32 +294,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/inf/classes/classroom.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="expresions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="school_stuff" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/math" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/math/expresions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -324,26 +382,27 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.ImageCreator" />
       <item itemvalue="Python.ImageManipulator" />
       <item itemvalue="Python.image" />
       <item itemvalue="Python.python @save_history" />
       <item itemvalue="Python.classroom" />
-      <item itemvalue="Python.expresions" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ImageCreator" />
         <item itemvalue="Python.image" />
         <item itemvalue="Python.python @save_history" />
         <item itemvalue="Python.ImageManipulator" />
         <item itemvalue="Python.classroom" />
-        <item itemvalue="Python.expresions" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152" />
+        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
       </set>
     </attachedChunks>
   </component>
@@ -370,7 +429,8 @@
       <workItem from="1778658220893" duration="3697000" />
       <workItem from="1779086370109" duration="5672000" />
       <workItem from="1779284106922" duration="2023000" />
-      <workItem from="1779362815810" duration="5299000" />
+      <workItem from="1779362815810" duration="5845000" />
+      <workItem from="1779375240956" duration="2237000" />
     </task>
     <task id="LOCAL-00001" summary="add test">
       <option name="closed" value="true" />
@@ -484,7 +544,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779114546916</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="start w v2">
+      <option name="closed" value="true" />
+      <created>1779368512112</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1779368512112</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +584,8 @@
     <MESSAGE value="get it workin, but it doesnt look as good" />
     <MESSAGE value="some random shit" />
     <MESSAGE value="classes example: classroom.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="classes example: classroom.py" />
+    <MESSAGE value="start w v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="start w v2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -529,8 +598,8 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$ImageManipulator.coverage" NAME="ImageManipulator Coverage Results" MODIFIED="1779367562215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
     <SUITE FILE_PATH="coverage/school_stuff$classroom.coverage" NAME="classroom Coverage Results" MODIFIED="1779110927475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf/classes" />
     <SUITE FILE_PATH="coverage/school_stuff$Object.coverage" NAME="Object Coverage Results" MODIFIED="1776195469626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
@@ -547,5 +616,6 @@
     <SUITE FILE_PATH="coverage/school_stuff$Faces.coverage" NAME="Faces Coverage Results" MODIFIED="1775815515059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$natural_d.coverage" NAME="natural_d Coverage Results" MODIFIED="1778495756792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$bot.coverage" NAME="bot Coverage Results" MODIFIED="1777016656969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
+    <SUITE FILE_PATH="coverage/school_stuff$ImageCreator.coverage" NAME="ImageCreator Coverage Results" MODIFIED="1779377404194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
   </component>
 </project>
