@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="some random shit">
-      <change afterPath="$PROJECT_DIR$/tools/inf/classes/classroom.py" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="classes example: classroom.py">
+      <change afterPath="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_manipulation/v2/doc.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/minesweeper/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/minesweeper/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/inf/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/inf/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_manipulation/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/image.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="261" />
+    <option name="cachedIndexableFilesCount" value="262" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -72,6 +72,7 @@
     "Python.Fire4.executor": "Run",
     "Python.Fire5.executor": "Run",
     "Python.Fire6.executor": "Run",
+    "Python.ImageManipulator.executor": "Run",
     "Python.MouseDances1.executor": "Run",
     "Python.MouseDances2.executor": "Run",
     "Python.Object.executor": "Run",
@@ -87,6 +88,7 @@
     "Python.music.executor": "Run",
     "Python.natural_d.executor": "Run",
     "Python.path_alg.executor": "Run",
+    "Python.python @save_history.executor": "Run",
     "Python.ryders5.executor": "Run",
     "Python.ryders6.executor": "Run",
     "Python.sound_render.executor": "Run",
@@ -137,7 +139,33 @@
       <recent name="C:\Users\vit\school_stuff\olympiad\1" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.image">
+    <configuration name="ImageManipulator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="school_stuff" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation/v2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -216,6 +244,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="image" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="school_stuff" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_manipulation/image.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -242,13 +296,45 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="python @save_history" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="school_stuff" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation/v2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="@save_history" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.ImageManipulator" />
+      <item itemvalue="Python.image" />
+      <item itemvalue="Python.python @save_history" />
       <item itemvalue="Python.classroom" />
       <item itemvalue="Python.expresions" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.image" />
+        <item itemvalue="Python.python @save_history" />
+        <item itemvalue="Python.ImageManipulator" />
         <item itemvalue="Python.classroom" />
         <item itemvalue="Python.expresions" />
       </list>
@@ -282,7 +368,9 @@
       <workItem from="1778416241505" duration="2848000" />
       <workItem from="1778487148684" duration="2023000" />
       <workItem from="1778658220893" duration="3697000" />
-      <workItem from="1779086370109" duration="4152000" />
+      <workItem from="1779086370109" duration="5672000" />
+      <workItem from="1779284106922" duration="2023000" />
+      <workItem from="1779362815810" duration="5299000" />
     </task>
     <task id="LOCAL-00001" summary="add test">
       <option name="closed" value="true" />
@@ -388,7 +476,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778658282611</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="classes example: classroom.py">
+      <option name="closed" value="true" />
+      <created>1779114546916</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1779114546916</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +515,8 @@
     <MESSAGE value="generate ascii characters and make class for them" />
     <MESSAGE value="get it workin, but it doesnt look as good" />
     <MESSAGE value="some random shit" />
-    <option name="LAST_COMMIT_MESSAGE" value="some random shit" />
+    <MESSAGE value="classes example: classroom.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="classes example: classroom.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -432,14 +529,16 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
+    <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$ImageManipulator.coverage" NAME="ImageManipulator Coverage Results" MODIFIED="1779367562215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
     <SUITE FILE_PATH="coverage/school_stuff$classroom.coverage" NAME="classroom Coverage Results" MODIFIED="1779110927475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf/classes" />
     <SUITE FILE_PATH="coverage/school_stuff$Object.coverage" NAME="Object Coverage Results" MODIFIED="1776195469626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$grapher.coverage" NAME="grapher Coverage Results" MODIFIED="1775803927517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
-    <SUITE FILE_PATH="coverage/school_stuff$image.coverage" NAME="image Coverage Results" MODIFIED="1777479887955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$image.coverage" NAME="image Coverage Results" MODIFIED="1779367824183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$music.coverage" NAME="music Coverage Results" MODIFIED="1776942620027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$gen_letters.coverage" NAME="gen_letters Coverage Results" MODIFIED="1777477949513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$python__save_history.coverage" NAME="python @save_history Coverage Results" MODIFIED="1779367165340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
     <SUITE FILE_PATH="coverage/school_stuff$sound_render.coverage" NAME="sound_render Coverage Results" MODIFIED="1776941954910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1778416641206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1778658749305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />

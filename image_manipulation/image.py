@@ -8,7 +8,7 @@ class Feed:
     def __init__(self):
 
         self.blocks_width = 100
-        self.shift = 0
+        self.shift = -50
 
         self.desired_darkness = 50
 
