@@ -47,6 +47,15 @@ class ImageCreator:
             for y, x in bh(s, dy):
                 self.set_pixel((start[0] + x, start[1] + y), 0)
 
+    def circle(self, origin:tuple[int,int],radius:int, color:tuple[int,int,int]|int)->None:
+        if isinstance(color, int):
+            color = (color, color, color)
+
+        # use Pythagorean method of checking
+        for dy in range(-radius, radius + 1):
+            for dx in range(-radius, radius + 1):
+                if dx**2 + dy**2 <= radius**2:
+                    self.set_pixel((origin[0] + dx, origin[1] + dy), color)
 
     def export(self):
         return self.canvas
@@ -54,5 +63,5 @@ class ImageCreator:
 if __name__ == "__main__":
     c = ImageCreator((101,101))
     c.checker_board()
-    c.line((0,0),(50,78))
+    c.circle((50,50), 30, 0)
     c.show()
