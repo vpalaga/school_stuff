@@ -4,11 +4,10 @@ import matplotlib.image as mpimg
 from PIL import Image
 
 import functools
-from typing import Tuple, List, Callable, Any
+from typing import List, Callable, Any
 import os
 from tqdm import tqdm
 
-import main
 from ImageCreator import ImageCreator
 
 class Manipulate:
@@ -194,7 +193,7 @@ class Manipulate:
 
         for y in self.heightRange:
             for x in self.widthRange:
-                bluredImageArray[y, x] = avg_color(y, x)
+                bluredImageArray[y, x] = avg_color(x, y)
             bar.update(self.WIDTH)
 
         return bluredImageArray
@@ -203,7 +202,7 @@ if __name__ == "__main__":
     c = ImageCreator((100,100))
     c.fill(255)
     c.circle((50,50), 30, 0)
-    manip = Manipulate(image=c.export())
+    manip = Manipulate()
 
     t = .2
     r = 1
