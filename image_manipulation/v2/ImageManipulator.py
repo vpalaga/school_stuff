@@ -8,6 +8,7 @@ from typing import Tuple, List, Callable, Any
 import os
 from tqdm import tqdm
 
+import main
 from ImageCreator import ImageCreator
 
 class Manipulate:
@@ -17,8 +18,7 @@ class Manipulate:
         RED = 255,0,0
         @staticmethod
         def black_white(color: tuple[int,...])->float|int:
-            """return average color 0-1"""
-            return (sum(color)) / (len(color) * 255)
+            return np.sum(color, dtype=np.float64) / len(color)
         @staticmethod
         def is_same(p1: float|int, p2: float|int, threshold:float|int):
             if abs(p1-p2) <= threshold:
@@ -108,7 +108,7 @@ class Manipulate:
         return Image.fromarray(new_image)
 
     @save_history
-    def binary(self, t:float|int)->Image.Image:
+    def binary(self, t:float|int)->np.ndarray:
         """t: threshold"""
         new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
 
@@ -119,19 +119,21 @@ class Manipulate:
                 else:
                     new_image[y, x] = Manipulate.Tools.WHITE
 
-        self.image = new_image
-        return Image.fromarray(new_image)
+        #self.image = new_image
+        return new_image
 
     @save_history
-    def edge_detection_v1(self, threshold:float|int=.2, radius:int=1, noise_min:float|int=2, noise_max:float|int=6)->Image.Image:
+    def edge_detection_v1(self, threshold:float|int=.2, radius:int=1, noise_min:float|int=2, noise_max:float|int=6)->np.ndarray:
         """draw red pixels into edges, noize n * radius ** 2 """
         edge_mask = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+
+        sourceImageArray = self.binary(0.3)
 
         edge_noise_min = pow(radius, 2) * noise_min
         edge_noise_max = pow(radius, 2) * noise_max
 
         def is_edge(_x:int, _y:int)->bool:
-            originPixelValue: float|int = Manipulate.Tools.black_white(self.image[_y, _x])
+            originPixelValue: float|int = Manipulate.Tools.black_white(sourceImageArray[_y, _x])
             edge_detected_count = 0
 
             for dy in range(-radius,radius+1):
@@ -144,7 +146,7 @@ class Manipulate:
                     if not self.tools.is_real_pos(x, y):
                         continue
 
-                    pixelValue = Manipulate.Tools.black_white(self.image[y, x])
+                    pixelValue = Manipulate.Tools.black_white(sourceImageArray[y, x])
 
                     # check if field is defined as different with a threshold
                     if not Manipulate.Tools.is_same(originPixelValue, pixelValue, threshold):
@@ -164,21 +166,55 @@ class Manipulate:
 
             bar.update(self.WIDTH)
 
-        return Image.fromarray(edge_mask)
+        return edge_mask
+    @save_history
+    def blur(self, radius:int=3)->np.ndarray:
+        bluredImageArray = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+
+        def avg_color(_x:int, _y:int)->tuple[int,int,int]:
+            """return avg color of sector round xy (black and white)"""
+            color = 0
+            fields = ((radius*2)**2)
+            for dy in range(-radius,radius+1):
+                for dx in range(-radius,radius+1):
+                    if dy == dx == 0:
+                        continue
+                    x = _x + dx
+                    y = _y + dy
+                    if not self.tools.is_real_pos(x, y):
+                        continue
+
+                    color += self.tools.black_white(self.image[y, x])
+
+            avgColor = round(color / ((radius*2 + 1)**2))
+            return avgColor, avgColor, avgColor
+
+        print("blur-ing...")
+        bar = tqdm(total=self.HEIGHT * self.WIDTH)
+
+        for y in self.heightRange:
+            for x in self.widthRange:
+                bluredImageArray[y, x] = avg_color(y, x)
+            bar.update(self.WIDTH)
+
+        return bluredImageArray
 
 if __name__ == "__main__":
     c = ImageCreator((100,100))
     c.fill(255)
     c.circle((50,50), 30, 0)
-    manip = Manipulate("bilder/tiger.jpg")
+    manip = Manipulate(image=c.export())
 
     t = .2
     r = 1
     nmn = 2
-    nmx = 5
+    nmx = 6
 
-    plt.imshow(manip.edge_detection_v1(threshold=t, radius=r, noise_min=nmn, noise_max=nmx))
-    plt.title(f"t={t} r={r} n={nmn}:{nmx}")
+    #v1_array = manip.edge_detection_v1(threshold=t, radius=r, noise_min=nmn, noise_max=nmx)
+    plt.imshow(c.export())
+    plt.show()
+    plt.imshow(manip.blur())
+    #plt.title(f"t={t} r={r} n={nmn}:{nmx}")
     plt.show()
 
     manip.history()
