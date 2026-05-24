@@ -6,12 +6,21 @@ class ImageCreator:
         self.WIDTH, self.HEIGHT = size
         self.canvas = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
 
+    def _check_pos(self, x:int, y:int)->bool:
+        if 0 <= x < self.WIDTH and 0 <= y < self.HEIGHT:
+            return True
+        return False
+
     def fill(self, color:int|tuple[int,int,int]=0)->None:
         if isinstance(color, int):
             color = (color, color, color)
         self.canvas[:] = color
 
     def set_pixel(self, pixel:tuple[int,int], color:tuple[int,int,int]|int)->None:
+
+        if not self._check_pos(*pixel):
+            return
+
         if isinstance(color, int):
             color = (color, color, color)
         x, y = pixel

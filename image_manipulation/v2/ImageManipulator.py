@@ -1,11 +1,15 @@
+from importlib import import_module
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
+from scipy.ndimage import gaussian_filter1d
 
 import functools
-from typing import List, Callable, Any
+from typing import List, Callable, Any, Dict, SupportsIndex
 import os
+
 from tqdm import tqdm
 
 from ImageCreator import ImageCreator
@@ -15,6 +19,19 @@ class Manipulate:
         BLACK = 0,0,0
         WHITE = 255,255,255
         RED = 255,0,0
+
+        colors = {
+            0: (255, 0, 0),  # red
+            1: (0, 255, 0),  # green
+            2: (0, 0, 255),  # blue
+            3: (255, 255, 0),  # yellow
+            4: (0, 255, 255),  # cyan
+            5: (255, 0, 255),  # magenta
+            6: (128, 128, 128),  # gray
+            7: (255, 165, 0),  # orange
+            8: (128, 0, 128),  # purple
+        }
+
         @staticmethod
         def black_white(color: tuple[int,...])->float|int:
             return np.sum(color, dtype=np.float64) / len(color)
@@ -51,6 +68,9 @@ class Manipulate:
         # store manipulation history into a list (Image, manipulation method: str) as method name
         self.imageHistory: List[tuple[Image.Image, str]] = []
 
+        self.colorAnalyse: Dict[int, int] = {n:0 for n in range(256)}
+        self.colorPeaks: List[int] = []
+        self.y_smooth = []
         # image constants:
         self.HEIGHT, self.WIDTH = self.image.shape[:2]
         print(f"width: {self.WIDTH}, height: {self.HEIGHT}")
@@ -89,10 +109,95 @@ class Manipulate:
 
     # don't use as the constants won't get updated
     @save_history
-    def _set_image(self, set_to: np.ndarray)->Image.Image:
+    def set_image(self, set_to: np.ndarray)->Image.Image:
         self.image = set_to
         return Image.fromarray(self.image)
 
+    def analyseColors(self)->None:
+        for y in self.heightRange:
+            for x in self.widthRange:
+                try:
+
+                    self.colorAnalyse[self.image[y, x][0]] += 1
+                except KeyError: print("E: unknown color")
+
+    def findColorPeaks(self) -> None:
+        import numpy as np
+        from scipy.ndimage import gaussian_filter1d
+
+        x = np.array(sorted(self.colorAnalyse.keys()))
+        y = np.array([self.colorAnalyse[i] for i in x])
+
+        # smooth
+        self.y_smooth = gaussian_filter1d(y, sigma=8)
+
+        # --- 1. cumulative integral (trapezoidal rule) ---
+        # dx = 1 since x is 0..255
+        cumulative = np.cumsum((self.y_smooth[:-1] + self.y_smooth[1:]) / 2)
+
+        # prepend 0 so it aligns with x
+        cumulative = np.insert(cumulative, 0, 0)
+
+        total_area = cumulative[-1]
+
+        # --- 2. choose number of segments ---
+        n = 4 # or whatever you want
+        target_areas = np.linspace(0, total_area, n)
+
+        # --- 3. find x positions where cumulative area hits targets ---
+        points = np.interp(target_areas, cumulative, x)
+
+        # round to integers
+        points = np.rint(points).astype(int)
+
+        self.colorPeaks = points.tolist()
+
+    def showColors(self, colors:list[int])->np.ndarray:
+        new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+        for y in self.heightRange:
+            for x in self.widthRange:
+                color = self.image[y, x][0]
+                if color in colors:
+                    new_image[y, x] = self.tools.colors[self.colorPeaks.index(color)]
+        return new_image
+    def plotColorAnalyse(self):
+        x = list(self.colorAnalyse.keys())
+        y = list(self.colorAnalyse.values())
+
+        plt.plot(x, y)
+        plt.plot(x, self.y_smooth, label="smoothed", )
+        plt.scatter(self.colorPeaks, [self.y_smooth[c] for c in self.colorPeaks],color='red', s=20)
+
+        plt.xlabel("color")
+        plt.ylabel("appearances")
+        plt.title("color analyse")
+        plt.show()
+    def _closestPeak(self, color:int)->int:
+        """return index of the closest peak"""
+        lastDiff = None
+        i = 0
+        while i < len(self.colorPeaks):
+            colorDiff = abs(int(self.colorPeaks[i]) - int(color))
+            if lastDiff is not None:
+                if colorDiff < lastDiff:
+                    lastDiff = colorDiff
+                else:
+                    print(i-1)
+                    return i - 1
+            else:
+                lastDiff = colorDiff
+            i += 1
+        return i - 1
+    def groupToPeaks(self)->np.ndarray:
+        new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+        for y in self.heightRange:
+            for x in self.widthRange:
+                filedVal = self.image[y, x]
+                peakIndex = self._closestPeak(filedVal[0])
+                peakColor = self.colorPeaks[peakIndex]
+                new_image[y, x] = (peakColor, peakColor, peakColor)
+
+        return new_image
     @save_history
     def invert(self)-> Image.Image:
         new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
@@ -105,6 +210,13 @@ class Manipulate:
         # update image
         self.image = new_image
         return Image.fromarray(new_image)
+    def black_white(self)->np.ndarray:
+        new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+
+        for y in self.heightRange:
+            for x in self.widthRange:
+                new_image[y, x] = self.tools.black_white(self.image[y, x])
+        return new_image
 
     @save_history
     def binary(self, t:float|int)->np.ndarray:
@@ -166,6 +278,44 @@ class Manipulate:
             bar.update(self.WIDTH)
 
         return edge_mask
+
+    def _fixEdgesAfterBlur(self, image: np.ndarray, radius: int) -> np.ndarray:
+        # left edge
+        for y in range(radius, self.HEIGHT - radius):
+            for x in range(radius):
+                image[y, x] = image[y, radius]
+
+        # right edge
+        for y in range(radius, self.HEIGHT - radius):
+            for x in range(self.WIDTH - radius, self.WIDTH):
+                image[y, x] = image[y, self.WIDTH - radius - 1]
+
+        # top edge
+        for y in range(radius):
+            for x in range(self.WIDTH):
+                image[y, x] = image[radius, x]
+
+        # bottom edge
+        for y in range(self.HEIGHT - radius, self.HEIGHT):
+            for x in range(self.WIDTH):
+                image[y, x] = image[self.HEIGHT - radius - 1, x]
+
+        # corners (optional but recommended)
+        for y in range(radius):
+            for x in range(radius):
+                image[y, x] = image[radius, radius]  # top-left
+
+            for x in range(self.WIDTH - radius, self.WIDTH):
+                image[y, x] = image[radius, self.WIDTH - radius - 1]  # top-right
+
+        for y in range(self.HEIGHT - radius, self.HEIGHT):
+            for x in range(radius):
+                image[y, x] = image[self.HEIGHT - radius - 1, radius]  # bottom-left
+
+            for x in range(self.WIDTH - radius, self.WIDTH):
+                image[y, x] = image[self.HEIGHT - radius - 1, self.WIDTH - radius - 1]  # bottom-right
+
+        return image
     @save_history
     def blur(self, radius:int=3)->np.ndarray:
         bluredImageArray = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
@@ -196,25 +346,33 @@ class Manipulate:
                 bluredImageArray[y, x] = avg_color(x, y)
             bar.update(self.WIDTH)
 
-        return bluredImageArray
+
+        return self._fixEdgesAfterBlur(bluredImageArray, radius)
 
 if __name__ == "__main__":
     c = ImageCreator((100,100))
     c.fill(255)
-    c.circle((50,50), 30, 0)
-    manip = Manipulate()
+    c.circle((50,50), 30, 150)
+    c.circle((25, 25), 15, 200)
+    c.circle((75,75), 40, 40)
+    manip = Manipulate("bilder/6a1336e5a51ae_download.jpg")
 
-    t = .2
-    r = 1
-    nmn = 2
-    nmx = 6
-
-    #v1_array = manip.edge_detection_v1(threshold=t, radius=r, noise_min=nmn, noise_max=nmx)
-    plt.imshow(c.export())
-    plt.show()
-    plt.imshow(manip.blur())
-    #plt.title(f"t={t} r={r} n={nmn}:{nmx}")
+    plt.imshow(manip.image)
     plt.show()
 
-    manip.history()
-    #manip.show()
+    manip.set_image(manip.black_white())
+    manip.set_image(manip.blur())
+    manip.analyseColors()
+    manip.findColorPeaks()
+    manip.set_image(manip.groupToPeaks())
+
+    manip.plotColorAnalyse()
+
+    plt.imshow(manip.image)
+    plt.show()
+
+    #plt.imshow(manip.showColors(manip.colorPeaks))
+    plt.show()
+
+    print(manip.colorPeaks)
+
