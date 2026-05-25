@@ -124,11 +124,15 @@ class Manipulate:
         return Image.fromarray(self.image)
 
     def _analyseColor(self, colorChanel:Literal[0, 1, 2])->None:
+        print("analysing color Ch:" + str(colorChanel))
+        bar = tqdm(total=self.HEIGHT * self.WIDTH)
         for y in self.heightRange:
             for x in self.widthRange:
                 try:
                     self.colorAnalyse[colorChanel][self.image[y, x][colorChanel]] += 1
                 except KeyError: print("E: unknown color")
+            bar.update(self.WIDTH)
+
     def analyseColors(self)->None:
         self._analyseColor(0) # red
         self._analyseColor(1) # green
@@ -232,12 +236,17 @@ class Manipulate:
         return i - 1
     def groupToPeaks(self)->np.ndarray:
         new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
+
+        print("grouping...")
+        bar = tqdm(total=self.HEIGHT * self.WIDTH)
+
+
         for y in self.heightRange:
             for x in self.widthRange:
                 filedVal:tuple[int,int,int] = self.image[y, x]
                 peakIndex = self._closestPeak(filedVal)
                 new_image[y, x] = self.colorPeaks[peakIndex]
-
+            bar.update(self.WIDTH)
         return new_image
     @save_history
     def invert(self)-> Image.Image:
@@ -339,8 +348,6 @@ class Manipulate:
                     if not self.tools.is_real_pos(x, y):
                         continue
 
-
-
                     fieldColor = self.image[y, x]
                     if self.tools.colorDifference(fieldColor , originField) > 0:
 
@@ -355,11 +362,15 @@ class Manipulate:
 
             return is_edge
 
+        print("edging...")
+        bar = tqdm(total=self.HEIGHT * self.WIDTH)
+
         for ax in self.widthRange:
             for ay in self.heightRange:
                 if isEdge(ax, ay):
                     edges.append((ax, ay))
                     edge_mask[ay, ax] = self.tools.RED
+            bar.update(self.WIDTH)
 
         return edge_mask
 
@@ -448,7 +459,7 @@ if __name__ == "__main__":
     c.circle((50,50), 30, 150)
     c.circle((25, 25), 15, 200)
     c.circle((75,75), 40, 40)
-    manip = Manipulate("bilder/6a1336e5a51ae_download.jpg")
+    manip = Manipulate(image=np.load("bilder/bluredFrosch.npy"))
 
     plt.imshow(manip.image)
     plt.show()
@@ -457,9 +468,12 @@ if __name__ == "__main__":
     plt.show()
 
     #manip.set_image(manip.black_white())
-    manip.set_image(manip.blur(radius=2))
+    #manip.set_image(manip.blur(radius=4))
+
+    #np.save("bilder/bluredFrosch.npy", manip.image)
+
     manip.analyseColors()
-    manip.findColorPeaks(n=3)
+    manip.findColorPeaks(n=5)
     manip.set_image(manip.groupToPeaks())
 
     plt.imshow(manip.edge_detection_v2())
