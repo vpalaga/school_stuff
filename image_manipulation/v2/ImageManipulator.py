@@ -349,7 +349,10 @@ class Manipulate:
                         if (x, y) in edges:
                             return False
 
-                        is_edge = True
+                        # in is darker
+                        if self.tools.black_white(fieldColor) < self.tools.black_white(originField):
+                            is_edge = True
+
             return is_edge
 
         for ax in self.widthRange:
