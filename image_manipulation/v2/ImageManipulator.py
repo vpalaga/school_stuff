@@ -1,6 +1,5 @@
-from importlib import import_module
-
 import numpy as np
+from PIL.ImageFont import Layout
 from numpy import ndarray
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -8,7 +7,7 @@ from PIL import Image
 from scipy.ndimage import gaussian_filter1d
 
 import functools
-from typing import List, Callable, Any, Dict, Literal, cast
+from typing import List, Callable, Any, Literal
 
 import os
 
@@ -42,6 +41,13 @@ class Manipulate:
             if abs(p1-p2) <= threshold:
                 return True
             return False
+        @staticmethod
+        def isSameRBG(p1:tuple[int,int,int], p2:tuple[int,int,int])->bool:
+            for ch in range(3):
+                if p1[ch] != p2[ch]:
+                    return False
+            return True
+
 
         def __init__(self, width, height)->None:
             self.width = width
@@ -100,28 +106,37 @@ class Manipulate:
 
         return wrapper
 
-    def history(self):
-        """show the contents of Manipulate.imageHistory: image, manipulation method"""
-        print("__History__:")
-        for img, manipulationMethod in self.imageHistory:
-            print(f"{manipulationMethod}: IMG") # leave for now (find better way of showing multiple images at once)
 
     def show(self):
         title = "default" if len(self.imageHistory) == 0 else self.imageHistory[-1][1]
         plt.title(title) # last manipulation name
         plt.imshow(self.image)
         plt.show()
+    def printImage(self):
 
-    # Effects -------------------------------------------------------------
-    @save_history
-    def default(self) -> Image.Image:
-        return Image.fromarray(self.image)
+        for y in self.heightRange:
+            line = ""
+            for x in self.widthRange:
+                field = self.image[y,x]
+                if not self.tools.isSameRBG(field, self.tools.RED):
+                    line += "[ ]"
+                else:
+                    line += "[█]"
+            print(line)
 
-    # don't use as the constants won't get updated
-    @save_history
-    def set_image(self, set_to: np.ndarray)->Image.Image:
+    def update_image(self, set_to: np.ndarray)->None:
         self.image = set_to
-        return Image.fromarray(self.image)
+    def layoverArray(self, layover: ndarray)->ndarray:
+        newImg = self.image.copy()
+
+        for y in self.heightRange:
+            for x in self.widthRange:
+                layField = layover[y, x]
+                if self.tools.isSameRBG(layField, self.tools.RED):
+                    newImg[y, x] = layField
+        return newImg
+
+    # edge time -------------------------------------------------------------
 
     def _analyseColor(self, colorChanel:Literal[0, 1, 2])->None:
         print("analysing color Ch:" + str(colorChanel))
@@ -132,7 +147,6 @@ class Manipulate:
                     self.colorAnalyse[colorChanel][self.image[y, x][colorChanel]] += 1
                 except KeyError: print("E: unknown color")
             bar.update(self.WIDTH)
-
     def analyseColors(self)->None:
         self._analyseColor(0) # red
         self._analyseColor(1) # green
@@ -159,7 +173,7 @@ class Manipulate:
         # --- 2. choose number of segments ---
         target_areas = np.linspace(0, total_area, n)
 
-        # --- 3. find x positions where cumulative area hits targets ---
+        # --- 3. find x positions where the cumulative area hits targets ---
         points = np.interp(target_areas, cumulative, x)
 
         # round to integers
@@ -176,14 +190,6 @@ class Manipulate:
             rgb = (redPeaks[i], greenPeaks[i], bluePeaks[i])
             self.colorPeaks.append(rgb)
 
-    def showColors(self, colors:list[int])->np.ndarray:
-        new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
-        for y in self.heightRange:
-            for x in self.widthRange:
-                color = self.image[y, x][0]
-                if color in colors:
-                    new_image[y, x] = self.tools.colors[self.colorPeaks.index(color)]
-        return new_image
     def plotColorAnalyse(self, showRaw:bool=False):
         x = list(self.colorAnalyse[0].keys())
 
@@ -216,7 +222,6 @@ class Manipulate:
         plt.title("color analyse")
         plt.show()
 
-
     def _closestPeak(self, color:tuple[int,int,int])->int:
         """return index of the closest peak in sorted peaks"""
         lastDiff = None
@@ -248,27 +253,7 @@ class Manipulate:
                 new_image[y, x] = self.colorPeaks[peakIndex]
             bar.update(self.WIDTH)
         return new_image
-    @save_history
-    def invert(self)-> Image.Image:
-        new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
 
-        for y in self.heightRange:
-            for x in self.widthRange:
-                pixel = self.image[y, x]
-                new_image[y, x] = (255 - pixel[0], 255 - pixel[1], 255 - pixel[2])
-
-        # update image
-        self.image = new_image
-        return Image.fromarray(new_image)
-    def black_white(self)->np.ndarray:
-        new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
-
-        for y in self.heightRange:
-            for x in self.widthRange:
-                new_image[y, x] = self.tools.black_white(self.image[y, x])
-        return new_image
-
-    @save_history
     def binary(self, t:float|int)->np.ndarray:
         """t: threshold"""
         new_image = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
@@ -283,51 +268,6 @@ class Manipulate:
         #self.image = new_image
         return new_image
 
-    @save_history
-    def edge_detection_v1(self, threshold:float|int=.2, radius:int=1, noise_min:float|int=2, noise_max:float|int=6)->np.ndarray:
-        """draw red pixels into edges, noize n * radius ** 2 """
-        edge_mask = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
-
-        sourceImageArray = self.binary(0.3)
-
-        edge_noise_min = pow(radius, 2) * noise_min
-        edge_noise_max = pow(radius, 2) * noise_max
-
-        def is_edge(_x:int, _y:int)->bool:
-            originPixelValue: float|int = Manipulate.Tools.black_white(sourceImageArray[_y, _x])
-            edge_detected_count = 0
-
-            for dy in range(-radius,radius+1):
-                for dx in range(-radius,radius+1):
-                    if dy == dx == 0:
-                        continue
-                    x = _x + dx
-                    y = _y + dy
-
-                    if not self.tools.is_real_pos(x, y):
-                        continue
-
-                    pixelValue = Manipulate.Tools.black_white(sourceImageArray[y, x])
-
-                    # check if field is defined as different with a threshold
-                    if not Manipulate.Tools.is_same(originPixelValue, pixelValue, threshold):
-                        # trigger positive return if is triggered multiple times
-                        edge_detected_count += 1
-
-            if edge_noise_min < edge_detected_count < edge_noise_max:
-                return True
-            return False
-
-        bar = tqdm(total=self.HEIGHT * self.WIDTH)
-
-        for y in self.heightRange:
-            for x in self.widthRange:
-                if is_edge(x, y):
-                    edge_mask[y, x] = Manipulate.Tools.RED
-
-            bar.update(self.WIDTH)
-
-        return edge_mask
     def edge_detection_v2(self)->ndarray:
         edges: List[tuple[int,int]] = []
         edge_mask = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
@@ -374,6 +314,63 @@ class Manipulate:
 
         return edge_mask
 
+    def filterSmallEdges(self, src:ndarray, minPixels: int)->ndarray:
+        exploredPixels: List[tuple[int, int]] = []
+        def setPixelsBlack(pixels: list[tuple[int,int]])->None:
+            for _x, _y in pixels:
+                src[_y, _x] = self.tools.BLACK
+        def isEdge(_x:int, _y:int)->bool:
+            p = src[_y, _x]
+            for ch in range(3):
+                if p[ch] != self.tools.RED[ch]:
+                    return False
+            return True
+        def exploreEdge(_x:int, _y:int)->None:
+            if not isEdge(_x, _y):
+                return
+
+            edges: List[tuple[int,int]] = [(_x, _y)]
+            newEdges: List[tuple[int, int]] = [(_x, _y)]
+
+            while True:#
+                newEdgesNextRound: List[tuple[int, int]] = []
+                # search each known edge pixel for new edge pixels
+                for xPixel, yPixel in newEdges:
+                    for dy in range(-1, 2):
+                        for dx in range(-1, 2):
+                            if dy == dx == 0:
+                                continue
+                            x = dx + xPixel
+                            y = dy + yPixel
+
+                            if not self.tools.is_real_pos(x, y):
+                                continue
+
+                            # already found edge
+                            if (x, y) in edges:
+                                continue
+
+                            if isEdge(x, y):
+                                newEdgesNextRound.append((x, y))
+                                edges.append((x, y))
+
+                            # set pixel as explored
+                            exploredPixels.append((x, y))
+
+                # check if any new edges have been found
+                if len(newEdgesNextRound) == 0:
+                    break
+
+                newEdges = newEdgesNextRound
+            if len(edges) < minPixels:
+                setPixelsBlack(edges)
+
+        for y in self.heightRange:
+            for x in self.widthRange:
+                if (x, y) not in exploredPixels:
+                    exploreEdge(x, y)
+        return src
+
     def _fixEdgesAfterBlur(self, image: np.ndarray, radius: int) -> np.ndarray:
         # left edge
         for y in range(radius, self.HEIGHT - radius):
@@ -411,7 +408,6 @@ class Manipulate:
                 image[y, x] = image[self.HEIGHT - radius - 1, self.WIDTH - radius - 1]  # bottom-right
 
         return image
-    @save_history
     def blur(self, radius:int=3)->np.ndarray:
         blurredImageArray = np.zeros((self.HEIGHT, self.WIDTH, 3), dtype=np.uint8)
 
@@ -459,7 +455,8 @@ if __name__ == "__main__":
     c.circle((50,50), 30, 150)
     c.circle((25, 25), 15, 200)
     c.circle((75,75), 40, 40)
-    manip = Manipulate(image=np.load("bilder/bluredFrosch.npy"))
+    #manip = Manipulate(image=np.load("bilder/bluredFrosch.npy"))
+    manip = Manipulate("bilder/500by500.jpg")
 
     plt.imshow(manip.image)
     plt.show()
@@ -467,25 +464,25 @@ if __name__ == "__main__":
     #plt.imshow(manip.edge_detection_v1(threshold=.5))
     plt.show()
 
-    #manip.set_image(manip.black_white())
-    #manip.set_image(manip.blur(radius=4))
+    manip.update_image(manip.blur(radius=6))
 
     #np.save("bilder/bluredFrosch.npy", manip.image)
 
     manip.analyseColors()
-    manip.findColorPeaks(n=5)
-    manip.set_image(manip.groupToPeaks())
+    manip.findColorPeaks(n=6)
+    manip.update_image(manip.groupToPeaks())
+    manip.update_image(manip.filterSmallEdges(manip.edge_detection_v2(), minPixels=30))
 
-    plt.imshow(manip.edge_detection_v2())
+    plt.imshow(manip.image, interpolation='nearest')
+    plt.title("filtered")
+
     plt.show()
+
+    #manip.printImage()
 
     manip.plotColorAnalyse()
 
-    plt.imshow(manip.image)
-    plt.show()
-
     #plt.imshow(manip.showColors(manip.colorPeaks))
-    plt.show()
 
     print(manip.colorPeaks)
 

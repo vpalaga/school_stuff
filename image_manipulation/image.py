@@ -7,7 +7,7 @@ from clalc import avg_black_scale
 class Feed:
     def __init__(self):
 
-        self.blocks_width = 100
+        self.blocks_width = 30
         self.shift = -50
 
         self.desired_darkness = 50
