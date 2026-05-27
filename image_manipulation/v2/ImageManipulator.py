@@ -1,19 +1,14 @@
 import numpy as np
-from PIL.ImageFont import Layout
 from numpy import ndarray
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-from PIL import Image
 from scipy.ndimage import gaussian_filter1d
 
-import functools
-from typing import List, Callable, Any, Literal
+from typing import List, Literal
 
 import os
 
 from tqdm import tqdm
-
-from ImageCreator import ImageCreator
 
 class Manipulate:
     class Tools:
@@ -44,6 +39,7 @@ class Manipulate:
         @staticmethod
         def isSameRBG(p1:tuple[int,int,int], p2:tuple[int,int,int])->bool:
             for ch in range(3):
+                # compare each chanel
                 if p1[ch] != p2[ch]:
                     return False
             return True
@@ -80,8 +76,7 @@ class Manipulate:
         if image is not None:
             self.image = image
 
-        # store manipulation history into a list (Image, manipulation method: str) as method name
-        self.imageHistory: List[tuple[Image.Image, str]] = []
+        self.originalImage:ndarray = self.image
 
         # 3 color channels with 255 colors each
         self.colorAnalyse: tuple[dict[int, int], dict[int, int], dict[int, int]] = ({n:0 for n in range(256)}, {n:0 for n in range(256)}, {n:0 for n in range(256)})
@@ -95,25 +90,8 @@ class Manipulate:
 
         self.tools = Manipulate.Tools(width=self.WIDTH, height=self.HEIGHT)
 
-    @staticmethod
-    def save_history(func: Callable[..., Any])->Callable[..., Any]:
-        @functools.wraps(func)
-        def wrapper(self, *args, **kwargs):
-            # save current state after modification
-            result = func(self, *args, **kwargs)
-            self.imageHistory.append((self.image.copy(), func.__name__))
-            return result
-
-        return wrapper
-
-
-    def show(self):
-        title = "default" if len(self.imageHistory) == 0 else self.imageHistory[-1][1]
-        plt.title(title) # last manipulation name
-        plt.imshow(self.image)
-        plt.show()
     def printImage(self):
-
+        """prints the current image in the terminal"""
         for y in self.heightRange:
             line = ""
             for x in self.widthRange:
@@ -125,40 +103,43 @@ class Manipulate:
             print(line)
 
     def update_image(self, set_to: np.ndarray)->None:
+        """set self.image to ndarray"""
         self.image = set_to
-    def layoverArray(self, layover: ndarray)->ndarray:
+    def layoverArray(self, layover: ndarray, ignoreColor:tuple[int,int,int]=(255,0,0))->ndarray:
+        """overlays an image:ndarray over self.image"""
         newImg = self.image.copy()
 
         for y in self.heightRange:
             for x in self.widthRange:
                 layField = layover[y, x]
-                if self.tools.isSameRBG(layField, self.tools.RED):
+                if self.tools.isSameRBG(layField, ignoreColor):
                     newImg[y, x] = layField
         return newImg
 
     # edge time -------------------------------------------------------------
 
     def _analyseColor(self, colorChanel:Literal[0, 1, 2])->None:
+        """count color appearances in the image in the selected color chanel"""
         print("analysing color Ch:" + str(colorChanel))
-        bar = tqdm(total=self.HEIGHT * self.WIDTH)
         for y in self.heightRange:
             for x in self.widthRange:
                 try:
                     self.colorAnalyse[colorChanel][self.image[y, x][colorChanel]] += 1
                 except KeyError: print("E: unknown color")
-            bar.update(self.WIDTH)
     def analyseColors(self)->None:
         self._analyseColor(0) # red
         self._analyseColor(1) # green
         self._analyseColor(2) # blue
 
     def _findColorPeakOnChanel(self,Ch:Literal[0,1,2], n:int) -> list[int]:
+        """integrate the area under the selected color chanel and divide into n sectors
+        source: OpenAI: GPT"""
 
         x = np.array(sorted(self.colorAnalyse[Ch].keys()))
         y = np.array([self.colorAnalyse[Ch][i] for i in x])
 
         # smooth
-        y_smooth = gaussian_filter1d(y, sigma=8)
+        y_smooth = gaussian_filter1d(y, sigma=2)
         self.y_smooth[Ch] = y_smooth
 
         # --- 1. cumulative integral (trapezoidal rule) ---
@@ -181,12 +162,13 @@ class Manipulate:
 
         return points.tolist()
     def findColorPeaks(self, n:int)->None:
-        redPeaks   = self._findColorPeakOnChanel(0, n)
-        greenPeaks = self._findColorPeakOnChanel(1, n)
-        bluePeaks  = self._findColorPeakOnChanel(2, n)
+        redPeaks   = self._findColorPeakOnChanel(0, n + 2)
+        greenPeaks = self._findColorPeakOnChanel(1, n + 2)
+        bluePeaks  = self._findColorPeakOnChanel(2, n + 2)
 
         # combine individual color chanel peaks into color points
-        for i in range(n):
+        # leave out the very first and the very last peaks
+        for i in range(1,n+1):
             rgb = (redPeaks[i], greenPeaks[i], bluePeaks[i])
             self.colorPeaks.append(rgb)
 
@@ -450,28 +432,27 @@ class Manipulate:
         return self._fixEdgesAfterBlur(blurredImageArray, radius)
 
 if __name__ == "__main__":
-    c = ImageCreator((100,100))
-    c.fill(255)
-    c.circle((50,50), 30, 150)
-    c.circle((25, 25), 15, 200)
-    c.circle((75,75), 40, 40)
     #manip = Manipulate(image=np.load("bilder/bluredFrosch.npy"))
     manip = Manipulate("bilder/500by500.jpg")
+
+    manip.update_image(manip.blur(radius=2))
 
     plt.imshow(manip.image)
     plt.show()
 
-    #plt.imshow(manip.edge_detection_v1(threshold=.5))
     plt.show()
-
-    manip.update_image(manip.blur(radius=6))
-
     #np.save("bilder/bluredFrosch.npy", manip.image)
 
     manip.analyseColors()
-    manip.findColorPeaks(n=6)
+    manip.findColorPeaks(n=10)
     manip.update_image(manip.groupToPeaks())
-    manip.update_image(manip.filterSmallEdges(manip.edge_detection_v2(), minPixels=30))
+
+    plt.imshow(manip.image)
+    plt.show()
+
+    edges = manip.filterSmallEdges(manip.edge_detection_v2(), minPixels=30)
+    manip.update_image(manip.originalImage) # revert to org
+    manip.update_image(manip.layoverArray(edges))
 
     plt.imshow(manip.image, interpolation='nearest')
     plt.title("filtered")
@@ -481,8 +462,3 @@ if __name__ == "__main__":
     #manip.printImage()
 
     manip.plotColorAnalyse()
-
-    #plt.imshow(manip.showColors(manip.colorPeaks))
-
-    print(manip.colorPeaks)
-
