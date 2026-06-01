@@ -60,7 +60,6 @@ class Manipulate:
             for ch in range(3):
                 difference += abs(int(color1[ch]) - int(color2[ch]))
             return difference
-
     DEFAULT_PATH = r"bilder/frosch.jpg"
     def __init__(self, image_path=None, image:None|np.ndarray=None)->None:
 
@@ -139,7 +138,7 @@ class Manipulate:
         y = np.array([self.colorAnalyse[Ch][i] for i in x])
 
         # smooth
-        y_smooth = gaussian_filter1d(y, sigma=2)
+        y_smooth = gaussian_filter1d(y, sigma=5)
         self.y_smooth[Ch] = y_smooth
 
         # --- 1. cumulative integral (trapezoidal rule) ---
@@ -172,7 +171,7 @@ class Manipulate:
             rgb = (redPeaks[i], greenPeaks[i], bluePeaks[i])
             self.colorPeaks.append(rgb)
 
-    def plotColorAnalyse(self, showRaw:bool=False):
+    def plotColorAnalyse(self, showRaw:bool=False, showApx:bool=True, showPts:bool=True):
         x = list(self.colorAnalyse[0].keys())
 
         if showRaw:
@@ -184,20 +183,22 @@ class Manipulate:
             plt.plot(x, gRaw, color="green")
             plt.plot(x, bRaw, color="blue")
 
-        plt.plot(x, self.y_smooth[0],color="red", label="smoothed R")
-        plt.plot(x, self.y_smooth[1],color="green", label="smoothed G")
-        plt.plot(x, self.y_smooth[2],color="blue", label="smoothed B")
+        if showApx:
+            plt.plot(x, self.y_smooth[0],color="red", label="smoothed R")
+            plt.plot(x, self.y_smooth[1],color="green", label="smoothed G")
+            plt.plot(x, self.y_smooth[2],color="blue", label="smoothed B")
 
-        # plot colorPeaks
-        peaksSeparated: List[list[int]] = [[],[],[]]
-        for peak in self.colorPeaks:
-            peaksSeparated[0].append(peak[0])
-            peaksSeparated[1].append(peak[1])
-            peaksSeparated[2].append(peak[2])
+        if showPts:
+            # plot colorPeaks
+            peaksSeparated: List[list[int]] = [[],[],[]]
+            for peak in self.colorPeaks:
+                peaksSeparated[0].append(peak[0])
+                peaksSeparated[1].append(peak[1])
+                peaksSeparated[2].append(peak[2])
 
-        plt.scatter(peaksSeparated[0], [self.y_smooth[0][c] for c in peaksSeparated[0]],color='red', s=40)
-        plt.scatter(peaksSeparated[1], [self.y_smooth[1][c] for c in peaksSeparated[1]],color='green', s=40)
-        plt.scatter(peaksSeparated[2], [self.y_smooth[2][c] for c in peaksSeparated[2]],color='blue', s=40)
+            plt.scatter(peaksSeparated[0], [self.y_smooth[0][c] for c in peaksSeparated[0]],color='red', s=40)
+            plt.scatter(peaksSeparated[1], [self.y_smooth[1][c] for c in peaksSeparated[1]],color='green', s=40)
+            plt.scatter(peaksSeparated[2], [self.y_smooth[2][c] for c in peaksSeparated[2]],color='blue', s=40)
 
         plt.xlabel("color")
         plt.ylabel("appearances")
@@ -433,9 +434,9 @@ class Manipulate:
 
 if __name__ == "__main__":
     #manip = Manipulate(image=np.load("bilder/bluredFrosch.npy"))
-    manip = Manipulate("bilder/500by500.jpg")
+    manip = Manipulate("bilder/tiger.jpg")
 
-    manip.update_image(manip.blur(radius=2))
+    #manip.update_image(manip.blur(radius=2))
 
     plt.imshow(manip.image)
     plt.show()
@@ -444,7 +445,7 @@ if __name__ == "__main__":
     #np.save("bilder/bluredFrosch.npy", manip.image)
 
     manip.analyseColors()
-    manip.findColorPeaks(n=10)
+    manip.findColorPeaks(n=2)
     manip.update_image(manip.groupToPeaks())
 
     plt.imshow(manip.image)
@@ -461,4 +462,5 @@ if __name__ == "__main__":
 
     #manip.printImage()
 
-    manip.plotColorAnalyse()
+    manip.plotColorAnalyse(showRaw=False, showApx=True, showPts=True)
+    print(manip.colorPeaks)
