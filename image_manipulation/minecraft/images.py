@@ -8,7 +8,6 @@ from os.path import isfile, join
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import time
-from PIL import Image
 from tqdm import tqdm
 
 
@@ -18,7 +17,7 @@ class Timer:
     def stop(self, n:int=2)->float|int:
         return round(time.time() - self.startTime, ndigits=n)
 
-class Image:
+class ImageLoader:
     def __init__(self, name:str, number:int, imageData:ndarray, scaler:int=2)->None:
         self.name = name
         self.number = number
@@ -39,44 +38,36 @@ class Collection:
     def __init__(self, path:str, blockSize:int)->None:
         self.imageScaler = round(blockSize / 16) # round shouldn't be required
 
-        self.images: List[Image] = self._loadImages(path, self.imageScaler)
+        self.images: List[ImageLoader] = self._loadImages(path, self.imageScaler)
 
-    def __getitem__(self, item:int)->Image:
+    def __getitem__(self, item:int)->ImageLoader:
         return self.images[item]
     @staticmethod
-    def _loadImages(path:str, scale:int)->list[Image]:
+    def _loadImages(path:str, scale:int)->list[ImageLoader]:
 
         timer = Timer()
 
-        images: List[Image] = []
+        images: List[ImageLoader] = []
         for i, file in enumerate(listdir(path)):
             fullPath = join(path, file)
             if isfile(fullPath):
                 image = (mpimg.imread(fullPath) * 255).astype(np.uint8)
-                images.append(Image(name=file, number=i, imageData=image, scaler=scale))
+                images.append(ImageLoader(name=file, number=i, imageData=image, scaler=scale))
 
         print(f"loaded {len(images)} images in {timer.stop()}s")
         return images
 
     @staticmethod
-    def _imageDifference(image1:ndarray, image2:ndarray)->float|int:
-        """return pixel diff. / pixels"""
-        # check if both are same size
-        if not image1.shape[0] == image2.shape[0] and image1.shape[1] == image2.shape[2]:
-            print(image1.shape)
-            print(image2.shape)
-            raise ValueError("images are not the same")
+    def _imageDifference(image1: ndarray, image2: ndarray) -> float:
 
-        channels = int(min(image1.shape[2], image2.shape[2]))
+        diff = np.abs(
+            image1[..., :min(image1.shape[-1], image2.shape[-1])].astype(np.int16)
+            - image2[..., :min(image1.shape[-1], image2.shape[-1])].astype(np.int16)
+        )
 
-        diffSum:int = 0
-        for y in range(image1.shape[0]): # y-axis
-            for x in range(image1.shape[1]): # x-axis
-                for ch in range(channels): # color chanel
-                    diffSum += abs(int(image1[y, x, ch]) - int(image2[y, x, ch]))
-        return diffSum / int(image1.size)
+        return float(diff.mean())
 
-    def bestBlock(self, matchImage:ndarray)->Image:
+    def bestBlock(self, matchImage:ndarray)->ImageLoader:
         bestImageMatch = self[0]
         bestImageMatchScore:None|float|int = None
         for compareImage in self.images:
@@ -90,8 +81,9 @@ class Collection:
         return bestImageMatch
 
 class Minecraft:
-    def __init__(self, targetImagePath:str, blockSize:Literal[16,32,64])->None:
-        self.targetImage = (mpimg.imread(targetImagePath) * 255).astype(np.uint8)
+    def __init__(self, targetImagePath:str, blockSize:Literal[16,32,64], scale:int)->None:
+        targetImageData = (mpimg.imread(targetImagePath)).astype(np.uint8)
+        self.targetImage = ImageLoader(targetImagePath, -1, targetImageData, scaler=scale)
         self.blockSize = blockSize
         self.fitsBlocks:tuple[int,int] = self._findBlockDimensions()
 
@@ -100,7 +92,7 @@ class Minecraft:
         self.blockMap: Dict[tuple[int, int], str] = {}
 
     def _findBlockDimensions(self)->tuple[int,int]:
-        h, w, ch = self.targetImage.shape
+        h, w, ch = self.targetImage.imageData.shape
 
         blockW:int = math.floor(w / self.blockSize)
         blockH:int = math.floor(h / self.blockSize)
@@ -109,7 +101,7 @@ class Minecraft:
 
     def pixelate(self)->ndarray:
         newImg = np.zeros((self.fitsBlocks[0]*self.blockSize, self.fitsBlocks[1]*self.blockSize, 4), dtype=np.uint8)
-        bar = tqdm(total=newImg.shape[0] * newImg.shape[1])
+        bar = tqdm(total=self.fitsBlocks[0])
 
 
         for y in range(self.fitsBlocks[0]):
@@ -120,21 +112,21 @@ class Minecraft:
                 x1 = x*self.blockSize
                 x2 = (x+1)*self.blockSize
 
-                currentImageSlice = self.targetImage[y1:y2, x1:x2]
+                currentImageSlice = self.targetImage.imageData[y1:y2, x1:x2]
 
                 image = self.blockCollection.bestBlock(currentImageSlice)
                 self.blockMap[(x, y)] = image.name
 
                 newImg[y1:y2, x1:x2] = image.imageData
-            bar.update(newImg.shape[0])
+            bar.update(1)
 
-        Image.fromarray(newImg).save("Bilder/output.png")
+        mpimg.imsave("Bilder/output.png", newImg)
 
         return newImg
 
 if __name__ == "__main__":
-    m = Minecraft("Bilder/Starry_Night.jpg", blockSize=16)
-    plt.imshow(m.pixelate())
+    m = Minecraft("Bilder/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg", blockSize=16, scale=8)
+    plt.imshow(m.pixelate(),interpolation='nearest')
     plt.show()
 
 
