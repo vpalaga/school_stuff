@@ -8,7 +8,7 @@ from os.path import isfile, join
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import time
-
+import pickle
 from tqdm import tqdm
 
 
@@ -84,7 +84,7 @@ class Collection:
 class Minecraft:
     OUTPUT_FOLDER = "outputs"
     def __init__(self, targetImagePath:str, blockSize:Literal[16,32,64], scale:int)->None:
-        targetImageData = (mpimg.imread(targetImagePath)).astype(np.uint8)
+        targetImageData = (mpimg.imread(targetImagePath)*255).astype(np.uint8)
         self.targetImage = ImageLoader(targetImagePath, -1, targetImageData, scaler=scale)
         self.blockSize = blockSize
         self.fitsBlocks:tuple[int,int] = self._findBlockDimensions()
@@ -93,19 +93,20 @@ class Minecraft:
 
         self.blockMap: Dict[tuple[int, int], str] = {}
 
-    @staticmethod
-    def _save(img:ndarray)->None:
+    def _save(self, img:ndarray)->None:
         fileName = -1
         for file in listdir(Minecraft.OUTPUT_FOLDER):
             fullPath = join(Minecraft.OUTPUT_FOLDER, file)
             if isfile(fullPath):
-                print(fullPath.split(".\\/"))
                 try:
-                    fileName = max(int(file.split(".")[-1]), fileName)
+                    fileName = max(int(file.split(".")[0]), fileName)
                 except ValueError: pass
         path = join(Minecraft.OUTPUT_FOLDER, str(fileName + 1) + ".png")
         print(f"saving at {path}")
         mpimg.imsave(path, img)
+
+        with open(path + ".pkl", "wb") as f:
+            pickle.dump(self.blockMap, f)
 
     def _findBlockDimensions(self)->tuple[int,int]:
         h, w, ch = self.targetImage.imageData.shape
@@ -140,6 +141,6 @@ class Minecraft:
         return newImg
 
 if __name__ == "__main__":
-    m = Minecraft("Bilder/egli.jpg", blockSize=16, scale=8)
+    m = Minecraft("Bilder/img.png", blockSize=16, scale=4)
     plt.imshow(m.pixelate(),interpolation='nearest')
     plt.show()
