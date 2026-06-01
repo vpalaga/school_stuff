@@ -8,6 +8,7 @@ from os.path import isfile, join
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import time
+
 from tqdm import tqdm
 
 
@@ -81,6 +82,7 @@ class Collection:
         return bestImageMatch
 
 class Minecraft:
+    OUTPUT_FOLDER = "outputs"
     def __init__(self, targetImagePath:str, blockSize:Literal[16,32,64], scale:int)->None:
         targetImageData = (mpimg.imread(targetImagePath)).astype(np.uint8)
         self.targetImage = ImageLoader(targetImagePath, -1, targetImageData, scaler=scale)
@@ -90,6 +92,20 @@ class Minecraft:
         self.blockCollection = Collection(r"Blocks_1", blockSize)
 
         self.blockMap: Dict[tuple[int, int], str] = {}
+
+    @staticmethod
+    def _save(img:ndarray)->None:
+        fileName = -1
+        for file in listdir(Minecraft.OUTPUT_FOLDER):
+            fullPath = join(Minecraft.OUTPUT_FOLDER, file)
+            if isfile(fullPath):
+                print(fullPath.split(".\\/"))
+                try:
+                    fileName = max(int(file.split(".")[-1]), fileName)
+                except ValueError: pass
+        path = join(Minecraft.OUTPUT_FOLDER, str(fileName + 1) + ".png")
+        print(f"saving at {path}")
+        mpimg.imsave(path, img)
 
     def _findBlockDimensions(self)->tuple[int,int]:
         h, w, ch = self.targetImage.imageData.shape
@@ -102,7 +118,6 @@ class Minecraft:
     def pixelate(self)->ndarray:
         newImg = np.zeros((self.fitsBlocks[0]*self.blockSize, self.fitsBlocks[1]*self.blockSize, 4), dtype=np.uint8)
         bar = tqdm(total=self.fitsBlocks[0])
-
 
         for y in range(self.fitsBlocks[0]):
             for x in range(self.fitsBlocks[1]):
@@ -120,13 +135,11 @@ class Minecraft:
                 newImg[y1:y2, x1:x2] = image.imageData
             bar.update(1)
 
-        mpimg.imsave("Bilder/output.png", newImg)
+        self._save(newImg)
 
         return newImg
 
 if __name__ == "__main__":
-    m = Minecraft("Bilder/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg", blockSize=16, scale=8)
+    m = Minecraft("Bilder/egli.jpg", blockSize=16, scale=8)
     plt.imshow(m.pixelate(),interpolation='nearest')
     plt.show()
-
-
