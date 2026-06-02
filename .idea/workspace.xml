@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/snd.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/v2/bilder/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/v2/bilder/snd.wav" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add a saver pickle &#10;&#10;fix autosave">
+      <change afterPath="$PROJECT_DIR$/WIN_20260602_08_37_53_Pro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/Bilder/WIN_20260602_08_37_53_Pro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/Bilder/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/Bilder/img_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/minecraft/images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/minecraft/generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/snd.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/minecraft/builder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="632" />
+    <option name="cachedIndexableFilesCount" value="685" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -53,60 +54,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000072035639544" />
-      <entry key="S5" value="1.0243396946477668" />
-      <entry key="S10" value="1.3802610906767967" />
-      <entry key="S30" value="3.824535069106937" />
-      <entry key="S60" value="6.731342845848063" />
-      <entry key="M2" value="10.910042046654839" />
-      <entry key="M5" value="26.554502952347246" />
-      <entry key="M10" value="62.649067850829596" />
-      <entry key="M15" value="97.84430340145623" />
-      <entry key="M30" value="180.55470400074452" />
-      <entry key="H1" value="275.5291591274411" />
-      <entry key="H2" value="356.9810723099465" />
-      <entry key="H4" value="421.98642643792766" />
-      <entry key="D1" value="724.1829134786298" />
-      <entry key="W1" value="2192.2222217364615" />
+      <entry key="MS500" value="1.0000079313616574" />
+      <entry key="S2" value="1.0530685154029276" />
+      <entry key="S5" value="1.3089831351009387" />
+      <entry key="S10" value="1.5558745426532452" />
+      <entry key="S30" value="1.8939090172283342" />
+      <entry key="S60" value="2.8579214716229178" />
+      <entry key="M2" value="7.0734303104528315" />
+      <entry key="M5" value="22.89875310397816" />
+      <entry key="M10" value="47.6276425428667" />
+      <entry key="M15" value="69.70734702104811" />
+      <entry key="M30" value="116.36580625930311" />
+      <entry key="H1" value="166.7420151871228" />
+      <entry key="H2" value="251.01375348335566" />
+      <entry key="H4" value="400.4073155346085" />
+      <entry key="D1" value="937.6217403143403" />
+      <entry key="W1" value="2488.7987404885425" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.166541704081918E-43" />
-      <entry key="MS500" value="3.1631300093489963E-9" />
-      <entry key="S2" value="0.007504605767724809" />
-      <entry key="S5" value="0.1527079445797814" />
-      <entry key="S10" value="0.5300384689182186" />
-      <entry key="S30" value="1.9989012381099003" />
-      <entry key="S60" value="3.7673794102150695" />
-      <entry key="M2" value="6.291332193550982" />
-      <entry key="M5" value="14.6944245853153" />
-      <entry key="M10" value="31.249710020207452" />
-      <entry key="M15" value="47.146546374662066" />
-      <entry key="M30" value="86.59489821351953" />
-      <entry key="H1" value="134.63042912782183" />
-      <entry key="H2" value="176.99716215913864" />
-      <entry key="H4" value="210.97450194584647" />
-      <entry key="D1" value="349.75328504588657" />
-      <entry key="W1" value="939.4879531877166" />
+      <entry key="MS100" value="8.650464563114698E-17" />
+      <entry key="MS500" value="6.129257797735788E-4" />
+      <entry key="S2" value="0.15863591596894944" />
+      <entry key="S5" value="0.5478641659755786" />
+      <entry key="S10" value="0.9960074647930859" />
+      <entry key="S30" value="2.310843607299229" />
+      <entry key="S60" value="3.888289948300055" />
+      <entry key="M2" value="6.965220288287818" />
+      <entry key="M5" value="16.000590718441718" />
+      <entry key="M10" value="29.33088001182365" />
+      <entry key="M15" value="40.81937629146473" />
+      <entry key="M30" value="64.54889563264945" />
+      <entry key="H1" value="90.65654514241476" />
+      <entry key="H2" value="136.3055235421263" />
+      <entry key="H4" value="216.65877298014928" />
+      <entry key="D1" value="484.34927891333854" />
+      <entry key="W1" value="1119.9566772743983" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.482112608798853E-6" />
-      <entry key="MS500" value="0.07567706857356207" />
-      <entry key="S2" value="0.5298681321067537" />
-      <entry key="S5" value="0.9306636285852593" />
-      <entry key="S10" value="1.7559227320743231" />
-      <entry key="S30" value="5.735459381311915" />
-      <entry key="S60" value="10.42752422419855" />
-      <entry key="M2" value="17.140163224765544" />
-      <entry key="M5" value="41.18806791875539" />
-      <entry key="M10" value="93.83116515836423" />
-      <entry key="M15" value="144.92102538676437" />
-      <entry key="M30" value="267.0832186603922" />
-      <entry key="H1" value="410.10694083094234" />
-      <entry key="H2" value="533.9432860859865" />
-      <entry key="H4" value="632.9400115816717" />
-      <entry key="D1" value="1073.9305584916954" />
-      <entry key="W1" value="3131.708104857833" />
+      <entry key="MS100" value="0.8467453123625271" />
+      <entry key="MS500" value="0.9676784799540434" />
+      <entry key="S2" value="1.1863825527178127" />
+      <entry key="S5" value="1.8253786348133028" />
+      <entry key="S10" value="2.5196626466699685" />
+      <entry key="S30" value="4.17431528013755" />
+      <entry key="S60" value="6.713906026723924" />
+      <entry key="M2" value="13.999643039050168" />
+      <entry key="M5" value="38.85111040775367" />
+      <entry key="M10" value="76.90558881669338" />
+      <entry key="M15" value="110.47353042434578" />
+      <entry key="M30" value="180.86912818338973" />
+      <entry key="H1" value="257.36572512207925" />
+      <entry key="H2" value="387.2947110783673" />
+      <entry key="H4" value="617.0465602066728" />
+      <entry key="D1" value="1421.963674491913" />
+      <entry key="W1" value="3608.753003288285" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -141,10 +142,12 @@
     "Python.MouseDances2.executor": "Run",
     "Python.Object.executor": "Run",
     "Python.bot.executor": "Run",
+    "Python.builder.executor": "Run",
     "Python.classroom.executor": "Run",
     "Python.expresions.executor": "Run",
     "Python.field_gen.executor": "Run",
     "Python.gen_letters.executor": "Run",
+    "Python.generator.executor": "Run",
     "Python.grapher.executor": "Run",
     "Python.image.executor": "Run",
     "Python.images.executor": "Run",
@@ -179,7 +182,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/image_manipulation/v2/bilder",
+    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/image_manipulation/minecraft/Bilder",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -192,11 +195,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\minecraft\Bilder" />
+      <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff" />
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\v2\bilder" />
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\minecraft" />
       <recent name="C:\Users\vit\school_stuff\olympiad\3" />
-      <recent name="C:\Users\vit\school_stuff\olympiad\2" />
-      <recent name="C:\Users\vit\school_stuff\olympiad\4\fire6" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\minecraft" />
@@ -206,7 +209,7 @@
       <recent name="C:\Users\vit\school_stuff\olympiad\1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.images">
+  <component name="RunManager">
     <configuration name="ImageCreator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -285,6 +288,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="school_stuff" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation/minecraft" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\minecraft\generator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="image" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -303,32 +332,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_manipulation/image.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="images" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="school_stuff" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation/minecraft" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_manipulation/minecraft/images.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -391,7 +394,7 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.images" />
+      <item itemvalue="Python.generator" />
       <item itemvalue="Python.ImageCreator" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.ImageManipulator" />
@@ -399,7 +402,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.images" />
+        <item itemvalue="Python.generator" />
         <item itemvalue="Python.ImageManipulator" />
         <item itemvalue="Python.ImageCreator" />
         <item itemvalue="Python.test" />
@@ -444,7 +447,9 @@
       <workItem from="1779722362115" duration="9702000" />
       <workItem from="1779867186706" duration="18040000" />
       <workItem from="1780053048882" duration="7142000" />
-      <workItem from="1780295615542" duration="8220000" />
+      <workItem from="1780295615542" duration="14402000" />
+      <workItem from="1780382361479" duration="1643000" />
+      <workItem from="1780400455513" duration="4865000" />
     </task>
     <task id="LOCAL-00001" summary="add test">
       <option name="closed" value="true" />
@@ -678,7 +683,39 @@
       <option name="project" value="LOCAL" />
       <updated>1779898728667</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="work on gions project for fun (in testing rn)">
+      <option name="closed" value="true" />
+      <created>1780345226562</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1780345226562</updated>
+    </task>
+    <task id="LOCAL-00031" summary="rework image diff and add scaler to target image">
+      <option name="closed" value="true" />
+      <created>1780349293728</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1780349293728</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add autosave method">
+      <option name="closed" value="true" />
+      <created>1780350481482</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1780350481482</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add a saver pickle &#10;&#10;fix autosave">
+      <option name="closed" value="true" />
+      <created>1780351860400</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1780351860400</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -696,10 +733,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="work on render, do x render" />
-    <MESSAGE value="work on render, finish simple render, bug on rotation. have to fix face away" />
-    <MESSAGE value="add sphere" />
-    <MESSAGE value="do face render" />
     <MESSAGE value="do some random stuff here" />
     <MESSAGE value="start on image.py" />
     <MESSAGE value="generate ascii characters and make class for them" />
@@ -721,7 +754,11 @@
     <MESSAGE value="add leading bars" />
     <MESSAGE value="edge filtering" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="work on gions project for fun (in testing rn)" />
+    <MESSAGE value="rework image diff and add scaler to target image" />
+    <MESSAGE value="add autosave method" />
+    <MESSAGE value="add a saver pickle &#10;&#10;fix autosave" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a saver pickle &#10;&#10;fix autosave" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -736,7 +773,8 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
-    <SUITE FILE_PATH="coverage/school_stuff$ImageManipulator.coverage" NAME="ImageManipulator Coverage Results" MODIFIED="1780124788267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
+    <SUITE FILE_PATH="coverage/school_stuff$ImageManipulator.coverage" NAME="ImageManipulator Coverage Results" MODIFIED="1780401628524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
+    <SUITE FILE_PATH="coverage/school_stuff$generator.coverage" NAME="generator Coverage Results" MODIFIED="1780413471447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$classroom.coverage" NAME="classroom Coverage Results" MODIFIED="1779110927475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf/classes" />
     <SUITE FILE_PATH="coverage/school_stuff$Object.coverage" NAME="Object Coverage Results" MODIFIED="1776195469626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$grapher.coverage" NAME="grapher Coverage Results" MODIFIED="1775803927517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
@@ -746,10 +784,11 @@
     <SUITE FILE_PATH="coverage/school_stuff$python__save_history.coverage" NAME="python @save_history Coverage Results" MODIFIED="1779367165340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
     <SUITE FILE_PATH="coverage/school_stuff$sound_render.coverage" NAME="sound_render Coverage Results" MODIFIED="1776941954910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1778416641206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
-    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1780124723211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
-    <SUITE FILE_PATH="coverage/school_stuff$images.coverage" NAME="images Coverage Results" MODIFIED="1780345082573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
+    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1780351457082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
+    <SUITE FILE_PATH="coverage/school_stuff$builder.coverage" NAME="builder Coverage Results" MODIFIED="1780415764633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
+    <SUITE FILE_PATH="coverage/school_stuff$images.coverage" NAME="images Coverage Results" MODIFIED="1780401778360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$field_gen.coverage" NAME="field_gen Coverage Results" MODIFIED="1776961963085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
-    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1780338581427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1780400465362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/school_stuff$Faces.coverage" NAME="Faces Coverage Results" MODIFIED="1775815515059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$natural_d.coverage" NAME="natural_d Coverage Results" MODIFIED="1778495756792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$bot.coverage" NAME="bot Coverage Results" MODIFIED="1777016656969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />

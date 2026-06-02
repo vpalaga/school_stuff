@@ -434,9 +434,9 @@ class Manipulate:
 
 if __name__ == "__main__":
     #manip = Manipulate(image=np.load("bilder/bluredFrosch.npy"))
-    manip = Manipulate("bilder/tiger.jpg")
+    manip = Manipulate("bilder/500by500.jpg")
 
-    #manip.update_image(manip.blur(radius=2))
+    manip.update_image(manip.blur(radius=2))
 
     plt.imshow(manip.image)
     plt.show()
