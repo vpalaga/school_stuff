@@ -65,6 +65,14 @@ class Collection:
         print(f"loaded {len(images)} images in {timer.stop()}s")
         return images
 
+    def listBlocks(self)->None:
+        blocks = ""
+        for block in self.images:
+            blocks += f"{block.name}\n"
+
+        with open("blockList.txt","w") as f:
+            f.write(blocks)
+
     @staticmethod
     def _imageDifference(image1: ndarray, image2: ndarray) -> float:
 
@@ -150,8 +158,9 @@ class Minecraft:
         return newImg
 
 if __name__ == "__main__":
-    m = Minecraft("Bilder/WIN_20260602_08_37_53_Pro.jpg", blockSize=16, scale=2)
+    m = Minecraft("Bilder/egli.jpg", blockSize=16, scale=8)
     plt.imshow(m.targetImage.imageData)
     plt.show()
+    m.blockCollection.listBlocks()
     plt.imshow(m.pixelate(),interpolation='nearest')
     plt.show()
