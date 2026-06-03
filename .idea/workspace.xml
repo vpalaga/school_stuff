@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add a saver pickle &#10;&#10;fix autosave">
-      <change afterPath="$PROJECT_DIR$/WIN_20260602_08_37_53_Pro.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/Bilder/WIN_20260602_08_37_53_Pro.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/Bilder/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/Bilder/img_1.png" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add builder.py and refactor generator.py">
+      <change afterPath="$PROJECT_DIR$/image_manipulation/minecraft/blockRemover.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/minecraft/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/snd.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/minecraft/builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/minecraft/builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_manipulation/minecraft/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_manipulation/minecraft/generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,60 +49,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000079313616574" />
-      <entry key="S2" value="1.0530685154029276" />
-      <entry key="S5" value="1.3089831351009387" />
-      <entry key="S10" value="1.5558745426532452" />
-      <entry key="S30" value="1.8939090172283342" />
-      <entry key="S60" value="2.8579214716229178" />
-      <entry key="M2" value="7.0734303104528315" />
-      <entry key="M5" value="22.89875310397816" />
-      <entry key="M10" value="47.6276425428667" />
-      <entry key="M15" value="69.70734702104811" />
-      <entry key="M30" value="116.36580625930311" />
-      <entry key="H1" value="166.7420151871228" />
-      <entry key="H2" value="251.01375348335566" />
-      <entry key="H4" value="400.4073155346085" />
-      <entry key="D1" value="937.6217403143403" />
-      <entry key="W1" value="2488.7987404885425" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000000003035" />
+      <entry key="S10" value="1.0000006097850582" />
+      <entry key="S30" value="1.0236043549952474" />
+      <entry key="S60" value="1.456099618173425" />
+      <entry key="M2" value="3.3498820220420833" />
+      <entry key="M5" value="12.510968488910043" />
+      <entry key="M10" value="29.596768770996523" />
+      <entry key="M15" value="44.15730822919691" />
+      <entry key="M30" value="79.5677489401503" />
+      <entry key="H1" value="142.1953924968621" />
+      <entry key="H2" value="253.5493092298081" />
+      <entry key="H4" value="435.48961065001043" />
+      <entry key="D1" value="1089.7676030300001" />
+      <entry key="W1" value="2693.255060206133" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="8.650464563114698E-17" />
-      <entry key="MS500" value="6.129257797735788E-4" />
-      <entry key="S2" value="0.15863591596894944" />
-      <entry key="S5" value="0.5478641659755786" />
-      <entry key="S10" value="0.9960074647930859" />
-      <entry key="S30" value="2.310843607299229" />
-      <entry key="S60" value="3.888289948300055" />
-      <entry key="M2" value="6.965220288287818" />
-      <entry key="M5" value="16.000590718441718" />
-      <entry key="M10" value="29.33088001182365" />
-      <entry key="M15" value="40.81937629146473" />
-      <entry key="M30" value="64.54889563264945" />
-      <entry key="H1" value="90.65654514241476" />
-      <entry key="H2" value="136.3055235421263" />
-      <entry key="H4" value="216.65877298014928" />
-      <entry key="D1" value="484.34927891333854" />
-      <entry key="W1" value="1119.9566772743983" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="2.370258295078724E-100" />
+      <entry key="S5" value="2.0325291266401606E-40" />
+      <entry key="S10" value="1.9978587727396308E-20" />
+      <entry key="S30" value="4.6496459792565725E-7" />
+      <entry key="S60" value="0.001363321643709531" />
+      <entry key="M2" value="0.1065218242476609" />
+      <entry key="M5" value="2.014533250546243" />
+      <entry key="M10" value="6.427155350101003" />
+      <entry key="M15" value="10.671960806602641" />
+      <entry key="M30" value="23.07707832811843" />
+      <entry key="H1" value="49.831842108009425" />
+      <entry key="H2" value="103.46029507804778" />
+      <entry key="H4" value="196.59990574890736" />
+      <entry key="D1" value="523.7125369114201" />
+      <entry key="W1" value="1187.3034118867138" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8467453123625271" />
-      <entry key="MS500" value="0.9676784799540434" />
-      <entry key="S2" value="1.1863825527178127" />
-      <entry key="S5" value="1.8253786348133028" />
-      <entry key="S10" value="2.5196626466699685" />
-      <entry key="S30" value="4.17431528013755" />
-      <entry key="S60" value="6.713906026723924" />
-      <entry key="M2" value="13.999643039050168" />
-      <entry key="M5" value="38.85111040775367" />
-      <entry key="M10" value="76.90558881669338" />
-      <entry key="M15" value="110.47353042434578" />
-      <entry key="M30" value="180.86912818338973" />
-      <entry key="H1" value="257.36572512207925" />
-      <entry key="H2" value="387.2947110783673" />
-      <entry key="H4" value="617.0465602066728" />
-      <entry key="D1" value="1421.963674491913" />
-      <entry key="W1" value="3608.753003288285" />
+      <entry key="MS100" value="0.8645372313078652" />
+      <entry key="MS500" value="0.9713074955416333" />
+      <entry key="S2" value="0.992748375440308" />
+      <entry key="S5" value="0.9970930153283353" />
+      <entry key="S10" value="0.9985460568210778" />
+      <entry key="S30" value="1.0230133916015287" />
+      <entry key="S60" value="1.4560024397706566" />
+      <entry key="M2" value="3.452434573197488" />
+      <entry key="M5" value="14.513714072483168" />
+      <entry key="M10" value="36.00690147871762" />
+      <entry key="M15" value="54.811041679408554" />
+      <entry key="M30" value="102.6261144749991" />
+      <entry key="H1" value="192.00785064154172" />
+      <entry key="H2" value="356.9900966770837" />
+      <entry key="H4" value="632.071307905076" />
+      <entry key="D1" value="1613.4721174053332" />
+      <entry key="W1" value="3880.5558997837556" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -124,75 +119,75 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.Camera.executor": "Run",
-    "Python.Faces.executor": "Run",
-    "Python.Fire.executor": "Run",
-    "Python.Fire2.executor": "Run",
-    "Python.Fire3.executor": "Run",
-    "Python.Fire4.executor": "Run",
-    "Python.Fire5.executor": "Run",
-    "Python.Fire6.executor": "Run",
-    "Python.ImageCreator.executor": "Run",
-    "Python.ImageManipulator.executor": "Run",
-    "Python.MouseDances1.executor": "Run",
-    "Python.MouseDances2.executor": "Run",
-    "Python.Object.executor": "Run",
-    "Python.bot.executor": "Run",
-    "Python.builder.executor": "Run",
-    "Python.classroom.executor": "Run",
-    "Python.expresions.executor": "Run",
-    "Python.field_gen.executor": "Run",
-    "Python.gen_letters.executor": "Run",
-    "Python.generator.executor": "Run",
-    "Python.grapher.executor": "Run",
-    "Python.image.executor": "Run",
-    "Python.images.executor": "Run",
-    "Python.loader.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.music.executor": "Run",
-    "Python.natural_d.executor": "Run",
-    "Python.path_alg.executor": "Run",
-    "Python.python @save_history.executor": "Run",
-    "Python.ryders5.executor": "Run",
-    "Python.ryders6.executor": "Run",
-    "Python.sound_render.executor": "Run",
-    "Python.test (2).executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.trimurid_ryders1.executor": "Run",
-    "Python.trimurid_ryders2.executor": "Run",
-    "Python.trimurid_ryders3.executor": "Run",
-    "Python.trimurid_ryders4.executor": "Run",
-    "Python.visualise.executor": "Run",
-    "Python.wallSegments.executor": "Run",
-    "Python.wallSegments2.executor": "Run",
-    "Python.wallSegments3.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/image_manipulation/minecraft/Bilder",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion.inline",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Camera.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Faces.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ImageCreator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ImageManipulator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Object.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.builder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.classroom.executor&quot;: &quot;Run&quot;,
+    &quot;Python.expresions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.field_gen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gen_letters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.grapher.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image.executor&quot;: &quot;Run&quot;,
+    &quot;Python.images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.loader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.music.executor&quot;: &quot;Run&quot;,
+    &quot;Python.natural_d.executor&quot;: &quot;Run&quot;,
+    &quot;Python.path_alg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python @save_history.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sound_render.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.visualise.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments3.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/image_manipulation/minecraft/Bilder&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion.inline&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\minecraft\Bilder" />
@@ -449,7 +444,9 @@
       <workItem from="1780053048882" duration="7142000" />
       <workItem from="1780295615542" duration="14402000" />
       <workItem from="1780382361479" duration="1643000" />
-      <workItem from="1780400455513" duration="4865000" />
+      <workItem from="1780400455513" duration="5928000" />
+      <workItem from="1780417309750" duration="8361000" />
+      <workItem from="1780501402356" duration="8710000" />
     </task>
     <task id="LOCAL-00001" summary="add test">
       <option name="closed" value="true" />
@@ -715,7 +712,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780351860400</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="add builder.py and refactor generator.py">
+      <option name="closed" value="true" />
+      <created>1780415963876</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1780415963876</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -733,7 +738,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="do some random stuff here" />
     <MESSAGE value="start on image.py" />
     <MESSAGE value="generate ascii characters and make class for them" />
     <MESSAGE value="get it workin, but it doesnt look as good" />
@@ -758,7 +762,8 @@
     <MESSAGE value="rework image diff and add scaler to target image" />
     <MESSAGE value="add autosave method" />
     <MESSAGE value="add a saver pickle &#10;&#10;fix autosave" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a saver pickle &#10;&#10;fix autosave" />
+    <MESSAGE value="add builder.py and refactor generator.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="add builder.py and refactor generator.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -774,7 +779,7 @@
     <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$ImageManipulator.coverage" NAME="ImageManipulator Coverage Results" MODIFIED="1780401628524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
-    <SUITE FILE_PATH="coverage/school_stuff$generator.coverage" NAME="generator Coverage Results" MODIFIED="1780413471447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
+    <SUITE FILE_PATH="coverage/school_stuff$generator.coverage" NAME="generator Coverage Results" MODIFIED="1780509912749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$classroom.coverage" NAME="classroom Coverage Results" MODIFIED="1779110927475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf/classes" />
     <SUITE FILE_PATH="coverage/school_stuff$Object.coverage" NAME="Object Coverage Results" MODIFIED="1776195469626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$grapher.coverage" NAME="grapher Coverage Results" MODIFIED="1775803927517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
@@ -785,10 +790,10 @@
     <SUITE FILE_PATH="coverage/school_stuff$sound_render.coverage" NAME="sound_render Coverage Results" MODIFIED="1776941954910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1778416641206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1780351457082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
-    <SUITE FILE_PATH="coverage/school_stuff$builder.coverage" NAME="builder Coverage Results" MODIFIED="1780415764633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
+    <SUITE FILE_PATH="coverage/school_stuff$builder.coverage" NAME="builder Coverage Results" MODIFIED="1780509947203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$images.coverage" NAME="images Coverage Results" MODIFIED="1780401778360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$field_gen.coverage" NAME="field_gen Coverage Results" MODIFIED="1776961963085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
-    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1780400465362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1780425943606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/school_stuff$Faces.coverage" NAME="Faces Coverage Results" MODIFIED="1775815515059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$natural_d.coverage" NAME="natural_d Coverage Results" MODIFIED="1778495756792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$bot.coverage" NAME="bot Coverage Results" MODIFIED="1777016656969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
