@@ -104,7 +104,7 @@ class Manipulate:
     def update_image(self, set_to: np.ndarray)->None:
         """set self.image to ndarray"""
         self.image = set_to
-    def layoverArray(self, layover: ndarray, ignoreColor:tuple[int,int,int]=(255,0,0))->ndarray:
+    def layoverArrayImg(self, layover: ndarray, ignoreColor:tuple[int,int,int]=(255,0,0))->ndarray:
         """overlays an image:ndarray over self.image"""
         newImg = self.image.copy()
 
@@ -113,6 +113,11 @@ class Manipulate:
                 layField = layover[y, x]
                 if self.tools.isSameRBG(layField, ignoreColor):
                     newImg[y, x] = layField
+        return newImg
+    def layoverArray(self, array:ndarray)->ndarray:
+        newImg = self.image.copy()
+        for pos in array:
+            newImg[pos[0],pos[1]] = self.tools.RED
         return newImg
 
     # edge time -------------------------------------------------------------
@@ -297,6 +302,24 @@ class Manipulate:
 
         return edge_mask
 
+    def colorDerivation(self,  threshold: int|float = 50.0)->ndarray:
+        img_f = self.image
+        grad_mag = np.zeros(img_f.shape[:2])
+
+        for c in range(3):
+            gy, gx = np.gradient(img_f[:, :, c])
+            grad_mag += gx ** 2 + gy ** 2
+
+        grad_mag = np.sqrt(grad_mag)
+
+          # tune this to your data
+
+        mask = grad_mag > threshold  # boolean array [y, x]
+        ys, xs = np.where(mask)  # arrays of y and x coords
+        coords = np.column_stack([ys, xs])  # shape [N, 2] — each row is [y, x]
+
+        return coords
+
     def filterSmallEdges(self, src:ndarray, minPixels: int)->ndarray:
         exploredPixels: List[tuple[int, int]] = []
         def setPixelsBlack(pixels: list[tuple[int,int]])->None:
@@ -435,32 +458,15 @@ class Manipulate:
 if __name__ == "__main__":
     #manip = Manipulate(image=np.load("bilder/bluredFrosch.npy"))
     manip = Manipulate("bilder/500by500.jpg")
-
-    manip.update_image(manip.blur(radius=2))
-
-    plt.imshow(manip.image)
-    plt.show()
-
-    plt.show()
-    #np.save("bilder/bluredFrosch.npy", manip.image)
+    manip.update_image(manip.blur(radius=1))
 
     manip.analyseColors()
-    manip.findColorPeaks(n=2)
+    manip.findColorPeaks(n=10)
     manip.update_image(manip.groupToPeaks())
 
-    plt.imshow(manip.image)
-    plt.show()
-
-    edges = manip.filterSmallEdges(manip.edge_detection_v2(), minPixels=30)
-    manip.update_image(manip.originalImage) # revert to org
+    edges = manip.colorDerivation(threshold=27)
+    manip.update_image(manip.originalImage)  # revert to org
     manip.update_image(manip.layoverArray(edges))
 
-    plt.imshow(manip.image, interpolation='nearest')
-    plt.title("filtered")
-
+    plt.imshow(manip.image, interpolation="nearest")
     plt.show()
-
-    #manip.printImage()
-
-    manip.plotColorAnalyse(showRaw=False, showApx=True, showPts=True)
-    print(manip.colorPeaks)
