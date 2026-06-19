@@ -40,7 +40,7 @@ class Image:
         img_f = self.image
         grad_mag = np.zeros(img_f.shape[:2])
 
-        # find the derivative each color chanel
+        # find the derivative each color channel
         for c in range(3):
             gy, gx = np.gradient(img_f[:, :, c])
             grad_mag += gx ** 2 + gy ** 2
@@ -120,7 +120,7 @@ class Image:
             for dy in range(-radius,radius+1):
                 for dx in range(-radius,radius+1):
                     # skip center position
-                    if dy == dx == 0:
+                    if dy == 0 and dx == 0:
                         continue
                     # calc absolute position in image
                     ax = _x + dx
@@ -131,7 +131,7 @@ class Image:
 
                     # get pixel color
                     field = self.image[ay, ax]
-                    # add each color chanel to its sum
+                    # add each color channel to its sum
                     color[0] += int(field[0])
                     color[1] += int(field[1])
                     color[2] += int(field[2])
@@ -161,7 +161,12 @@ class Image:
         self.image[b[:, 0], b[:, 1]] = (255,0,0)
 
     def edgeDetection(self, t:int, r:int)->ndarray:
-        """does what you think it does..."""
+        """
+        r: int -> blur radius
+        t: int -> the lowest color change considered as edge.
+
+        returns: ndarray image
+        """
         # blur to reduce random noise
         self.blur(r)
         # find the derivative
