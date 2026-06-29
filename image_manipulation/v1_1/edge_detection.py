@@ -157,7 +157,7 @@ class Image:
         return self._fixEdgesAfterBlur(blurredImageArray, radius)
 
     def drawArray(self, b:ndarray)->None:
-        """layover the given array onto self.image"""
+        """layover the given array onto self.image as red pixels"""
         self.image[b[:, 0], b[:, 1]] = (255,0,0)
 
     def edgeDetection(self, t:int, r:int)->ndarray:
@@ -179,6 +179,6 @@ class Image:
         return self.image
 
 if __name__ == "__main__":
-    i = Image(r"bilder/500by500.jpg")
-    plt.imshow(i.edgeDetection(55, 6))
+    i = Image()
+    plt.imshow(i.edgeDetection(60, 10))
     plt.show()
