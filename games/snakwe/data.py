@@ -1,6 +1,6 @@
 import random
 class Pos:
-    def __init__(self, x:int, y:int):
+    def __init__(self, x:int|float, y:int|float):
         self.x = x
         self.y = y
         self.pos = (x, y)
@@ -9,7 +9,7 @@ class Pos:
         if isinstance(other, Pos):
             new = Pos(self.x + other.x, self.y + other.y)
             return new
-        return None
+        return NotImplemented
     def __eq__(self, other):
         if isinstance(other, Pos):
             if self.x == other.x and self.y == other.y:
@@ -17,6 +17,15 @@ class Pos:
         return False
     def __neg__(self):
         return Pos(-self.x, -self.y)
+
+    def __truediv__(self, other):
+        if isinstance(other, (int, float)):
+            return Pos(self.x / other, self.y / other)
+        return NotImplemented
+
+    def __round__(self, n=None):
+        return Pos(round(self.x, n), round(self.y, n))
+
     def __repr__(self):
         return f"({self.x}, {self.y})"
 
@@ -39,8 +48,11 @@ class Snake:
         return snake
 
 class Tools:
-    def __init__(self, gameSize: tuple[int,int]):
+    def __init__(self, gameSize: tuple[int,int], widowSize: tuple[int,int]):
         self.gameSize = gameSize
+        self.windowSize = widowSize
+        self.xField = self.windowSize[0] / self.gameSize[0]
+        self.yField = self.windowSize[1] / self.gameSize[1]
 
     def isPosValid(self, p: Pos)->bool:
         if -1 < p.x < self.gameSize[0] and -1 < p.y < self.gameSize[1]:
@@ -48,8 +60,28 @@ class Tools:
         return False
 
     def randomPos(self)->Pos:
-        return Pos(random.randint(0, self.gameSize[0]),
-                   random.randint(0, self.gameSize[1]))
+        return Pos(random.randint(0, self.gameSize[0] - 1),
+                   random.randint(0, self.gameSize[1] - 1))
 
-if __name__ == "__main__":
-    pass
+    def generateMidposDict(self)->dict[tuple[int,int], Pos]:
+        midPos = {}
+
+        yPush = self.yField / 2 + 100
+        for y in range(self.gameSize[1]):
+            xPush = self.xField / 2
+            for x in range(self.gameSize[0]):
+                midPos[(x, y)] = Pos(xPush, yPush)
+                xPush += self.xField
+            yPush += self.yField
+        return midPos
+
+    def translateCoords(self, p: Pos)->Pos:
+        return Pos(p.x*self.xField + self.xField/2, p.y*self.yField + self.yField/2 + 100)
+
+class Colors:
+    def __init__(self):
+        self.darkGrass = (162, 209, 73)
+        self.lightGrass= (170, 215, 81)
+        self.apple =     (231, 71,  29)
+        self.snake =     (72,  118, 236)
+        self.background =(74 , 117, 44)
