@@ -8,6 +8,7 @@ from data import Colors, Pos, resource_path
 
 class Snake:
     def __init__(self):
+        self.version = "1.1.1"
         pygame.init()
 
         # Window title (taskbar / title bar text)
@@ -30,8 +31,9 @@ class Snake:
         self.fpsClock = pygame.time.Clock()
 
         # setup (do once)
-        self.fontBig = pygame.font.Font(None, 50)  # None = default font, 36 = size
-        self.fontSmall = pygame.font.Font(None, 25)  # None = default font, 36 = size
+        self.fontNormal = pygame.font.Font(None, 50)  # None = default font, 36 = size
+        self.fontSmall = pygame.font.Font(None, 20)  # None = default font, 36 = size
+        self.fontBig = pygame.font.Font(None, 80)  # None = default font, 36 = size
 
         self.midPos = self.game.tools.generateMidposDict()
 
@@ -77,15 +79,21 @@ class Snake:
 
     def text(self)->None:
 
-        surface = self.fontBig.render(f"SCORE: {self.game.score}", True, (255, 255, 255))  # text, antialias, color
-        rect = surface.get_rect(midleft=(30, 50))
+        surface = self.fontNormal.render(f"SCORE: {self.game.score}", True, (255, 255, 255))  # text, antialias, color
+        rect = surface.get_rect(midleft=(30, 40))
 
         self.screen.blit(surface, rect)
 
         surface = self.fontSmall.render(f"PRESS RIGHT ARROW TO PLAY", True, (255, 255, 255))  # text, antialias, color
+        rect = surface.get_rect(midleft=(10, 80))
+
+        self.screen.blit(surface, rect)
+
+        surface = self.fontBig.render(f"1 DIH-stroyer", True, self.colors.title)  # text, antialias, color
         rect = surface.get_rect(center=(400, 50))
 
         self.screen.blit(surface, rect)
+
 
     def draw(self):
         self.screen.fill(self.colors.background)

@@ -128,3 +128,4 @@ class Colors:
         self.apple =     (231, 71,  29)
         self.snake =     (72,  118, 236)
         self.background =(74 , 117, 44)
+        self.title =     (181, 138, 211)
