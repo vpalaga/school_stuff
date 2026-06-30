@@ -2,8 +2,8 @@ from data import Snake, Tools, Apple
 
 class Game:
     def __init__(self):
-        self.gameSize = (15, 15)
-        self.windowSize = (600,600)
+        self.gameSize = (20, 20)
+        self.windowSize = (700,700)
         self.applesOnScreen = 5
         self.fpsPerGametick = 15
         self.fps = 120

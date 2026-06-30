@@ -129,3 +129,5 @@ class Colors:
         self.snake =     (72,  118, 236)
         self.background =(74 , 117, 44)
         self.title =     (181, 138, 211)
+        self.score =     (255, 255, 255)
+        self.tutorial =  (230, 230, 230)

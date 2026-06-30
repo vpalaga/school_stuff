@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add buffer movement">
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/billeter_icon.png" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add a drawn title on the screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/5inrow/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/5inrow/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/games/snakwe/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/snakwe/data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/games/snakwe/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/snakwe/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/snakwe/images/Pi7_cropper.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/games/snakwe/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/snakwe/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,61 +48,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.000000000214248" />
-      <entry key="MS500" value="1.0116461941544244" />
-      <entry key="S2" value="1.340309064899628" />
-      <entry key="S5" value="1.8241327308554849" />
-      <entry key="S10" value="2.3569274185081146" />
-      <entry key="S30" value="3.786932502088673" />
-      <entry key="S60" value="5.5909700634602775" />
-      <entry key="M2" value="8.364139429957463" />
-      <entry key="M5" value="17.81276009210542" />
-      <entry key="M10" value="37.81618296588221" />
-      <entry key="M15" value="59.9660599860815" />
-      <entry key="M30" value="120.43632878081301" />
-      <entry key="H1" value="202.17286135021885" />
-      <entry key="H2" value="348.4189742534423" />
-      <entry key="H4" value="686.4254948245808" />
-      <entry key="D1" value="2470.77007014696" />
-      <entry key="W1" value="4912.494352085313" />
+      <entry key="MS100" value="1.0000000080492073" />
+      <entry key="MS500" value="1.0337343600477384" />
+      <entry key="S2" value="2.4317676691641386" />
+      <entry key="S5" value="5.483780877586654" />
+      <entry key="S10" value="8.59351933961135" />
+      <entry key="S30" value="13.21989130640535" />
+      <entry key="S60" value="15.461437162742886" />
+      <entry key="M2" value="19.121347658081795" />
+      <entry key="M5" value="32.41902478424214" />
+      <entry key="M10" value="54.538308463587605" />
+      <entry key="M15" value="76.69637838571924" />
+      <entry key="M30" value="139.53931354116145" />
+      <entry key="H1" value="231.6755737996204" />
+      <entry key="H2" value="386.147020046267" />
+      <entry key="H4" value="725.8535385747538" />
+      <entry key="D1" value="2528.427743588863" />
+      <entry key="W1" value="4989.038207985953" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.6238121331253414E-92" />
-      <entry key="S2" value="1.1288440430368494E-23" />
-      <entry key="S5" value="6.622982305904544E-10" />
-      <entry key="S10" value="2.5740181214231186E-5" />
-      <entry key="S30" value="0.031281976150802894" />
-      <entry key="S60" value="0.2260840123929685" />
-      <entry key="M2" value="0.942015376452514" />
-      <entry key="M5" value="6.167055584748399" />
-      <entry key="M10" value="20.65400963159806" />
-      <entry key="M15" value="34.597325043886144" />
-      <entry key="M30" value="65.16376236705932" />
-      <entry key="H1" value="101.70575822204474" />
-      <entry key="H2" value="162.12839627206375" />
-      <entry key="H4" value="288.1877968601633" />
-      <entry key="D1" value="974.7502510215123" />
-      <entry key="W1" value="1974.1639461021332" />
+      <entry key="MS100" value="1.082950005349056E-70" />
+      <entry key="MS500" value="1.0160654443055298E-14" />
+      <entry key="S2" value="3.177082200719374E-4" />
+      <entry key="S5" value="0.04203864272445082" />
+      <entry key="S10" value="0.2462086838658493" />
+      <entry key="S30" value="0.9451717572838638" />
+      <entry key="S60" value="1.4335348729064383" />
+      <entry key="M2" value="2.3117473937528183" />
+      <entry key="M5" value="5.22962272937918" />
+      <entry key="M10" value="11.8989914066053" />
+      <entry key="M15" value="21.16444871584594" />
+      <entry key="M30" value="49.387160781212316" />
+      <entry key="H1" value="89.96358418507465" />
+      <entry key="H2" value="154.3417986949526" />
+      <entry key="H4" value="282.25638057992006" />
+      <entry key="D1" value="976.4802620513273" />
+      <entry key="W1" value="1983.1855701052075" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9075191554948409" />
-      <entry key="MS500" value="0.9919973395493822" />
-      <entry key="S2" value="1.332380520906166" />
-      <entry key="S5" value="1.8196220424940817" />
-      <entry key="S10" value="2.354208121495132" />
-      <entry key="S30" value="3.8160137080437955" />
-      <entry key="S60" value="5.812994744410707" />
-      <entry key="M2" value="9.298776449288745" />
-      <entry key="M5" value="23.955164700843955" />
-      <entry key="M10" value="58.423168393791755" />
-      <entry key="M15" value="94.50907152606747" />
-      <entry key="M30" value="185.54691186641807" />
-      <entry key="H1" value="303.83554011298287" />
-      <entry key="H2" value="510.511832034414" />
-      <entry key="H4" value="974.5810020286284" />
-      <entry key="D1" value="3445.5028671014074" />
-      <entry key="W1" value="6886.653560932496" />
+      <entry key="MS100" value="0.9395227567242411" />
+      <entry key="MS500" value="1.020867232589377" />
+      <entry key="S2" value="2.4233754694784775" />
+      <entry key="S5" value="5.498681501647374" />
+      <entry key="S10" value="8.77465793895764" />
+      <entry key="S30" value="14.088753252400476" />
+      <entry key="S60" value="16.83838957712471" />
+      <entry key="M2" value="21.388299373916283" />
+      <entry key="M5" value="37.611190696638346" />
+      <entry key="M10" value="66.40100720458912" />
+      <entry key="M15" value="97.82125215379298" />
+      <entry key="M30" value="188.8829727458953" />
+      <entry key="H1" value="321.59954614146847" />
+      <entry key="H2" value="540.4543027748314" />
+      <entry key="H4" value="1008.0779773978072" />
+      <entry key="D1" value="3504.8904582759924" />
+      <entry key="W1" value="6972.219008372203" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -683,31 +680,7 @@
       <workItem from="1782211207463" duration="2646000" />
       <workItem from="1782718435389" duration="1630000" />
       <workItem from="1782731168613" duration="17825000" />
-      <workItem from="1782800759017" duration="5047000" />
-    </task>
-    <task id="LOCAL-00001" summary="add test">
-      <option name="closed" value="true" />
-      <created>1756281521489</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1756281521489</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add test">
-      <option name="closed" value="true" />
-      <created>1756281595509</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1756281595509</updated>
-    </task>
-    <task id="LOCAL-00003" summary="work on render">
-      <option name="closed" value="true" />
-      <created>1775818668692</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1775818668692</updated>
+      <workItem from="1782800759017" duration="6278000" />
     </task>
     <task id="LOCAL-00004" summary="work on render, do top-down view render">
       <option name="closed" value="true" />
@@ -1077,7 +1050,31 @@
       <option name="project" value="LOCAL" />
       <updated>1782801760743</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="refactor apple as a class and make the icon and title">
+      <option name="closed" value="true" />
+      <created>1782805857399</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1782805857399</updated>
+    </task>
+    <task id="LOCAL-00051" summary="build V1.1">
+      <option name="closed" value="true" />
+      <created>1782805905163</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1782805905163</updated>
+    </task>
+    <task id="LOCAL-00052" summary="add a drawn title on the screen">
+      <option name="closed" value="true" />
+      <created>1782806625446</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1782806625446</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1095,9 +1092,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- analyze color frequency in picture (raw: blue on plot)&#10;- approximate frequency with gaussian Kernel (smooth: orange on plot)&#10;- calculate integral under curve: A&#10;- split into n segments&#10;- find points that: Integral(c, Pn, Pn+1) = A/n&#10;  &gt; simply said, use curve as frequency table and use it to find peak values, even though they aren't any peaks. &#10;- find closest peak for each pixel on the image and set to&#10; &gt; this way the n from the integral decides on how many colors will the image be approximated with.&#10; planned: find the edges between the color borders as edges." />
-    <MESSAGE value="colorSpliting based on frequency but on the 3 color channels" />
-    <MESSAGE value="fix edge finding: darker color plaines are preffered" />
     <MESSAGE value="add leading bars" />
     <MESSAGE value="edge filtering" />
     <MESSAGE value="refactor" />
@@ -1120,7 +1114,10 @@
     <MESSAGE value="v1 of snake is Done" />
     <MESSAGE value="add v1 exe snake" />
     <MESSAGE value="add buffer movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="add buffer movement" />
+    <MESSAGE value="refactor apple as a class and make the icon and title" />
+    <MESSAGE value="build V1.1" />
+    <MESSAGE value="add a drawn title on the screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a drawn title on the screen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1143,7 +1140,7 @@
     <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1778416641206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1782802604890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$builder.coverage" NAME="builder Coverage Results" MODIFIED="1780509947203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
-    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1782805750939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1782807051215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/school_stuff$bot.coverage" NAME="bot Coverage Results" MODIFIED="1777016656969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$ImageCreator.coverage" NAME="ImageCreator Coverage Results" MODIFIED="1779379119481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
     <SUITE FILE_PATH="coverage/school_stuff$generator.coverage" NAME="generator Coverage Results" MODIFIED="1780519263476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />

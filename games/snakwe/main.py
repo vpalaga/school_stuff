@@ -18,7 +18,10 @@ class Snake:
         icon = pygame.image.load(resource_path("images/billeter_icon.png"))
         pygame.display.set_icon(icon)
 
-        self.width, self.height = 600, 700
+        self.width, self.height = 700, 800
+        self.solidBodyRender = True
+
+
         self.screen = pygame.display.set_mode((self.width, self.height))
 
         self.colors = Colors()
@@ -59,10 +62,13 @@ class Snake:
         for i in range(len(self.game.snake.pos)):
             pos = self.game.snake.pos[i]
             self.drawRect(pos, self.colors.snake, max(w, .6))
-            if i != len(self.game.snake.pos) - 1:
-                nextPos = self.game.snake.pos[i+1]
-                midPos = Pos(((pos.x + nextPos.x) / 2), (pos.y + nextPos.y)/2)
-                self.drawRect(midPos, self.colors.snake, max(w, .6))
+
+            # draw a square between each body part to make solid snake
+            if self.solidBodyRender:
+                if i != len(self.game.snake.pos) - 1:
+                    nextPos = self.game.snake.pos[i+1]
+                    midPos = Pos(((pos.x + nextPos.x) / 2), (pos.y + nextPos.y)/2)
+                    self.drawRect(midPos, self.colors.snake, max(w, .6))
             w -= .03
 
         self.drawRect(self.game.snake.headPos, self.colors.snake, 1.1)
@@ -79,12 +85,12 @@ class Snake:
 
     def text(self)->None:
 
-        surface = self.fontNormal.render(f"SCORE: {self.game.score}", True, (255, 255, 255))  # text, antialias, color
+        surface = self.fontNormal.render(f"SCORE: {self.game.score}", True, self.colors.score)  # text, antialias, color
         rect = surface.get_rect(midleft=(30, 40))
 
         self.screen.blit(surface, rect)
 
-        surface = self.fontSmall.render(f"PRESS RIGHT ARROW TO PLAY", True, (255, 255, 255))  # text, antialias, color
+        surface = self.fontSmall.render(f"PRESS RIGHT ARROW TO PLAY", True, self.colors.tutorial)  # text, antialias, color
         rect = surface.get_rect(midleft=(10, 80))
 
         self.screen.blit(surface, rect)
