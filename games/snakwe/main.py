@@ -1,15 +1,13 @@
-import sys
 import pygame
 from pygame.locals import *
-import time
 import os, sys
 
 from game import Game
 from data import Colors, Pos
 
 
-def resource_path(relative):
-    base = getattr(sys, '_MEIPASS', os.path.dirname(__file__))
+def resource_path(relative:str):
+    base = str(getattr(sys, '_MEIPASS', os.path.dirname(__file__)))
     return os.path.join(base, relative)
 
 class Snake:
@@ -18,7 +16,8 @@ class Snake:
         self.colors = Colors()
         self.game = Game(9)
 
-        self.tickHeading = Pos(1,0)
+        # buffer with next moves allows for pre-moves
+        self.tickHeading = []
         self.headingDelta = self.game.snake.heading / self.game.fpsPerGametick
 
         pygame.init()
@@ -70,7 +69,7 @@ class Snake:
                     color = self.colors.darkGrass
                 self.drawRect(Pos(x, y), color)
 
-    def drawSnake(self, tick:int)->None:
+    def drawSnake(self)->None:
         w = .9
         for i in range(len(self.game.snake.pos)):
             pos = self.game.snake.pos[i]
@@ -92,6 +91,7 @@ class Snake:
 
             appleRect = self.appleSprites[spriteIndex].get_rect(center=self.midPos[pos].pos)
             self.screen.blit(self.appleSprites[spriteIndex], appleRect)
+
     def text(self)->None:
 
         surface = self.fontBig.render(f"SCORE: {self.game.score}", True, (255, 255, 255))  # text, antialias, color
@@ -104,15 +104,17 @@ class Snake:
 
         self.screen.blit(surface, rect)
 
-    def draw(self, tick:int):
+    def draw(self):
         self.screen.fill(self.colors.background)
         self.drawFiled()
         self.drawApples()
-        self.drawSnake(tick)
+        self.drawSnake()
         self.text()
 
         self.update()
-    def waitForRightKey(self):
+
+    @staticmethod
+    def waitForRightKey():
         while True:
             for event in pygame.event.get():
                 if event.type == QUIT:
@@ -143,8 +145,12 @@ class Snake:
                     newHeading = Pos(-1, 0)
 
                 # check against backwards movement
-                if -self.game.snake.heading != newHeading:
-                    self.tickHeading = newHeading
+                if len(self.tickHeading) > 0:
+                    if -self.tickHeading[-1] != newHeading:
+                        self.tickHeading.append(newHeading)
+                else:
+                    if -self.game.snake.heading != newHeading:
+                        self.tickHeading.append(newHeading)
 
     def update(self):
         pygame.display.flip()
@@ -154,7 +160,7 @@ if __name__ == "__main__":
     snake = Snake()
     tickCounter = 0
     displayedScore = -1
-    snake.draw(tickCounter)
+    snake.draw()
     snake.waitForRightKey()
     while True:
         if displayedScore != snake.game.score:
@@ -163,19 +169,20 @@ if __name__ == "__main__":
 
         snake.game.snake.headPos += snake.headingDelta
         snake.events()
-        snake.draw(tickCounter)
+        snake.draw()
         if tickCounter == snake.game.fpsPerGametick:
-            snake.game.snake.heading = snake.tickHeading
+
+            if len(snake.tickHeading) > 0:
+                snake.game.snake.heading = snake.tickHeading.pop(0)
+
             if not snake.game.updateOnTick():
                 print("game over...")
                 snake.waitForRightKey()
                 snake.game = Game(len(snake.appleSprites))
-                snake.tickHeading = Pos(1,0)
-                snake.draw(tickCounter)
+                snake.tickHeading = []
+                snake.draw()
                 snake.waitForRightKey()
             snake.headingDelta = snake.game.snake.heading / snake.game.fpsPerGametick
             tickCounter = 0
-
         else:
-
             tickCounter += 1
