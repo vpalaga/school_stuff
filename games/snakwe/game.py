@@ -1,8 +1,7 @@
-from data import Pos, Snake, Tools
-import random
+from data import Snake, Tools, Apple
+
 class Game:
-    def __init__(self, numOfSprites:int):
-        self.numOfSprites = numOfSprites
+    def __init__(self):
         self.gameSize = (15, 15)
         self.windowSize = (600,600)
         self.applesOnScreen = 5
@@ -12,18 +11,22 @@ class Game:
         self.score = 0
 
         self.tools = Tools(self.gameSize, self.windowSize)
-        self.snake = Snake(self.gameSize)
+        self.snake = Snake((self.tools.xField * 1.3, self.tools.yField * 1.3))
 
-        self.apples: dict[tuple[int,int], int] = {}
+        self.apples: list[Apple] = []
+        Apple.loadAppleSprites(self.tools.xField * 1.2, self.tools.yField * 1.2)
+
         for _ in range(self.applesOnScreen): self.spawnRndApple()
+
     def spawnRndApple(self)->None:
         while True:
             apple = self.tools.randomPos()
 
-            if apple.pos in self.apples.keys(): continue
+            if self.tools.wherePosInApples(apple, self.apples) is not None: continue
+
             elif apple in self.snake.pos: continue
             else:
-                self.apples[int(apple.x), int(apple.y)] = random.randint(0,self.numOfSprites - 1)
+                self.apples.append(Apple(apple))
                 return
 
     def updateOnTick(self)->bool:
@@ -34,7 +37,6 @@ class Game:
         if not self.tools.isPosValid(newSnakeHeadPos):
             return False
 
-
         # snake colliding with itself
         if newSnakeHeadPos in self.snake.pos:
             return False
@@ -44,9 +46,10 @@ class Game:
         self.snake.pos.insert(0, newSnakeHeadPos)
 
         # remove tail if no apples eaten
-        if newSnakeHeadPos.pos in self.apples.keys():
+        eatenAppleIndex = self.tools.wherePosInApples(newSnakeHeadPos, self.apples)
+        if eatenAppleIndex is not None:
             # rem old apple
-            del self.apples[newSnakeHeadPos.pos]
+            del self.apples[eatenAppleIndex]
             self.spawnRndApple()
             self.score += 1
         else:

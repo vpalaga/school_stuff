@@ -1,4 +1,11 @@
 import random
+import os, sys
+import pygame
+
+def resource_path(relative:str):
+    base = str(getattr(sys, '_MEIPASS', os.path.dirname(__file__)))
+    return os.path.join(base, relative)
+
 class Pos:
     def __init__(self, x:int|float, y:int|float):
         self.x = x
@@ -31,13 +38,14 @@ class Pos:
 
 
 class Snake:
-    def __init__(self, gameSize:tuple[int,int]):
-        self.gameSize = gameSize
+    def __init__(self, fieldSize:tuple[float|int,float|int]):
 
         self.length = 5
         self.heading = Pos(1, 0)
         self.headPos = Pos(5, 9)
         self.pos: list[Pos] = self._generateStartPos()
+
+        self.img = self._loadHead(*fieldSize)
 
     def _generateStartPos(self)->list[Pos]:
         snake = []
@@ -46,6 +54,34 @@ class Snake:
             snake.append(segment)
             segment = segment + -self.heading
         return snake
+
+    @staticmethod
+    def _loadHead(w:int, h:int)->pygame.Surface:
+        img = pygame.image.load(resource_path("images/billeter.png")).convert_alpha()
+        img = pygame.transform.scale(img, (w, h))
+        return img
+
+class Apple:
+    sprites = []
+    def __init__(self, pos: Pos):
+        if len(Apple.sprites) == 0:
+            raise Warning("sprites weren't loaded")
+
+        self.pos = pos
+        self.imageIndex = random.randint(0, len(Apple.sprites) - 1)
+        self.img = self.sprites[self.imageIndex]
+
+    @staticmethod
+    def loadAppleSprites(w:float|int, h:float|int):
+        sprites = []
+
+        directory = resource_path(r"images/apples")
+        for filename in os.listdir(directory):
+            img = pygame.image.load(os.path.join(directory, filename)).convert_alpha()
+            img = pygame.transform.scale(img, (w, h))
+            sprites.append(img)
+
+        Apple.sprites = sprites
 
 class Tools:
     def __init__(self, gameSize: tuple[int,int], widowSize: tuple[int,int]):
@@ -77,6 +113,13 @@ class Tools:
 
     def translateCoords(self, p: Pos)->Pos:
         return Pos(p.x*self.xField + self.xField/2, p.y*self.yField + self.yField/2 + 100)
+
+    @staticmethod
+    def wherePosInApples(pos: Pos, apples: list[Apple])->int|None:
+        for i in range(len(apples)):
+            if apples[i].pos == pos:
+                return i
+        return None
 
 class Colors:
     def __init__(self):

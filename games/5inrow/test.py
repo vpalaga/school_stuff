@@ -1,2 +1,6 @@
-for n in range(1, 5):
-    print(n)
+n = list(range(10))
+print(n)
+
+k = n[:2]
+
+print(k)

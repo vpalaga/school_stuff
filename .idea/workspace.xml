@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="make the game logic for snake">
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/Pi7_cropper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/games/snakwe/images/apples/img_8.png" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add buffer movement">
+      <change afterPath="$PROJECT_DIR$/games/snakwe/images/billeter_icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/5inrow/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/5inrow/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/games/snakwe/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/snakwe/data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/games/snakwe/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/snakwe/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/snakwe/images/Pi7_cropper.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/games/snakwe/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/snakwe/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/snakwe/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="690" />
+    <option name="cachedIndexableFilesCount" value="711" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -59,61 +51,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.7791645796604998" />
-      <entry key="MS500" value="1.951318276331799" />
-      <entry key="S2" value="1.9876008614781697" />
-      <entry key="S5" value="1.9951353865894488" />
-      <entry key="S10" value="2.018062066135739" />
-      <entry key="S30" value="2.944392264931191" />
-      <entry key="S60" value="5.061147050675819" />
-      <entry key="M2" value="8.3401913032958" />
-      <entry key="M5" value="16.208765816296992" />
-      <entry key="M10" value="27.410507858871554" />
-      <entry key="M15" value="35.99952367662106" />
-      <entry key="M30" value="51.42247014970698" />
-      <entry key="H1" value="80.73474674097889" />
-      <entry key="H2" value="214.5145421076256" />
-      <entry key="H4" value="563.7655817393522" />
-      <entry key="D1" value="2289.3747102924135" />
-      <entry key="W1" value="4660.775448843583" />
+      <entry key="MS100" value="1.000000000214248" />
+      <entry key="MS500" value="1.0116461941544244" />
+      <entry key="S2" value="1.340309064899628" />
+      <entry key="S5" value="1.8241327308554849" />
+      <entry key="S10" value="2.3569274185081146" />
+      <entry key="S30" value="3.786932502088673" />
+      <entry key="S60" value="5.5909700634602775" />
+      <entry key="M2" value="8.364139429957463" />
+      <entry key="M5" value="17.81276009210542" />
+      <entry key="M10" value="37.81618296588221" />
+      <entry key="M15" value="59.9660599860815" />
+      <entry key="M30" value="120.43632878081301" />
+      <entry key="H1" value="202.17286135021885" />
+      <entry key="H2" value="348.4189742534423" />
+      <entry key="H4" value="686.4254948245808" />
+      <entry key="D1" value="2470.77007014696" />
+      <entry key="W1" value="4912.494352085313" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.549894462784405E-170" />
-      <entry key="MS500" value="1.3128202020376654E-34" />
-      <entry key="S2" value="4.619443806153633E-9" />
-      <entry key="S5" value="6.832572763126752E-4" />
-      <entry key="S10" value="0.03788727735102689" />
-      <entry key="S30" value="0.8298047289077857" />
-      <entry key="S60" value="2.3006871113092666" />
-      <entry key="M2" value="4.254858322773149" />
-      <entry key="M5" value="8.145623368505992" />
-      <entry key="M10" value="15.260863326975105" />
-      <entry key="M15" value="21.57087496464309" />
-      <entry key="M30" value="33.373263865785134" />
-      <entry key="H1" value="50.085609307290184" />
-      <entry key="H2" value="104.81916192526329" />
-      <entry key="H4" value="231.97046699120082" />
-      <entry key="D1" value="895.7092519827648" />
-      <entry key="W1" value="1868.4024299361809" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.6238121331253414E-92" />
+      <entry key="S2" value="1.1288440430368494E-23" />
+      <entry key="S5" value="6.622982305904544E-10" />
+      <entry key="S10" value="2.5740181214231186E-5" />
+      <entry key="S30" value="0.031281976150802894" />
+      <entry key="S60" value="0.2260840123929685" />
+      <entry key="M2" value="0.942015376452514" />
+      <entry key="M5" value="6.167055584748399" />
+      <entry key="M10" value="20.65400963159806" />
+      <entry key="M15" value="34.597325043886144" />
+      <entry key="M30" value="65.16376236705932" />
+      <entry key="H1" value="101.70575822204474" />
+      <entry key="H2" value="162.12839627206375" />
+      <entry key="H4" value="288.1877968601633" />
+      <entry key="D1" value="974.7502510215123" />
+      <entry key="W1" value="1974.1639461021332" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8237274048576698" />
-      <entry key="MS500" value="1.1305652714572372" />
-      <entry key="S2" value="1.6311668379859543" />
-      <entry key="S5" value="1.8338270267324153" />
-      <entry key="S10" value="1.9702104741129391" />
-      <entry key="S30" value="3.728936760131749" />
-      <entry key="S60" value="7.318452720605657" />
-      <entry key="M2" value="12.556998916706052" />
-      <entry key="M5" value="24.321612484864932" />
-      <entry key="M10" value="42.63499774434872" />
-      <entry key="M15" value="57.53294632042381" />
-      <entry key="M30" value="84.7637496658794" />
-      <entry key="H1" value="130.79554732139383" />
-      <entry key="H2" value="319.30843020756714" />
-      <entry key="H4" value="795.708785927562" />
-      <entry key="D1" value="3185.0678351937077" />
-      <entry key="W1" value="6529.173401698969" />
+      <entry key="MS100" value="0.9075191554948409" />
+      <entry key="MS500" value="0.9919973395493822" />
+      <entry key="S2" value="1.332380520906166" />
+      <entry key="S5" value="1.8196220424940817" />
+      <entry key="S10" value="2.354208121495132" />
+      <entry key="S30" value="3.8160137080437955" />
+      <entry key="S60" value="5.812994744410707" />
+      <entry key="M2" value="9.298776449288745" />
+      <entry key="M5" value="23.955164700843955" />
+      <entry key="M10" value="58.423168393791755" />
+      <entry key="M15" value="94.50907152606747" />
+      <entry key="M30" value="185.54691186641807" />
+      <entry key="H1" value="303.83554011298287" />
+      <entry key="H2" value="510.511832034414" />
+      <entry key="H4" value="974.5810020286284" />
+      <entry key="D1" value="3445.5028671014074" />
+      <entry key="W1" value="6886.653560932496" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -130,79 +122,79 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.Camera.executor": "Run",
-    "Python.Faces.executor": "Run",
-    "Python.Fire.executor": "Run",
-    "Python.Fire2.executor": "Run",
-    "Python.Fire3.executor": "Run",
-    "Python.Fire4.executor": "Run",
-    "Python.Fire5.executor": "Run",
-    "Python.Fire6.executor": "Run",
-    "Python.ImageCreator.executor": "Run",
-    "Python.ImageManipulator.executor": "Run",
-    "Python.MouseDances1.executor": "Run",
-    "Python.MouseDances2.executor": "Run",
-    "Python.Object.executor": "Run",
-    "Python.bot.executor": "Run",
-    "Python.builder.executor": "Run",
-    "Python.classroom.executor": "Run",
-    "Python.data.executor": "Run",
-    "Python.edge_detection.executor": "Run",
-    "Python.expresions.executor": "Run",
-    "Python.field_gen.executor": "Run",
-    "Python.game.executor": "Run",
-    "Python.gen_letters.executor": "Run",
-    "Python.generator.executor": "Run",
-    "Python.grapher.executor": "Run",
-    "Python.image.executor": "Run",
-    "Python.images.executor": "Run",
-    "Python.loader.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.music.executor": "Run",
-    "Python.natural_d.executor": "Run",
-    "Python.path_alg.executor": "Run",
-    "Python.problem.executor": "Run",
-    "Python.python @save_history.executor": "Run",
-    "Python.ryders5.executor": "Run",
-    "Python.ryders6.executor": "Run",
-    "Python.sound_render.executor": "Run",
-    "Python.test (2).executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.trimurid_ryders1.executor": "Run",
-    "Python.trimurid_ryders2.executor": "Run",
-    "Python.trimurid_ryders3.executor": "Run",
-    "Python.trimurid_ryders4.executor": "Run",
-    "Python.visualise.executor": "Run",
-    "Python.wallSegments.executor": "Run",
-    "Python.wallSegments2.executor": "Run",
-    "Python.wallSegments3.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/games/snakwe/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion.inline",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Camera.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Faces.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ImageCreator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ImageManipulator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Object.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.builder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.classroom.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.edge_detection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.expresions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.field_gen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.game.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gen_letters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.grapher.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image.executor&quot;: &quot;Run&quot;,
+    &quot;Python.images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.loader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.music.executor&quot;: &quot;Run&quot;,
+    &quot;Python.natural_d.executor&quot;: &quot;Run&quot;,
+    &quot;Python.path_alg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.problem.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python @save_history.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sound_render.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.visualise.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments3.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/games/snakwe/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion.inline&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\games\snakwe\images" />
@@ -219,7 +211,7 @@
       <recent name="C:\Users\vit\school_stuff\olympiad\4\fire6" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -690,7 +682,8 @@
       <workItem from="1782113812853" duration="2000" />
       <workItem from="1782211207463" duration="2646000" />
       <workItem from="1782718435389" duration="1630000" />
-      <workItem from="1782731168613" duration="16961000" />
+      <workItem from="1782731168613" duration="17825000" />
+      <workItem from="1782800759017" duration="5047000" />
     </task>
     <task id="LOCAL-00001" summary="add test">
       <option name="closed" value="true" />
@@ -1060,7 +1053,31 @@
       <option name="project" value="LOCAL" />
       <updated>1782734243511</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="v1 of snake is Done">
+      <option name="closed" value="true" />
+      <created>1782759293555</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1782759293555</updated>
+    </task>
+    <task id="LOCAL-00048" summary="add v1 exe snake">
+      <option name="closed" value="true" />
+      <created>1782759440513</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1782759440513</updated>
+    </task>
+    <task id="LOCAL-00049" summary="add buffer movement">
+      <option name="closed" value="true" />
+      <created>1782801760743</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1782801760743</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1078,9 +1095,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="do some animal testing on frogs and tigers" />
-    <MESSAGE value="add blur" />
-    <MESSAGE value="blur bug fix" />
     <MESSAGE value="- analyze color frequency in picture (raw: blue on plot)&#10;- approximate frequency with gaussian Kernel (smooth: orange on plot)&#10;- calculate integral under curve: A&#10;- split into n segments&#10;- find points that: Integral(c, Pn, Pn+1) = A/n&#10;  &gt; simply said, use curve as frequency table and use it to find peak values, even though they aren't any peaks. &#10;- find closest peak for each pixel on the image and set to&#10; &gt; this way the n from the integral decides on how many colors will the image be approximated with.&#10; planned: find the edges between the color borders as edges." />
     <MESSAGE value="colorSpliting based on frequency but on the 3 color channels" />
     <MESSAGE value="fix edge finding: darker color plaines are preffered" />
@@ -1103,7 +1117,10 @@
     <MESSAGE value="finsih the problem bruter" />
     <MESSAGE value="comment the code" />
     <MESSAGE value="make the game logic for snake" />
-    <option name="LAST_COMMIT_MESSAGE" value="make the game logic for snake" />
+    <MESSAGE value="v1 of snake is Done" />
+    <MESSAGE value="add v1 exe snake" />
+    <MESSAGE value="add buffer movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="add buffer movement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1116,17 +1133,17 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$Camera.coverage" NAME="Camera Coverage Results" MODIFIED="1776167361578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$classroom.coverage" NAME="classroom Coverage Results" MODIFIED="1779110927475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf/classes" />
     <SUITE FILE_PATH="coverage/school_stuff$data.coverage" NAME="data Coverage Results" MODIFIED="1782744422585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/snakwe" />
     <SUITE FILE_PATH="coverage/school_stuff$Object.coverage" NAME="Object Coverage Results" MODIFIED="1776195469626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$game.coverage" NAME="game Coverage Results" MODIFIED="1782758172053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/snakwe" />
     <SUITE FILE_PATH="coverage/school_stuff$music.coverage" NAME="music Coverage Results" MODIFIED="1776942620027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1778416641206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
-    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1782733947806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/snakwe" />
+    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1782802604890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$builder.coverage" NAME="builder Coverage Results" MODIFIED="1780509947203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
-    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1782759203803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1782805750939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/school_stuff$bot.coverage" NAME="bot Coverage Results" MODIFIED="1777016656969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$ImageCreator.coverage" NAME="ImageCreator Coverage Results" MODIFIED="1779379119481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
     <SUITE FILE_PATH="coverage/school_stuff$generator.coverage" NAME="generator Coverage Results" MODIFIED="1780519263476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />

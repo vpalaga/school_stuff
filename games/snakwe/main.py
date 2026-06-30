@@ -1,56 +1,39 @@
 import pygame
 from pygame.locals import *
-import os, sys
+import time
+import sys
 
 from game import Game
-from data import Colors, Pos
-
-
-def resource_path(relative:str):
-    base = str(getattr(sys, '_MEIPASS', os.path.dirname(__file__)))
-    return os.path.join(base, relative)
+from data import Colors, Pos, resource_path
 
 class Snake:
     def __init__(self):
+        pygame.init()
+
+        # Window title (taskbar / title bar text)
+        pygame.display.set_caption("1 Dih-stroyer")
+
+        # Window icon
+        icon = pygame.image.load(resource_path("images/billeter_icon.png"))
+        pygame.display.set_icon(icon)
+
         self.width, self.height = 600, 700
+        self.screen = pygame.display.set_mode((self.width, self.height))
+
         self.colors = Colors()
-        self.game = Game(9)
+        self.game = Game()
 
         # buffer with next moves allows for pre-moves
         self.tickHeading = []
         self.headingDelta = self.game.snake.heading / self.game.fpsPerGametick
 
-        pygame.init()
         self.fpsClock = pygame.time.Clock()
 
-        self.screen = pygame.display.set_mode((self.width, self.height))
         # setup (do once)
         self.fontBig = pygame.font.Font(None, 50)  # None = default font, 36 = size
         self.fontSmall = pygame.font.Font(None, 25)  # None = default font, 36 = size
 
-        # render and draw
-
-        self.appleSprites = self._loadAppleSprites()
-
         self.midPos = self.game.tools.generateMidposDict()
-        self.snakeHead = self._loadHead()
-
-
-
-    def _loadHead(self)->pygame.Surface:
-        img = pygame.image.load(resource_path("images/Pi7_cropper.png")).convert_alpha()
-        img = pygame.transform.scale(img, (self.game.tools.xField * 1.5, self.game.tools.xField*1.5))
-        return img
-
-    def _loadAppleSprites(self)->list[pygame.Surface]:
-        sprites = []
-
-        directory = resource_path(r"images/apples")
-        for filename in os.listdir(directory):
-            img = pygame.image.load(os.path.join(directory, filename)).convert_alpha()
-            img = pygame.transform.scale(img, (self.game.tools.xField * 1.2, self.game.tools.xField * 1.2))
-            sprites.append(img)
-        return sprites
 
     def drawRect(self, pos: Pos, color: tuple[int,int,int], offset:float=1):
 
@@ -82,15 +65,15 @@ class Snake:
 
         self.drawRect(self.game.snake.headPos, self.colors.snake, 1.1)
 
-        headRect = self.snakeHead.get_rect(center=self.game.tools.translateCoords(self.game.snake.headPos).pos)
-        self.screen.blit(self.snakeHead, headRect)
+        headRect = self.game.snake.img.get_rect(center=self.game.tools.translateCoords(self.game.snake.headPos).pos)
+        self.screen.blit(self.game.snake.img, headRect)
 
     def drawApples(self)->None:
-        for pos, spriteIndex in self.game.apples.items():
+        for apple in self.game.apples:
             #pygame.draw.circle(self.screen, self.colors.apple, pos, self.game.tools.xField*0.7)
 
-            appleRect = self.appleSprites[spriteIndex].get_rect(center=self.midPos[pos].pos)
-            self.screen.blit(self.appleSprites[spriteIndex], appleRect)
+            appleRect = apple.img.get_rect(center=self.midPos[apple.pos.pos].pos)
+            self.screen.blit(apple.img, appleRect)
 
     def text(self)->None:
 
@@ -159,30 +142,44 @@ class Snake:
 if __name__ == "__main__":
     snake = Snake()
     tickCounter = 0
-    displayedScore = -1
+    # draw init screen
     snake.draw()
     snake.waitForRightKey()
-    while True:
-        if displayedScore != snake.game.score:
-            displayedScore = snake.game.score
-            print(f"LIVES DESTROYED: {displayedScore}")
 
+    while True:
+        # update head by small amt for smooth animation
         snake.game.snake.headPos += snake.headingDelta
+
         snake.events()
         snake.draw()
+
         if tickCounter == snake.game.fpsPerGametick:
 
-            if len(snake.tickHeading) > 0:
-                snake.game.snake.heading = snake.tickHeading.pop(0)
 
+
+            # if any heading changes are pending, apply these
+            if len(snake.tickHeading) > 0:
+
+                # if more than 2 heading changes are set to happen, let only the 2 first ones go through
+                if len(snake.tickHeading) > 2:
+                    snake.tickHeading = snake.tickHeading[0:2]
+
+                snake.game.snake.heading = snake.tickHeading.pop(0)
+                snake.headingDelta = snake.game.snake.heading / snake.game.fpsPerGametick
+
+            # main tick game logic, False -> gameOver
             if not snake.game.updateOnTick():
                 print("game over...")
-                snake.waitForRightKey()
-                snake.game = Game(len(snake.appleSprites))
+                time.sleep(1)
+
+                # reset for new game
+                snake.game = Game()
                 snake.tickHeading = []
+                snake.headingDelta = snake.game.snake.heading / snake.game.fpsPerGametick
                 snake.draw()
+
                 snake.waitForRightKey()
-            snake.headingDelta = snake.game.snake.heading / snake.game.fpsPerGametick
+
             tickCounter = 0
         else:
             tickCounter += 1
