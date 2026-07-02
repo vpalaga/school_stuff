@@ -40,7 +40,7 @@ class Pos:
 class Snake:
     def __init__(self, fieldSize:tuple[float|int,float|int]):
 
-        self.length = 5
+        self.length = 3
         self.heading = Pos(1, 0)
         self.headPos = Pos(5, 9)
         self.pos: list[Pos] = self._generateStartPos()
@@ -63,25 +63,34 @@ class Snake:
 
 class Apple:
     sprites = []
+    sounds = []
+    pygame.mixer.init()
+
     def __init__(self, pos: Pos):
         if len(Apple.sprites) == 0:
             raise Warning("sprites weren't loaded")
 
         self.pos = pos
+
         self.imageIndex = random.randint(0, len(Apple.sprites) - 1)
+
+        self.sound = Apple.sounds[self.imageIndex] if self.imageIndex < len(Apple.sounds) else Apple.sounds[len(Apple.sounds) - 1]
         self.img = self.sprites[self.imageIndex]
 
     @staticmethod
     def loadAppleSprites(w:float|int, h:float|int):
-        sprites = []
-
         directory = resource_path(r"images/apples")
         for filename in os.listdir(directory):
             img = pygame.image.load(os.path.join(directory, filename)).convert_alpha()
             img = pygame.transform.scale(img, (w, h))
-            sprites.append(img)
+            Apple.sprites.append(img)
 
-        Apple.sprites = sprites
+    @staticmethod
+    def loadSounds():
+        directory = resource_path(r"sound")
+        for filename in os.listdir(directory):
+            sound = pygame.mixer.Sound(os.path.join(directory, filename))
+            Apple.sounds.append(sound)
 
 class Tools:
     def __init__(self, gameSize: tuple[int,int], widowSize: tuple[int,int]):
@@ -123,11 +132,11 @@ class Tools:
 
 class Colors:
     def __init__(self):
-        self.darkGrass = (162, 209, 73)
-        self.lightGrass= (170, 215, 81)
-        self.apple =     (231, 71,  29)
+        self.darkGrass = (162, 209, 73 )
+        self.lightGrass= (170, 215, 81 )
+        self.apple =     (231, 71,  29 )
         self.snake =     (72,  118, 236)
-        self.background =(74 , 117, 44)
+        self.background =(74 , 117, 44 )
         self.title =     (181, 138, 211)
         self.score =     (255, 255, 255)
         self.tutorial =  (230, 230, 230)
