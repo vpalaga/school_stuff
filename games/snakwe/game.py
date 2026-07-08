@@ -1,7 +1,5 @@
-from operator import pos
-
-from data import Snake, Tools, Apple, resource_path, Wall, Pos
-import pygame, random
+from data import Snake, Tools, Apple, Wall, Pos
+import random
 
 class Game:
     sound = True
