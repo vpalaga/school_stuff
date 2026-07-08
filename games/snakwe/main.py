@@ -8,7 +8,7 @@ from data import Colors, Pos, resource_path
 
 class Snake:
     def __init__(self):
-        self.version = "1.1.1"
+        self.version = "1.2.0"
         pygame.init()
 
         # Window title (taskbar / title bar text)
