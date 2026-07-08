@@ -113,6 +113,8 @@ class Tools:
         self.xField = self.windowSize[0] / self.gameSize[0]
         self.yField = self.windowSize[1] / self.gameSize[1]
 
+        self.possibleHeadings:list[Pos] = [Pos(1, 0), Pos(-1, 0), Pos(0,1), Pos(0,-1)]
+
     def isPosValid(self, p: Pos)->bool:
         if -1 < p.x < self.gameSize[0] and -1 < p.y < self.gameSize[1]:
             return True
@@ -121,6 +123,9 @@ class Tools:
     def randomPos(self)->Pos:
         return Pos(random.randint(0, self.gameSize[0] - 1),
                    random.randint(0, self.gameSize[1] - 1))
+
+    def randomHeading(self)->Pos:
+        return random.choice(self.possibleHeadings)
 
     def generateMidposDict(self)->dict[tuple[int,int], Pos]:
         midPos = {}

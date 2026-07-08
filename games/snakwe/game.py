@@ -11,7 +11,7 @@ class Game:
         self.applesOnScreen = 3
         self.fpsPerGametick = 15
         self.fps = 120
-        self.wallSpawn = 2
+        self.wallSpawn = 1
         self.maxWalls = 20
         self.smallestSpawnDistance = 3
 
@@ -30,6 +30,14 @@ class Game:
 
         for _ in range(self.applesOnScreen): self.spawnRndApple()
 
+    def isPosFree(self, pos:Pos)->bool:
+        if self.tools.wherePosInApples(pos, self.apples) is not None: return False
+        if self.tools.wherePosInWalls(pos, self.walls) is not None: return False
+        if self.snake.headPos.distanceTo(pos) < self.smallestSpawnDistance: return False
+        if pos in self.snake.pos: return False
+        return True
+
+
     def rndPos(self)->Pos|None:
 
         if self.gameSize[0] * self.gameSize[1] - len(self.snake.pos) - len(self.apples) - len(self.walls) <= 0:
@@ -38,13 +46,7 @@ class Game:
         # brute a pos that satisfies all reqs.
         while True:
             pos = self.tools.randomPos()
-
-            if self.tools.wherePosInApples(pos, self.apples) is not None: continue
-            if self.tools.wherePosInWalls( pos, self.walls ) is not None: continue
-            if self.snake.headPos.distanceTo(pos) < self.smallestSpawnDistance: continue
-            if pos in self.snake.pos: continue
-
-            else:
+            if self.isPosFree(pos):
                 return pos
 
     def spawnRndApple(self)->None:
@@ -63,10 +65,24 @@ class Game:
         if random.randint(0,2) != 0:
             return
 
-        pos = self.rndPos()
-        if pos is not None:
-            self.walls.append(Wall(pos))
-            self.lastWallSpawnTick = self.tick
+        if len(self.walls) == 0 or random.randint(0,4) == 0:
+            # single random wall somewhere
+            pos = self.rndPos()
+            if pos is not None:
+                self.walls.append(Wall(pos))
+                self.lastWallSpawnTick = self.tick
+        else:
+            # wall style of wall spawn
+            while True:
+                wall: Wall = random.choice(self.walls)
+                newWallPos = wall.pos + self.tools.randomHeading()
+
+                if not self.tools.isPosValid(newWallPos): continue
+                if not self.isPosFree(newWallPos): continue
+                if newWallPos.distanceTo(self.snake.headPos) < self.smallestSpawnDistance: continue
+                break
+
+            self.walls.append(Wall(newWallPos))
 
 
     def updateOnTick(self)->bool:
@@ -113,6 +129,5 @@ class Game:
             self.snake.pos.pop(-1)
 
         self.tick += 1
-        print(len(self.walls))
 
         return True
