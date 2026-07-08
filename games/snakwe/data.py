@@ -36,7 +36,15 @@ class Pos:
     def __repr__(self):
         return f"({self.x}, {self.y})"
 
+    def distanceTo(self, other):
 
+        if isinstance(other, Pos):
+            dx = abs(self.x - other.x)
+            dy = abs(self.y - other.y)
+
+            return dx + dy
+        else:
+            return NotImplemented
 class Snake:
     def __init__(self, fieldSize:tuple[float|int,float|int]):
 
@@ -92,6 +100,12 @@ class Apple:
             sound = pygame.mixer.Sound(os.path.join(directory, filename))
             Apple.sounds.append(sound)
 
+class Wall:
+    sprites = []
+    def __init__(self, pos:Pos):
+        self.pos = pos
+
+
 class Tools:
     def __init__(self, gameSize: tuple[int,int], widowSize: tuple[int,int]):
         self.gameSize = gameSize
@@ -130,6 +144,13 @@ class Tools:
                 return i
         return None
 
+    @staticmethod
+    def wherePosInWalls(pos: Pos, walls: list[Wall])->int|None:
+        for i in range(len(walls)):
+            if walls[i].pos == pos:
+                return i
+        return None
+
 class Colors:
     def __init__(self):
         self.darkGrass = (162, 209, 73 )
@@ -140,3 +161,4 @@ class Colors:
         self.title =     (181, 138, 211)
         self.score =     (255, 255, 255)
         self.tutorial =  (230, 230, 230)
+        self.wall =      (255, 20,  10)

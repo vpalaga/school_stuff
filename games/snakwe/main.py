@@ -83,6 +83,10 @@ class Snake:
             appleRect = apple.img.get_rect(center=self.midPos[apple.pos.pos].pos)
             self.screen.blit(apple.img, appleRect)
 
+    def drawWalls(self)->None:
+        for wall in self.game.walls:
+            self.drawRect(wall.pos, self.colors.wall)
+
     def text(self)->None:
 
         surface = self.fontNormal.render(f"SCORE: {self.game.score}", True, self.colors.score)  # text, antialias, color
@@ -104,7 +108,10 @@ class Snake:
     def draw(self):
         self.screen.fill(self.colors.background)
         self.drawFiled()
+
         self.drawApples()
+        self.drawWalls()
+
         self.drawSnake()
         self.text()
 
@@ -155,6 +162,7 @@ class Snake:
 
 if __name__ == "__main__":
     snake = Snake()
+    Game.sound = False
     tickCounter = 0
     # draw init screen
     snake.draw()
