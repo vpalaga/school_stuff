@@ -1,5 +1,3 @@
-import sys
-
 from games.tetris.colors import Colors
 from objects import Shape, BlockStruct, Pos, Field, FallingShape
 
@@ -38,7 +36,6 @@ class Game:
         rowsToClear = self.rowsToClear()
         self.clearRows(rowsToClear)
         self.score += len(rowsToClear)
-
 
         self.fallingShape.updateBS()
 

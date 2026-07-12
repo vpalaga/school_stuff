@@ -93,7 +93,6 @@ class Display:
         self.screen.fill(Colors.background)
         self.drawFieldOutline()
         self.drawField()
-
         self.drawPlayField()
 
         self.drawFallingShape()

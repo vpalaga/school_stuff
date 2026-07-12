@@ -8,6 +8,7 @@ class Tools:
 
         self.sField = self.calcSField()
         self.sFieldHalf = self.sField / 2
+        self.gameSizePx = Pos(self.gameSize[0] * self.sField, self.gameSize[1] * self.sField)
         self.playFiledX = self.clacXofPlayField()
 
         self.zeroPos = Pos(self.playFiledX, Colors.topMarginPx)
