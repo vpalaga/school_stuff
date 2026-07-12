@@ -54,6 +54,15 @@ class Display:
 
         pygame.draw.rect(self.screen, color, rect)
 
+    def drawFieldOutline(self)->None:
+        thickness = Pos(Colors.playfieldOutlineThickness, Colors.playfieldOutlineThickness)
+        dimension = self.game.tools.gameSizePx + thickness + thickness
+        print(dimension)
+        leftTop = self.game.tools.zeroPos + -thickness
+        rect = (*leftTop.pos, *dimension.pos)
+        print(rect)
+        pygame.draw.rect(self.screen, Colors.outline, rect)
+
     def drawField(self)->None:
         for y in range(Colors.gameSize[1]):
             for x in range(Colors.gameSize[0]):
@@ -82,6 +91,7 @@ class Display:
 
     def draw(self):
         self.screen.fill(Colors.background)
+        self.drawFieldOutline()
         self.drawField()
 
         self.drawPlayField()
