@@ -11,6 +11,7 @@ class Tools:
         self.playFiledX = self.clacXofPlayField()
 
         self.zeroPos = Pos(self.playFiledX, Colors.topMarginPx)
+        self.scorePos = Pos(self.windowSize[0] - self.zeroPos.x / 2, self.zeroPos.x / 2)
         print(self.zeroPos)
         print(self.sField)
 

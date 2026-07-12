@@ -10,7 +10,7 @@ from game import Game
 
 class Display:
     def __init__(self):
-        self.version = "0.0.0"
+        self.version = "0.0.2"
         pygame.init()
 
         # Window title (taskbar / title bar text)
@@ -20,8 +20,8 @@ class Display:
         #icon = pygame.image.load(resource_path("images/billeter_icon.png"))
         #pygame.display.set_icon(icon)
 
-        self.fps = 120
-        self.fps_p_tick = 30
+        self.fps = 15
+        self.fps_p_tick = 4
 
         self.screen = pygame.display.set_mode(Colors.windowSize)
 
@@ -75,8 +75,8 @@ class Display:
 
     def text(self)->None:
 
-        surface = self.fontNormal.render(f"SCORE: {0}", True, Colors.score)  # text, antialias, color
-        rect = surface.get_rect(midleft=(30, 40))
+        surface = self.fontBig.render(str(self.game.score), True, Colors.score)  # text, antialias, color
+        rect = surface.get_rect(center=self.game.tools.scorePos.pos)
 
         self.screen.blit(surface, rect)
 
@@ -87,7 +87,7 @@ class Display:
         self.drawPlayField()
 
         self.drawFallingShape()
-        #self.text()
+        self.text()
 
         self.update()
 
@@ -105,36 +105,39 @@ class Display:
                         return
 
     def events(self):
+        rotation = 0
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
             if event.type == pygame.KEYDOWN:
                 key = event.key
 
-                move = Pos(0,0)
-                rotation = 0
-
                 if key == pygame.K_UP or key == pygame.K_w:
                     rotation = -1
-                elif key == pygame.K_DOWN or key == pygame.K_s:
-                    move += Pos(0,1)
-                elif key == pygame.K_RIGHT or key == pygame.K_d:
-                    move += Pos(1,0)
-                elif key == pygame.K_LEFT or key == pygame.K_a:
-                    move += Pos(-1,0)
                 elif key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
 
-                nextFallingShapeBS = self.game.fallingShape.blockStructByOffsetAndRotation(offset=move, rotation=rotation)
+        # --- outside the event loop, runs every frame, detects held keys ---
+        keys = pygame.key.get_pressed()
+        move = Pos(0, 0)
 
-                if self.game.checkBSValidity(nextFallingShapeBS):
-                    self.game.fallingShape.midPos += move
-                    self.game.fallingShape.rotate(rotation)
+        if keys[pygame.K_DOWN] or keys[pygame.K_s]:
+            move += Pos(0, 1)
+        if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
+            move += Pos(1, 0)
+        if keys[pygame.K_LEFT] or keys[pygame.K_a]:
+            move += Pos(-1, 0)
 
-                    self.game.fallingShape.updateBS()
+        nextFallingShapeBS = self.game.fallingShape.blockStructByOffsetAndRotation(offset=move, rotation=rotation)
+
+        if self.game.checkBSValidity(nextFallingShapeBS):
+            self.game.fallingShape.midPos += move
+            self.game.fallingShape.rotate(rotation)
+
+            self.game.fallingShape.updateBS()
 
     def update(self):
         pygame.display.flip()
