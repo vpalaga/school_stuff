@@ -17,11 +17,13 @@ class Pos:
             new = Pos(self.x + other.x, self.y + other.y)
             return new
         return NotImplemented
+
     def __eq__(self, other):
         if isinstance(other, Pos):
             if self.x == other.x and self.y == other.y:
                 return True
         return False
+
     def __neg__(self):
         return Pos(-self.x, -self.y)
 
@@ -32,6 +34,9 @@ class Pos:
 
     def __round__(self, n=None):
         return Pos(round(self.x, n), round(self.y, n))
+
+    def __hash__(self):
+        return hash((self.x, self.y))
 
     def __repr__(self):
         return f"({self.x}, {self.y})"
@@ -45,6 +50,7 @@ class Pos:
             return dx + dy
         else:
             return NotImplemented
+
 class Snake:
     def __init__(self, fieldSize:tuple[float|int,float|int]):
 
@@ -79,6 +85,8 @@ class Apple:
             raise Warning("sprites weren't loaded")
 
         self.pos = pos
+
+        self.isLegendary = True if random.randint(0,15) == 0 else False
 
         self.imageIndex = random.randint(0, len(Apple.sprites) - 1)
 
@@ -167,3 +175,5 @@ class Colors:
         self.score =     (255, 255, 255)
         self.tutorial =  (230, 230, 230)
         self.wall =      (255, 20,  10)
+        self.legendary = (255, 191, 0)
+

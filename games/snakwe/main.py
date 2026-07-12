@@ -78,6 +78,8 @@ class Snake:
 
     def drawApples(self)->None:
         for apple in self.game.apples:
+            if apple.isLegendary:
+                pygame.draw.circle(self.screen, self.colors.legendary, round(self.game.tools.translateCoords(apple.pos)).pos, self.game.tools.xField * .7)
             #pygame.draw.circle(self.screen, self.colors.apple, pos, self.game.tools.xField*0.7)
 
             appleRect = apple.img.get_rect(center=self.midPos[apple.pos.pos].pos)
@@ -127,7 +129,7 @@ class Snake:
 
                 if event.type == pygame.KEYDOWN:
                     key = event.key
-                    if key == pygame.K_RIGHT:
+                    if key == pygame.K_RIGHT or key == pygame.K_d:
                         return
 
     def events(self):
@@ -139,14 +141,17 @@ class Snake:
             if event.type == pygame.KEYDOWN:
                 key = event.key
                 newHeading = self.game.snake.heading
-                if key == pygame.K_UP:
+                if key == pygame.K_UP or key == pygame.K_w:
                     newHeading = Pos(0, -1)
-                elif key == pygame.K_DOWN:
+                elif key == pygame.K_DOWN or key == pygame.K_s:
                     newHeading = Pos(0, 1)
-                elif key == pygame.K_RIGHT:
+                elif key == pygame.K_RIGHT or key == pygame.K_d:
                     newHeading = Pos(1, 0)
-                elif key == pygame.K_LEFT:
+                elif key == pygame.K_LEFT or key == pygame.K_a:
                     newHeading = Pos(-1, 0)
+                elif key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    sys.exit()
 
                 # check against backwards movement
                 if len(self.tickHeading) > 0:
@@ -162,7 +167,7 @@ class Snake:
 
 if __name__ == "__main__":
     snake = Snake()
-    Game.sound = False
+    Game.sound = True
     tickCounter = 0
     # draw init screen
     snake.draw()
@@ -176,8 +181,6 @@ if __name__ == "__main__":
         snake.draw()
 
         if tickCounter == snake.game.fpsPerGametick:
-
-
 
             # if any heading changes are pending, apply these
             if len(snake.tickHeading) > 0:

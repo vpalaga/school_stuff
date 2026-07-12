@@ -116,8 +116,14 @@ class Game:
             if self.sound:
                 apple.sound.play(maxtime=3000)  # play only the first 3000 ms (3 seconds)
 
+            if apple.isLegendary:
+                self.walls = []
+                self.score += 5
+            else:
+
+                self.score += 1
+
             self.spawnRndApple()
-            self.score += 1
 
             # remove a wall for eaten apple
             if len(self.walls) > 0:
