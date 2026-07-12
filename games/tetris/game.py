@@ -33,11 +33,12 @@ class Game:
             if self.isGameOver():
                 return False
 
-            rowsToClear = self.rowsToClear()
-            self.clearRows(rowsToClear)
-            self.score += len(rowsToClear)
-
             self.fallingShape = FallingShape()
+
+        rowsToClear = self.rowsToClear()
+        self.clearRows(rowsToClear)
+        self.score += len(rowsToClear)
+
 
         self.fallingShape.updateBS()
 
@@ -84,7 +85,8 @@ class Game:
 
         for row in rows:
             # remove the blocks in the line and shift blocks with smaller y val one down
-            for field in self.playField.values():
+            blocks = self.playField.values()
+            for field in blocks:
 
                 if field.pos.y > row:
                     newPlayFiled[field.pos] = field

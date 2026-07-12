@@ -117,7 +117,7 @@ class Display:
                 rotation = 0
 
                 if key == pygame.K_UP or key == pygame.K_w:
-                    rotation = 1
+                    rotation = -1
                 elif key == pygame.K_DOWN or key == pygame.K_s:
                     move += Pos(0,1)
                 elif key == pygame.K_RIGHT or key == pygame.K_d:
@@ -133,6 +133,8 @@ class Display:
                 if self.game.checkBSValidity(nextFallingShapeBS):
                     self.game.fallingShape.midPos += move
                     self.game.fallingShape.rotate(rotation)
+
+                    self.game.fallingShape.updateBS()
 
     def update(self):
         pygame.display.flip()
@@ -157,8 +159,6 @@ if __name__ == "__main__":
                 # reset for new game
                 display.game = Game()
                 display.draw()
-
-                display.waitForRightKey()
 
             tickCounter = 0
         else:
