@@ -81,12 +81,12 @@ class Game:
 
 
     def clearRows(self, rows:list[int])->None:
-        newPlayFiled: dict[Pos, Field] = {}
+
 
         for row in rows:
+            newPlayFiled: dict[Pos, Field] = {}
             # remove the blocks in the line and shift blocks with smaller y val one down
-            blocks = self.playField.values()
-            for field in blocks:
+            for field in self.playField.values():
 
                 if field.pos.y > row:
                     newPlayFiled[field.pos] = field
