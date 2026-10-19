@@ -15,7 +15,7 @@ class Display:
 
         # Window title (taskbar / title bar text)
         pygame.display.set_caption("TETRIS")
-
+        self.title:list[Pos] = []
         # Window icon
         #icon = pygame.image.load(resource_path("images/billeter_icon.png"))
         #pygame.display.set_icon(icon)
@@ -34,10 +34,12 @@ class Display:
         self.fontSmall = pygame.font.Font(None, 20)  # None = default font, 36 = size
         self.fontBig = pygame.font.Font(None, 80)  # None = default font, 36 = size
 
-    def drawRect(self, pos: Pos, color: tuple[int,int,int], offset:float=1):
+        self.nextAt = Pos(12.5, 8)
+    def drawRect(self, pos: Pos, color: tuple[int,int,int], offset:float=1, screenValidation=True):
 
-        if not self.game.tools.isPosOnScreen(pos):
-            return
+        if screenValidation:
+            if not self.game.tools.isPosOnScreen(pos):
+                return
 
         pos = self.game.tools.translateCoords(pos)
 
@@ -57,10 +59,8 @@ class Display:
     def drawFieldOutline(self)->None:
         thickness = Pos(Colors.playfieldOutlineThickness, Colors.playfieldOutlineThickness)
         dimension = self.game.tools.gameSizePx + thickness + thickness
-        print(dimension)
         leftTop = self.game.tools.zeroPos + -thickness
         rect = (*leftTop.pos, *dimension.pos)
-        print(rect)
         pygame.draw.rect(self.screen, Colors.outline, rect)
 
     def drawField(self)->None:
@@ -82,12 +82,33 @@ class Display:
         for block in bs.blocks:
             self.drawRect(block, bs.color)
 
+    def drawNext(self)->None:
+
+
+        self.drawRect(self.nextAt, Colors.outline, offset=5.5, screenValidation=False)
+
+        bs = self.game.nextFallingShape.shape[0]
+        for block in bs.blocks:
+            self.drawRect(block+self.nextAt, bs.color, screenValidation=False)
+
     def text(self)->None:
 
         surface = self.fontBig.render(str(self.game.score), True, Colors.score)  # text, antialias, color
         rect = surface.get_rect(center=self.game.tools.scorePos.pos)
-
         self.screen.blit(surface, rect)
+
+        surface = self.fontNormal.render("SCORE", True, Colors.score)  # text, antialias, color
+        rect = surface.get_rect(center=(self.game.tools.scorePos + Pos(0,-50)).pos)
+        self.screen.blit(surface, rect)
+
+        surface = self.fontNormal.render("NEXT", True, Colors.score)  # text, antialias, color
+        rect = surface.get_rect(center=(self.game.tools.translateCoords(self.nextAt) + Pos(0,-80)).pos)
+        self.screen.blit(surface, rect)
+
+        # title
+
+        for block in self.title:
+            self.drawRect(block, Colors.title, screenValidation=False)
 
     def draw(self):
         self.screen.fill(Colors.background)
@@ -96,6 +117,7 @@ class Display:
         self.drawPlayField()
 
         self.drawFallingShape()
+        self.drawNext()
         self.text()
 
         self.update()

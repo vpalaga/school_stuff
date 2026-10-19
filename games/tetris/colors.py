@@ -4,6 +4,7 @@ class Colors:
     lGray = (200,200,200)
     dGray = (180,180,180)
     outline = (16, 17, 79)
+    title = (255, 255, 255)
 
     windowSize = (700, 700)
     gameSize = (10, 20)

@@ -167,7 +167,7 @@ class Snake:
 
 if __name__ == "__main__":
     snake = Snake()
-    Game.sound = True
+    Game.sound = False
     tickCounter = 0
     # draw init screen
     snake.draw()

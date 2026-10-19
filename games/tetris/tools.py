@@ -12,11 +12,7 @@ class Tools:
         self.playFiledX = self.clacXofPlayField()
 
         self.zeroPos = Pos(self.playFiledX, Colors.topMarginPx)
-        self.scorePos = Pos(self.windowSize[0] - self.zeroPos.x / 2, self.zeroPos.x / 2)
-        print(self.zeroPos)
-        print(self.sField)
-
-        print(self.translateCoords(Pos(0,0)))
+        self.scorePos = Pos(self.windowSize[0] - self.zeroPos.x / 2, self.zeroPos.x / 3 * 2)
 
     def calcSField(self)->float|int:
         height = self.windowSize[1] - Colors.topMarginPx - Colors.botMarginPx

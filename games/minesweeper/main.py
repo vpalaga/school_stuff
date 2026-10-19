@@ -26,8 +26,8 @@ class Game:
 
         self.width, self.height = 600, 600
         self.x_shift, self.y_shift = 0, 0
-        self.window_fields = (15, 15)
-        self.size = (15, 15)
+        self.window_fields = (30, 30)
+        self.size = (30, 30)
 
         self.play = Playground(self.size, 3, (self.width,self.height), self.window_fields)
 

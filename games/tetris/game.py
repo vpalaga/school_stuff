@@ -15,6 +15,7 @@ class Game:
         self.tickCount = 0
 
         self.fallingShape = FallingShape()
+        self.nextFallingShape = FallingShape()
 
         self.score = 0
 
@@ -31,7 +32,8 @@ class Game:
             if self.isGameOver():
                 return False
 
-            self.fallingShape = FallingShape()
+            self.fallingShape = self.nextFallingShape
+            self.nextFallingShape = FallingShape()
 
         rowsToClear = self.rowsToClear()
         self.clearRows(rowsToClear)

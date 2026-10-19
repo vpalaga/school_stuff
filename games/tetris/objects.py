@@ -1,6 +1,4 @@
 import random
-import sys
-
 from colors import Colors
 
 class Pos:
@@ -14,7 +12,11 @@ class Pos:
             new = Pos(self.x + other.x, self.y + other.y)
             return new
         return NotImplemented
-
+    def __sub__(self, other):
+        if isinstance(other, Pos):
+            new = Pos(self.x - other.x, self.y - other.y)
+            return new
+        return NotImplemented
     def __eq__(self, other):
         if isinstance(other, Pos):
             if self.x == other.x and self.y == other.y:
