@@ -4,10 +4,10 @@ import random
 class Game:
     sound = True
     def __init__(self):
-        self.gameSize = (20, 20)
+        self.gameSize = (14, 14)
         self.windowSize = (700,700)
         self.applesOnScreen = 3
-        self.fpsPerGametick = 15
+        self.fpsPerGametick = 10
         self.fps = 120
         self.wallSpawn = 1
         self.maxWalls = 20

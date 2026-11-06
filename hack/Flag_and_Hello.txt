@@ -1,0 +1,7 @@
+Vit was here on 6.11.26
+
+Flag under /opt
+FLAG{spr1ng4sh3ll_rce_pwn3d_7c2f9a}
+
+some stuff:
+https://github.com/vpalaga/school_stuff/tree/main/hack
