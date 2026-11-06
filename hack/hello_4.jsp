@@ -4,7 +4,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-<title>My Title Here</title>
+<title>Vit(ek) was here</title>
 <style>
 body{margin:0;min-height:100vh;font-family:"Comic Sans MS","Comic Sans",cursive;color:#fff;text-align:center;
   background:linear-gradient(270deg,#ff0080,#ff8c00,#ffee00,#00e676,#00b0ff,#d500f9,#ff0080);
@@ -15,7 +15,6 @@ body{margin:0;min-height:100vh;font-family:"Comic Sans MS","Comic Sans",cursive;
 @keyframes hue{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-@keyframes rise{from{transform:translateY(0) rotate(0deg)}to{transform:translateY(-115vh) rotate(720deg)}}
 @keyframes scroll{to{transform:translateX(-100%)}}
 .marq{white-space:nowrap;overflow:hidden;background:#000;color:#ff0;font-size:1.4em;padding:6px}
 .marq span{display:inline-block;padding-left:100%;animation:scroll 9s linear infinite}
@@ -28,14 +27,12 @@ h2{background:#000;display:inline-block;padding:8px 16px;border:4px dashed #ff0;
   background:linear-gradient(45deg,#f0f,#0ff,#ff0);background-size:300% 300%;animation:bg 2s ease infinite,pulse 1s infinite}
 #flag{display:none;font-size:2em;background:#000;color:#0f0;font-family:"Courier New",monospace;
   padding:12px;border:3px solid #0f0;margin:10px auto;max-width:90%;word-break:break-all}
-.float{position:fixed;bottom:-60px;font-size:2em;pointer-events:none;z-index:5;animation-name:rise;
-  animation-timing-function:linear;animation-iteration-count:infinite}
 </style>
 </head>
 <body>
 <div class="marq"><span>&#9889; WELCOME TO THE MEME CHAOS ZONE &#9889; REFRESH FOR MORE CHAOS &#9889; DO NOT PRESS THE BUTTON &#9889;</span></div>
 <h2>Hello, my name is ${person.name}, I am ${person.age} years old.</h2>
-<h1>My Title Here</h1>
+<h1>Vit(ek) was here</h1>
 <img id="logo" src="https://raw.githubusercontent.com/vpalaga/school_stuff/main/hack/logo.jpg" alt="Logo">
 <br>
 <img id="meme" src="" alt="Loading chaos...">
@@ -44,7 +41,7 @@ h2{background:#000;display:inline-block;padding:8px 16px;border:4px dashed #ff0;
 <button class="btn" onclick="revealFlag()">REVEAL THE FLAG</button>
 <div id="flag"></div>
 <script>
-var sub = "LinuxCirclejerk";
+var subs = ["masterhacker", "CybersecurityMemes", "ProgrammerHumor", "linuxmemes"];
 var tries = 0;
 var fallbacks = [
   ["drake", "Reading_the_error_message", "Rewriting_everything_from_scratch"],
@@ -58,6 +55,7 @@ function fallbackMeme() {
     "https://api.memegen.link/images/" + m.join("/") + ".png?width=500&r=" + Math.random();
 }
 function loadMeme() {
+  var sub = subs[Math.floor(Math.random() * subs.length)];
   fetch("https://meme-api.com/gimme/" + sub)
     .then(function (res) { return res.json(); })
     .then(function (data) {
@@ -79,16 +77,6 @@ function revealFlag() {
   setTimeout(function () {
     window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
   }, 1500);
-}
-var icons = ["\uD83C\uDF08", "\uD83D\uDE02", "\uD83D\uDD25", "\uD83D\uDC80", "\u2728", "\uD83E\uDD2A"];
-for (var i = 0; i < 25; i++) {
-  var s = document.createElement("div");
-  s.className = "float";
-  s.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-  s.style.left = Math.random() * 95 + "vw";
-  s.style.animationDuration = (4 + Math.random() * 8) + "s";
-  s.style.animationDelay = (Math.random() * 6) + "s";
-  document.body.appendChild(s);
 }
 loadMeme();
 </script>
