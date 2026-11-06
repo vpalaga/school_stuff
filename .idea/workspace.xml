@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="degrade jar">
-      <change afterPath="$PROJECT_DIR$/hack/Flag_and_Hello.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hack/cmd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hack/crawler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hack/manifest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hack/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ideas/string_puller/Vector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ideas/string_puller/Vis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ideas/string_puller/puller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/inf/SHA.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/inf/analyser.py" afterDir="false" />
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add jsp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/snakwe/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/games/snakwe/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hack/hello_1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/hack/hello_1.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,61 +47,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0037731887848627" />
-      <entry key="MS500" value="1.3275983509645908" />
-      <entry key="S2" value="1.7565465731597003" />
-      <entry key="S5" value="1.9029034876966158" />
-      <entry key="S10" value="2.246265668517861" />
-      <entry key="S30" value="5.602442556311752" />
-      <entry key="S60" value="8.884822550172847" />
-      <entry key="M2" value="12.074341110956622" />
-      <entry key="M5" value="17.56407144496174" />
-      <entry key="M10" value="28.078335813639242" />
-      <entry key="M15" value="42.03913764180752" />
-      <entry key="M30" value="94.68063637794876" />
-      <entry key="H1" value="198.4261818715036" />
-      <entry key="H2" value="372.81180142682666" />
-      <entry key="H4" value="643.040112808469" />
-      <entry key="D1" value="1801.6413593427626" />
-      <entry key="W1" value="5869.205059131793" />
+      <entry key="MS100" value="1.0000002503192433" />
+      <entry key="MS500" value="1.0577523155646522" />
+      <entry key="S2" value="1.9627042984188305" />
+      <entry key="S5" value="2.8745520869811725" />
+      <entry key="S10" value="3.3651057583638924" />
+      <entry key="S30" value="3.7702774056550994" />
+      <entry key="S60" value="3.9153179887988845" />
+      <entry key="M2" value="4.229099445813491" />
+      <entry key="M5" value="5.879962053409798" />
+      <entry key="M10" value="9.478152908372449" />
+      <entry key="M15" value="14.709420875821019" />
+      <entry key="M30" value="43.538150019822" />
+      <entry key="H1" value="127.5143384191037" />
+      <entry key="H2" value="297.08266327005424" />
+      <entry key="H4" value="575.4288993017764" />
+      <entry key="D1" value="1779.0818571565012" />
+      <entry key="W1" value="5869.787533486724" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.624597925707017E-250" />
-      <entry key="S2" value="4.839110385082294E-63" />
-      <entry key="S5" value="2.0028025530604481E-25" />
-      <entry key="S10" value="9.253419519128813E-13" />
-      <entry key="S30" value="3.0853163909276543E-4" />
-      <entry key="S60" value="0.04280433747174678" />
-      <entry key="M2" value="0.5090372096376492" />
-      <entry key="M5" value="2.6746536460341543" />
-      <entry key="M10" value="6.841687873624261" />
-      <entry key="M15" value="11.858098445125417" />
-      <entry key="M30" value="32.782508652641035" />
-      <entry key="H1" value="81.35139985826032" />
-      <entry key="H2" value="166.09456070864906" />
-      <entry key="H4" value="293.00433702709864" />
-      <entry key="D1" value="880.2133390604312" />
-      <entry key="W1" value="2646.30759305769" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="3.1642455601488217E-208" />
+      <entry key="S10" value="3.67805546078089E-104" />
+      <entry key="S30" value="1.0529434489362584E-34" />
+      <entry key="S60" value="2.5005782516459814E-17" />
+      <entry key="M2" value="1.2303420425155856E-8" />
+      <entry key="M5" value="0.0024020281081164534" />
+      <entry key="M10" value="0.2050305252448464" />
+      <entry key="M15" value="1.1440681522475478" />
+      <entry key="M30" value="10.182645087516581" />
+      <entry key="H1" value="45.33924059206047" />
+      <entry key="H2" value="123.99666823750425" />
+      <entry key="H4" value="253.16365179328696" />
+      <entry key="D1" value="859.0316453898081" />
+      <entry key="W1" value="2637.1149950973013" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.969432520608158" />
-      <entry key="MS500" value="1.3157331180499805" />
-      <entry key="S2" value="1.7519365073512905" />
-      <entry key="S5" value="1.9008388471197357" />
-      <entry key="S10" value="2.2450355546858396" />
-      <entry key="S30" value="5.6017094550485265" />
-      <entry key="S60" value="8.926271196245729" />
-      <entry key="M2" value="12.579555948344069" />
-      <entry key="M5" value="20.23034754101927" />
-      <entry key="M10" value="34.905452385882455" />
-      <entry key="M15" value="53.87761987503107" />
-      <entry key="M30" value="127.43237021360169" />
-      <entry key="H1" value="279.73816862578474" />
-      <entry key="H2" value="538.8662255377302" />
-      <entry key="H4" value="936.0095104504737" />
-      <entry key="D1" value="2681.83788118773" />
-      <entry key="W1" value="8515.505859700903" />
+      <entry key="MS100" value="0.628506833024021" />
+      <entry key="MS500" value="0.9621769397639345" />
+      <entry key="S2" value="1.907603960328264" />
+      <entry key="S5" value="2.840835343481816" />
+      <entry key="S10" value="3.3452442908599984" />
+      <entry key="S30" value="3.762850507199153" />
+      <entry key="S60" value="3.911491849155779" />
+      <entry key="M2" value="4.227150167102259" />
+      <entry key="M5" value="5.881547398714453" />
+      <entry key="M10" value="9.682320513953247" />
+      <entry key="M15" value="15.851302126087841" />
+      <entry key="M30" value="53.7110804226615" />
+      <entry key="H1" value="172.83153192315257" />
+      <entry key="H2" value="421.0493261820173" />
+      <entry key="H4" value="828.5623413938332" />
+      <entry key="D1" value="2638.097086456635" />
+      <entry key="W1" value="8506.895759179875" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -205,7 +195,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/games/snakwe/images",
+    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/hack",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -218,11 +208,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\hack" />
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\games\snakwe\images" />
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\v1_1" />
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\minecraft\Bilder" />
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff" />
-      <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\v2\bilder" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\image_manipulation\v0" />
@@ -703,39 +693,7 @@
       <workItem from="1793613280437" duration="3363000" />
       <workItem from="1793953987418" duration="1273000" />
       <workItem from="1793955352939" duration="865000" />
-      <workItem from="1793956299749" duration="1789000" />
-    </task>
-    <task id="LOCAL-00021" summary="do some animal testing on frogs and tigers">
-      <option name="closed" value="true" />
-      <created>1779397222767</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1779397222767</updated>
-    </task>
-    <task id="LOCAL-00022" summary="add blur">
-      <option name="closed" value="true" />
-      <created>1779522067376</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1779522067376</updated>
-    </task>
-    <task id="LOCAL-00023" summary="blur bug fix">
-      <option name="closed" value="true" />
-      <created>1779522570668</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1779522570668</updated>
-    </task>
-    <task id="LOCAL-00024" summary="- analyze color frequency in picture (raw: blue on plot)&#10;- approximate frequency with gaussian Kernel (smooth: orange on plot)&#10;- calculate integral under curve: A&#10;- split into n segments&#10;- find points that: Integral(c, Pn, Pn+1) = A/n&#10;  &gt; simply said, use curve as frequency table and use it to find peak values, even though they aren't any peaks. &#10;- find closest peak for each pixel on the image and set to&#10; &gt; this way the n from the integral decides on how many colors will the image be approximated with.&#10; planned: find the edges between the color borders as edges.">
-      <option name="closed" value="true" />
-      <created>1779653368284</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1779653368284</updated>
+      <workItem from="1793956299749" duration="4175000" />
     </task>
     <task id="LOCAL-00025" summary="colorSpliting based on frequency but on the 3 color channels">
       <option name="closed" value="true" />
@@ -1097,7 +1055,39 @@
       <option name="project" value="LOCAL" />
       <updated>1793955172608</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="add stuff to hack">
+      <option name="closed" value="true" />
+      <created>1793958129650</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1793958129650</updated>
+    </task>
+    <task id="LOCAL-00071" summary="add image">
+      <option name="closed" value="true" />
+      <created>1793960084705</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1793960084705</updated>
+    </task>
+    <task id="LOCAL-00072" summary="rename image">
+      <option name="closed" value="true" />
+      <created>1793960154297</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1793960154297</updated>
+    </task>
+    <task id="LOCAL-00073" summary="add jsp">
+      <option name="closed" value="true" />
+      <created>1793960773887</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1793960773889</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1115,10 +1105,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comment the code" />
-    <MESSAGE value="make the game logic for snake" />
-    <MESSAGE value="v1 of snake is Done" />
-    <MESSAGE value="add v1 exe snake" />
     <MESSAGE value="add buffer movement" />
     <MESSAGE value="refactor apple as a class and make the icon and title" />
     <MESSAGE value="build V1.1" />
@@ -1140,7 +1126,11 @@
     <MESSAGE value="whole lot of everything" />
     <MESSAGE value="test jar" />
     <MESSAGE value="degrade jar" />
-    <option name="LAST_COMMIT_MESSAGE" value="degrade jar" />
+    <MESSAGE value="add stuff to hack" />
+    <MESSAGE value="add image" />
+    <MESSAGE value="rename image" />
+    <MESSAGE value="add jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="add jsp" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
