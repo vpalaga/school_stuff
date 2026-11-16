@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add jsp">
+    <list default="true" id="f9ddb20c-8a4c-4fa9-9d3e-618717e49031" name="Changes" comment="add InstallSSH.jar">
+      <change afterPath="$PROJECT_DIR$/tools/inf/hash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/inf/keys.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hack/hello_1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/hack/hello_1.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hack/InstallSSH.java" beforeDir="false" afterPath="$PROJECT_DIR$/hack/InstallSSH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hack/cmd.py" beforeDir="false" afterPath="$PROJECT_DIR$/hack/cmd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hack/crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/hack/crawler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hack/paths.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hack/paths.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hack/tree.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hack/tree.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/inf/SHA.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/inf/SHA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="758" />
+    <option name="cachedIndexableFilesCount" value="777" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -47,61 +54,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000002503192433" />
-      <entry key="MS500" value="1.0577523155646522" />
-      <entry key="S2" value="1.9627042984188305" />
-      <entry key="S5" value="2.8745520869811725" />
-      <entry key="S10" value="3.3651057583638924" />
-      <entry key="S30" value="3.7702774056550994" />
-      <entry key="S60" value="3.9153179887988845" />
-      <entry key="M2" value="4.229099445813491" />
-      <entry key="M5" value="5.879962053409798" />
-      <entry key="M10" value="9.478152908372449" />
-      <entry key="M15" value="14.709420875821019" />
-      <entry key="M30" value="43.538150019822" />
-      <entry key="H1" value="127.5143384191037" />
-      <entry key="H2" value="297.08266327005424" />
-      <entry key="H4" value="575.4288993017764" />
-      <entry key="D1" value="1779.0818571565012" />
-      <entry key="W1" value="5869.787533486724" />
+      <entry key="MS100" value="1.0452007432903576" />
+      <entry key="MS500" value="1.907885761508212" />
+      <entry key="S2" value="2.847913522071084" />
+      <entry key="S5" value="4.10035812356101" />
+      <entry key="S10" value="5.3980769890502165" />
+      <entry key="S30" value="7.422971212046381" />
+      <entry key="S60" value="8.47589885261802" />
+      <entry key="M2" value="9.845101748649176" />
+      <entry key="M5" value="16.77609884804528" />
+      <entry key="M10" value="36.057772615134276" />
+      <entry key="M15" value="58.714657524218374" />
+      <entry key="M30" value="113.74345554608419" />
+      <entry key="H1" value="173.8696453290595" />
+      <entry key="H2" value="255.94928624009123" />
+      <entry key="H4" value="454.18610743516655" />
+      <entry key="D1" value="1784.9825141027356" />
+      <entry key="W1" value="6025.84294897602" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="3.1642455601488217E-208" />
-      <entry key="S10" value="3.67805546078089E-104" />
-      <entry key="S30" value="1.0529434489362584E-34" />
-      <entry key="S60" value="2.5005782516459814E-17" />
-      <entry key="M2" value="1.2303420425155856E-8" />
-      <entry key="M5" value="0.0024020281081164534" />
-      <entry key="M10" value="0.2050305252448464" />
-      <entry key="M15" value="1.1440681522475478" />
-      <entry key="M30" value="10.182645087516581" />
-      <entry key="H1" value="45.33924059206047" />
-      <entry key="H2" value="123.99666823750425" />
-      <entry key="H4" value="253.16365179328696" />
-      <entry key="D1" value="859.0316453898081" />
-      <entry key="W1" value="2637.1149950973013" />
+      <entry key="MS100" value="4.2656855306022723E-17" />
+      <entry key="MS500" value="5.321061640782377E-4" />
+      <entry key="S2" value="0.15691038660339973" />
+      <entry key="S5" value="0.5909512347847571" />
+      <entry key="S10" value="1.0329599119473265" />
+      <entry key="S30" value="1.5847447093964948" />
+      <entry key="S60" value="1.790784075447187" />
+      <entry key="M2" value="2.110064940088776" />
+      <entry key="M5" value="3.8467524640495605" />
+      <entry key="M10" value="8.833396734194164" />
+      <entry key="M15" value="15.08923799060809" />
+      <entry key="M30" value="30.658032378241522" />
+      <entry key="H1" value="48.0906444711448" />
+      <entry key="H2" value="76.94088618978694" />
+      <entry key="H4" value="160.7096697870608" />
+      <entry key="D1" value="805.5988526703686" />
+      <entry key="W1" value="2659.822833957457" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.628506833024021" />
-      <entry key="MS500" value="0.9621769397639345" />
-      <entry key="S2" value="1.907603960328264" />
-      <entry key="S5" value="2.840835343481816" />
-      <entry key="S10" value="3.3452442908599984" />
-      <entry key="S30" value="3.762850507199153" />
-      <entry key="S60" value="3.911491849155779" />
-      <entry key="M2" value="4.227150167102259" />
-      <entry key="M5" value="5.881547398714453" />
-      <entry key="M10" value="9.682320513953247" />
-      <entry key="M15" value="15.851302126087841" />
-      <entry key="M30" value="53.7110804226615" />
-      <entry key="H1" value="172.83153192315257" />
-      <entry key="H2" value="421.0493261820173" />
-      <entry key="H4" value="828.5623413938332" />
-      <entry key="D1" value="2638.097086456635" />
-      <entry key="W1" value="8506.895759179875" />
+      <entry key="MS100" value="0.05456729207035812" />
+      <entry key="MS500" value="1.2196140060056966" />
+      <entry key="S2" value="2.681567211867001" />
+      <entry key="S5" value="4.433300055395718" />
+      <entry key="S10" value="6.2260155656456435" />
+      <entry key="S30" value="8.901451893183301" />
+      <entry key="S60" value="10.204844353614282" />
+      <entry key="M2" value="11.919277672692708" />
+      <entry key="M5" value="20.601302451497492" />
+      <entry key="M10" value="44.86964300627969" />
+      <entry key="M15" value="73.78004745184471" />
+      <entry key="M30" value="144.3773917857113" />
+      <entry key="H1" value="221.94127412017238" />
+      <entry key="H2" value="332.87430236692217" />
+      <entry key="H4" value="614.878067914431" />
+      <entry key="D1" value="2590.566182496549" />
+      <entry key="W1" value="8685.658971474566" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -118,94 +125,99 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Java File (Portable).test.java.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.Camera.executor": "Run",
-    "Python.Faces.executor": "Run",
-    "Python.Fire.executor": "Run",
-    "Python.Fire2.executor": "Run",
-    "Python.Fire3.executor": "Run",
-    "Python.Fire4.executor": "Run",
-    "Python.Fire5.executor": "Run",
-    "Python.Fire6.executor": "Run",
-    "Python.ImageCreator.executor": "Run",
-    "Python.ImageManipulator.executor": "Run",
-    "Python.MouseDances1.executor": "Run",
-    "Python.MouseDances2.executor": "Run",
-    "Python.Object.executor": "Run",
-    "Python.SHA.executor": "Run",
-    "Python.Vis.executor": "Run",
-    "Python.analyser.executor": "Run",
-    "Python.bot.executor": "Run",
-    "Python.builder.executor": "Run",
-    "Python.classroom.executor": "Run",
-    "Python.clock_vit.executor": "Run",
-    "Python.cmd.executor": "Run",
-    "Python.crawler.executor": "Run",
-    "Python.data.executor": "Run",
-    "Python.dictGenerator.executor": "Run",
-    "Python.diffFind.executor": "Run",
-    "Python.edge_detection.executor": "Run",
-    "Python.expresions.executor": "Run",
-    "Python.field_gen.executor": "Run",
-    "Python.game.executor": "Run",
-    "Python.gen_letters.executor": "Run",
-    "Python.generator.executor": "Run",
-    "Python.grapher.executor": "Run",
-    "Python.image.executor": "Run",
-    "Python.images.executor": "Run",
-    "Python.loader.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.matrix.executor": "Run",
-    "Python.music.executor": "Run",
-    "Python.natural_d.executor": "Run",
-    "Python.objects.executor": "Run",
-    "Python.path_alg.executor": "Run",
-    "Python.preround.executor": "Run",
-    "Python.problem.executor": "Run",
-    "Python.puller.executor": "Run",
-    "Python.python @save_history.executor": "Run",
-    "Python.ryders5.executor": "Run",
-    "Python.ryders6.executor": "Run",
-    "Python.sound_render.executor": "Run",
-    "Python.test (2).executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.testGen.executor": "Run",
-    "Python.trimurid_ryders1.executor": "Run",
-    "Python.trimurid_ryders2.executor": "Run",
-    "Python.trimurid_ryders3.executor": "Run",
-    "Python.trimurid_ryders4.executor": "Run",
-    "Python.visualise.executor": "Run",
-    "Python.wallSegments.executor": "Run",
-    "Python.wallSegments2.executor": "Run",
-    "Python.wallSegments3.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/hack",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion.inline",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Java File (Portable).InstallSSH.java.executor&quot;: &quot;Run&quot;,
+    &quot;Java File (Portable).test.java.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Camera.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Faces.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Fire6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ImageCreator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ImageManipulator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.MouseDances2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Object.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SHA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Vis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.analyser.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.builder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.classroom.executor&quot;: &quot;Run&quot;,
+    &quot;Python.clock_vit.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cmd.executor&quot;: &quot;Run&quot;,
+    &quot;Python.crawler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.diffFind.executor&quot;: &quot;Run&quot;,
+    &quot;Python.edge_detection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.expresions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.field_gen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.game.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gen_letters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.grapher.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hash.executor&quot;: &quot;Run&quot;,
+    &quot;Python.image.executor&quot;: &quot;Run&quot;,
+    &quot;Python.images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.keys.executor&quot;: &quot;Run&quot;,
+    &quot;Python.loader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.matrix.executor&quot;: &quot;Run&quot;,
+    &quot;Python.music.executor&quot;: &quot;Run&quot;,
+    &quot;Python.natural_d.executor&quot;: &quot;Run&quot;,
+    &quot;Python.objects.executor&quot;: &quot;Run&quot;,
+    &quot;Python.path_alg.executor&quot;: &quot;Run&quot;,
+    &quot;Python.poc1_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.preround.executor&quot;: &quot;Run&quot;,
+    &quot;Python.problem.executor&quot;: &quot;Run&quot;,
+    &quot;Python.puller.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python @save_history.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders5.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ryders6.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sound_render.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testGen.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trimurid_ryders4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.visualise.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wallSegments3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.web_update.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vit/OneDrive/Documents/GitHub/school_stuff/hack&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion.inline&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vit\OneDrive\Documents\GitHub\school_stuff\hack" />
@@ -222,7 +234,7 @@
       <recent name="C:\Users\vit\school_stuff\olympiad\4\fire6" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.crawler">
+  <component name="RunManager" selected="Java File (Portable).test.java">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="school_stuff" />
       <option name="ENV_FILES" value="" />
@@ -277,58 +289,6 @@
     </configuration>
     <configuration name="test.java" type="JavaPortableRunConfiguration" factoryName="JavaPortableRun" temporary="true">
       <option name="scriptPath" value="$PROJECT_DIR$/hack/test.java" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ImageCreator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="school_stuff" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation/v2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_manipulation/v2/ImageCreator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ImageManipulator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="school_stuff" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/image_manipulation/v2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/image_manipulation/v2/ImageManipulator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="ImageManipulator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -401,6 +361,32 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cmd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="school_stuff" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (school_stuff)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hack" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hack/cmd.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -595,13 +581,15 @@
       <item itemvalue="Java File (Portable).test.java" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.ImageManipulator" />
+      <item itemvalue="Python.cmd" />
       <item itemvalue="Python.crawler" />
       <item itemvalue="Python.Vis" />
-      <item itemvalue="Python.ImageManipulator" />
       <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.cmd" />
         <item itemvalue="Python.crawler" />
         <item itemvalue="Java File (Portable).test.java" />
         <item itemvalue="Python.Vis" />
@@ -693,111 +681,15 @@
       <workItem from="1793613280437" duration="3363000" />
       <workItem from="1793953987418" duration="1273000" />
       <workItem from="1793955352939" duration="865000" />
-      <workItem from="1793956299749" duration="4175000" />
-    </task>
-    <task id="LOCAL-00025" summary="colorSpliting based on frequency but on the 3 color channels">
-      <option name="closed" value="true" />
-      <created>1779727599448</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1779727599448</updated>
-    </task>
-    <task id="LOCAL-00026" summary="fix edge finding: darker color plaines are preffered">
-      <option name="closed" value="true" />
-      <created>1779727812592</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1779727812592</updated>
-    </task>
-    <task id="LOCAL-00027" summary="add leading bars">
-      <option name="closed" value="true" />
-      <created>1779729356064</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1779729356064</updated>
-    </task>
-    <task id="LOCAL-00028" summary="edge filtering">
-      <option name="closed" value="true" />
-      <created>1779889379328</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1779889379328</updated>
-    </task>
-    <task id="LOCAL-00029" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1779898728667</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1779898728667</updated>
-    </task>
-    <task id="LOCAL-00030" summary="work on gions project for fun (in testing rn)">
-      <option name="closed" value="true" />
-      <created>1780345226562</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1780345226562</updated>
-    </task>
-    <task id="LOCAL-00031" summary="rework image diff and add scaler to target image">
-      <option name="closed" value="true" />
-      <created>1780349293728</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1780349293728</updated>
-    </task>
-    <task id="LOCAL-00032" summary="add autosave method">
-      <option name="closed" value="true" />
-      <created>1780350481482</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1780350481482</updated>
-    </task>
-    <task id="LOCAL-00033" summary="add a saver pickle &#10;&#10;fix autosave">
-      <option name="closed" value="true" />
-      <created>1780351860400</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1780351860400</updated>
-    </task>
-    <task id="LOCAL-00034" summary="add builder.py and refactor generator.py">
-      <option name="closed" value="true" />
-      <created>1780415963876</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1780415963876</updated>
-    </task>
-    <task id="LOCAL-00035" summary="get minecraftity to work, add imgs">
-      <option name="closed" value="true" />
-      <created>1780518819805</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1780518819805</updated>
-    </task>
-    <task id="LOCAL-00036" summary="add imgs">
-      <option name="closed" value="true" />
-      <created>1780518910019</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1780518910019</updated>
-    </task>
-    <task id="LOCAL-00037" summary="add doc.md">
-      <option name="closed" value="true" />
-      <created>1780519835091</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1780519835091</updated>
+      <workItem from="1793956299749" duration="5361000" />
+      <workItem from="1793967208365" duration="3944000" />
+      <workItem from="1794213248035" duration="7408000" />
+      <workItem from="1794303975119" duration="863000" />
+      <workItem from="1794384113831" duration="1397000" />
+      <workItem from="1794398481601" duration="2613000" />
+      <workItem from="1794818480446" duration="53000" />
+      <workItem from="1794818822832" duration="4209000" />
+      <workItem from="1794842521989" duration="36000" />
     </task>
     <task id="LOCAL-00038" summary="add img derivation">
       <option name="closed" value="true" />
@@ -1087,7 +979,111 @@
       <option name="project" value="LOCAL" />
       <updated>1793960773889</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="update jsp">
+      <option name="closed" value="true" />
+      <created>1793961199754</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1793961199754</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update jsp">
+      <option name="closed" value="true" />
+      <created>1793961334649</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1793961334651</updated>
+    </task>
+    <task id="LOCAL-00076" summary="update jsp">
+      <option name="closed" value="true" />
+      <created>1793961634854</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1793961634854</updated>
+    </task>
+    <task id="LOCAL-00077" summary="update jsp">
+      <option name="closed" value="true" />
+      <created>1793967354431</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1793967354434</updated>
+    </task>
+    <task id="LOCAL-00078" summary="update jsp">
+      <option name="closed" value="true" />
+      <created>1793974177229</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1793974177229</updated>
+    </task>
+    <task id="LOCAL-00079" summary="update jsp">
+      <option name="closed" value="true" />
+      <created>1793974384697</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1793974384698</updated>
+    </task>
+    <task id="LOCAL-00080" summary="update jsp">
+      <option name="closed" value="true" />
+      <created>1793975250551</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1793975250551</updated>
+    </task>
+    <task id="LOCAL-00081" summary="stuff i need online">
+      <option name="closed" value="true" />
+      <created>1794227978944</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1794227978946</updated>
+    </task>
+    <task id="LOCAL-00082" summary="stuff i need online">
+      <option name="closed" value="true" />
+      <created>1794228258666</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1794228258666</updated>
+    </task>
+    <task id="LOCAL-00083" summary="add InstallSSH.java">
+      <option name="closed" value="true" />
+      <created>1794398682349</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1794398682350</updated>
+    </task>
+    <task id="LOCAL-00084" summary="add InstallSSH.jar">
+      <option name="closed" value="true" />
+      <created>1794398920149</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1794398920149</updated>
+    </task>
+    <task id="LOCAL-00085" summary="add InstallSSH.jar">
+      <option name="closed" value="true" />
+      <created>1794399215176</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1794399215176</updated>
+    </task>
+    <task id="LOCAL-00086" summary="add InstallSSH.jar">
+      <option name="closed" value="true" />
+      <created>1794399431799</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1794399431799</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1105,10 +1101,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add buffer movement" />
-    <MESSAGE value="refactor apple as a class and make the icon and title" />
-    <MESSAGE value="build V1.1" />
-    <MESSAGE value="add a drawn title on the screen" />
     <MESSAGE value="some small tweaks" />
     <MESSAGE value="add sound playing into the apple class" />
     <MESSAGE value="add walls" />
@@ -1130,7 +1122,11 @@
     <MESSAGE value="add image" />
     <MESSAGE value="rename image" />
     <MESSAGE value="add jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="add jsp" />
+    <MESSAGE value="update jsp" />
+    <MESSAGE value="stuff i need online" />
+    <MESSAGE value="add InstallSSH.java" />
+    <MESSAGE value="add InstallSSH.jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add InstallSSH.jar" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/school_stuff$loader.coverage" NAME="loader Coverage Results" MODIFIED="1777477983066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
@@ -1142,17 +1138,18 @@
     <SUITE FILE_PATH="coverage/school_stuff$dictGenerator.coverage" NAME="dictGenerator Coverage Results" MODIFIED="1787488752501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />
     <SUITE FILE_PATH="coverage/school_stuff$Vis.coverage" NAME="Vis Coverage Results" MODIFIED="1793111666123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ideas/string_puller" />
     <SUITE FILE_PATH="coverage/school_stuff$music.coverage" NAME="music Coverage Results" MODIFIED="1776942620027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$web_update.coverage" NAME="web_update Coverage Results" MODIFIED="1793975367376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hack" />
     <SUITE FILE_PATH="coverage/school_stuff$expresions.coverage" NAME="expresions Coverage Results" MODIFIED="1778416641206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
-    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1792397987901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/olympiad/26" />
+    <SUITE FILE_PATH="coverage/school_stuff$test.coverage" NAME="test Coverage Results" MODIFIED="1794218050441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hack" />
     <SUITE FILE_PATH="coverage/school_stuff$builder.coverage" NAME="builder Coverage Results" MODIFIED="1780509947203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$SHA.coverage" NAME="SHA Coverage Results" MODIFIED="1793614491194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />
     <SUITE FILE_PATH="coverage/school_stuff$objects.coverage" NAME="objects Coverage Results" MODIFIED="1783700458785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/tetris" />
-    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1793094912697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/school_stuff$analyser.coverage" NAME="analyser Coverage Results" MODIFIED="1793175658684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />
+    <SUITE FILE_PATH="coverage/school_stuff$main.coverage" NAME="main Coverage Results" MODIFIED="1794398715560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/school_stuff$preround.coverage" NAME="preround Coverage Results" MODIFIED="1790874928191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/olympiad/26" />
     <SUITE FILE_PATH="coverage/school_stuff$bot.coverage" NAME="bot Coverage Results" MODIFIED="1777016656969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$ImageCreator.coverage" NAME="ImageCreator Coverage Results" MODIFIED="1779379119481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
-    <SUITE FILE_PATH="coverage/school_stuff$cmd.coverage" NAME="cmd Coverage Results" MODIFIED="1793956637430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hack" />
+    <SUITE FILE_PATH="coverage/school_stuff$cmd.coverage" NAME="cmd Coverage Results" MODIFIED="1794819354044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hack" />
     <SUITE FILE_PATH="coverage/school_stuff$generator.coverage" NAME="generator Coverage Results" MODIFIED="1780519263476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$ImageManipulator.coverage" NAME="ImageManipulator Coverage Results" MODIFIED="1780577733782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
     <SUITE FILE_PATH="coverage/school_stuff$matrix.coverage" NAME="matrix Coverage Results" MODIFIED="1790586667961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />
@@ -1162,14 +1159,17 @@
     <SUITE FILE_PATH="coverage/school_stuff$problem.coverage" NAME="problem Coverage Results" MODIFIED="1781699865852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$gen_letters.coverage" NAME="gen_letters Coverage Results" MODIFIED="1777477949513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
     <SUITE FILE_PATH="coverage/school_stuff$python__save_history.coverage" NAME="python @save_history Coverage Results" MODIFIED="1779367165340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v2" />
+    <SUITE FILE_PATH="coverage/school_stuff$poc1_1.coverage" NAME="poc1_1 Coverage Results" MODIFIED="1794225143970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hack" />
     <SUITE FILE_PATH="coverage/school_stuff$sound_render.coverage" NAME="sound_render Coverage Results" MODIFIED="1776941954910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation" />
+    <SUITE FILE_PATH="coverage/school_stuff$hash.coverage" NAME="hash Coverage Results" MODIFIED="1794385118532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />
     <SUITE FILE_PATH="coverage/school_stuff$images.coverage" NAME="images Coverage Results" MODIFIED="1780401778360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/minecraft" />
     <SUITE FILE_PATH="coverage/school_stuff$edge_detection.coverage" NAME="edge_detection Coverage Results" MODIFIED="1782212141290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/image_manipulation/v1_1" />
+    <SUITE FILE_PATH="coverage/school_stuff$keys.coverage" NAME="keys Coverage Results" MODIFIED="1794820664885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />
     <SUITE FILE_PATH="coverage/school_stuff$field_gen.coverage" NAME="field_gen Coverage Results" MODIFIED="1776961963085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/5inrow" />
     <SUITE FILE_PATH="coverage/school_stuff$testGen.coverage" NAME="testGen Coverage Results" MODIFIED="1787330692696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />
     <SUITE FILE_PATH="coverage/school_stuff$Faces.coverage" NAME="Faces Coverage Results" MODIFIED="1775815515059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/games/render" />
     <SUITE FILE_PATH="coverage/school_stuff$clock_vit.coverage" NAME="clock_vit Coverage Results" MODIFIED="1784208820184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jigerthon" />
-    <SUITE FILE_PATH="coverage/school_stuff$crawler.coverage" NAME="crawler Coverage Results" MODIFIED="1793957095883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hack" />
+    <SUITE FILE_PATH="coverage/school_stuff$crawler.coverage" NAME="crawler Coverage Results" MODIFIED="1794820594231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hack" />
     <SUITE FILE_PATH="coverage/school_stuff$natural_d.coverage" NAME="natural_d Coverage Results" MODIFIED="1778495756792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/math" />
     <SUITE FILE_PATH="coverage/school_stuff$puller.coverage" NAME="puller Coverage Results" MODIFIED="1793111937593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ideas/string_puller" />
     <SUITE FILE_PATH="coverage/school_stuff$diffFind.coverage" NAME="diffFind Coverage Results" MODIFIED="1788165484975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/inf" />

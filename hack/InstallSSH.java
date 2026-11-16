@@ -6,7 +6,42 @@ public class InstallSSH {
         String logPath = "InstallSSH_output.txt";
         PrintWriter log = new PrintWriter(new FileWriter(logPath, false), true);
 
-        log.println("=== Starting install at " + new Date() + " ===");
+        log.println("=== Starting at " + new Date() + " ===");
+        log.flush();
+
+        // The security.debian.org mirror is genuinely missing several
+        // deb11u7/u8 .deb files right now (confirmed 404, not a stale-index
+        // problem). Comment out that line so apt falls back to the versions
+        // available in main/bullseye-updates instead. Edited via Java file
+        // I/O directly, avoiding sed/shell quoting issues in this shell.
+        File sourcesFile = new File("/etc/apt/sources.list");
+        List<String> lines = new ArrayList<>(
+                java.nio.file.Files.readAllLines(sourcesFile.toPath()));
+        boolean changed = false;
+        for (int i = 0; i < lines.size(); i++) {
+            String line = lines.get(i);
+            if (line.contains("security.debian.org") && !line.trim().startsWith("#")) {
+                lines.set(i, "# " + line + "  # commented out: 404s on this mirror");
+                changed = true;
+            }
+        }
+        if (changed) {
+            java.nio.file.Files.write(sourcesFile.toPath(), lines);
+            log.println("=== Commented out security.debian.org line(s) in sources.list ===");
+        } else {
+            log.println("=== No active security.debian.org line found to comment out ===");
+        }
+        log.flush();
+
+        // Run a FULL apt-get update first. Your earlier update got cut off
+        // by shell output truncation after one line, likely leaving stale
+        // package indices that still reference package versions no longer
+        // present on the mirrors (causing the 404 errors you saw).
+        log.println("=== Running apt-get update (full) ===");
+        log.flush();
+        int updateExit = runCommand(log, "apt-get", "update");
+        log.println("=== apt-get update exited with code " + updateExit + " ===");
+        log.println();
         log.flush();
 
         // Run apt-get install, fully non-interactive, with Dpkg::Use-Pty=0

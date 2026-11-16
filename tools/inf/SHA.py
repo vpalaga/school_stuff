@@ -22,5 +22,3 @@ def encrypt(m, e_pub, n_pub):
 def decrypt(c):
     return pow(c, d, n)
 
-encrypt(17, 5, 3*59)
-print(decrypt(9357))
